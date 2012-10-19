@@ -1,0 +1,9 @@
+AddHandler x-httpd-php5-3 .php
+<IfModule mod_rewrite.c>
+   RewriteCond %{HTTP_HOST} ^(www.)?turnossantafe.com.ar$
+   RewriteRule ^(/)?$ turneraonline [L]
+	
+   RewriteEngine on
+   RewriteRule    ^$ app/webroot/    [L]
+   RewriteRule    (.*) app/webroot/$1 [L]
+</IfModule>
