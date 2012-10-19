@@ -73,8 +73,8 @@ class BackupsController extends AppController {
 			return $this->guardar_cola( $id_cliente, 
 										$id_servicio_backup, 
 										$driver, 
-										$this->request->param['cola'], 
-										$this->request->param['posicion'] );	
+										$this->request->data['cola'], 
+										$this->request->data['posicion'] );	
 		} else {
 			return json_encode( array( 'error' => true, 'mensaje' => 'Metodo desconocido' ) );
 	    }
@@ -84,8 +84,9 @@ class BackupsController extends AppController {
 		// Creo un archivo con los datos del sistema en cuestión
 		$d = new Folder( APP );
 		$d->cd( 'tmp' );
+		$d->cd( 'backups' );
 		// Genero el archivo que va a tener el contenido
-		$f = new File( $d->pwd().DS.$num_cliente.$id_sb.$driver, true, 0775 );
+		$f = new File( $d->pwd().DS.$num_cliente.$id_sb.$driver.".sql", true, 0775 );
 		Cache::write( 'archivo'.$num_cliente.$id_sb.$driver, $f->pwd(), 24*60*60 );
 		return json_encode( array( 'error' => false, 'mensaje' => 'Backup Iniciado....' ) );
 	}
@@ -101,7 +102,9 @@ class BackupsController extends AppController {
 		// Elimino la clave del cache
 		Cache::delete( 'archivo'.$num_cliente.$id_sb.$driver );
 		// Genero la ubicación final
-		$dir = new Folder(  '/app/webroot/backups/' );
+		$dir = new Folder( APP );
+		$dir->cd( 'webroot' );
+		$dir->cd( 'backups' );
 		$contenido = $dir->read();
 		if( array_search( $num_cliente, $contenido[0] ) == FALSE )  {
 			$dir->create( $num_cliente );
@@ -113,7 +116,7 @@ class BackupsController extends AppController {
 		}
 		// Estoy en la ruta deseada, genero el nombre que corresponde al backup
 		$nombre = date( "YmdHis");
-		$archivo_db = $dir->path() . DS . $nombre . ".bkp";
+		$archivo_db = $dir->pwd() . DS . $nombre . ".bkp";
 		$f->copy( $archivo_db );
 		// calculo el tamaño
 		$tam = $f->size();
@@ -124,14 +127,15 @@ class BackupsController extends AppController {
 			'Backup' => array(
 				'servicio_backup_id' => $id_sb,
 				'usuario_id' => $num_cliente,
-				'fecha' => date(),
+				'fecha' => date( "Y-m-d H:i:s" ),
 				'tamano' => $tam,
 				'archivo_db' => $archivo_db
 			)
 		);
 		if( $this->Backup->save( $data ) ) {
 			// Actualizo los totales
-			$this->Backup->ServicioBackupUsuario->actualizarUso( $num_cliente, 1, $tam );
+			$this->loadModel( 'ServicioBackupUsuario' );
+			$this->ServicioBackupUsuario->actualizarUso( $num_cliente, 1, $tam, $id_sb );
 			return json_encode( array( 'error' => false, 'mensaje' => 'Backup guardado correctamente' ) );
 		} else {
 			return json_encode( array( 'error' => true, 'mensaje' => 'Error al guardar el backup' ) );	
@@ -156,7 +160,7 @@ class BackupsController extends AppController {
 		if( $f->open() ) {
 			if( $f->append( $posicion.': '.$cola ) ) {
 				$f->close();
-				return json_encode( array( 'error' => false ) );
+				return json_encode( array( 'error' => false, 'mensaje' => 'Cola '.$posicion.' guardada' ) );
 			} else {
 				$f->close();
 				return json_encode( array( 'error' => true, 'mensaje' => 'No se pudieron agregar los datos' ) );
