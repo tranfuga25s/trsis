@@ -6,6 +6,7 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 	Contactenos con nosotros a los siguientes telefonos:<br /><br />
 	(+54) 342 154293436 <br />
 	En Argentina<br />
+	<br />
 </div>
 <h2>Contacto directo</h2>
 <div>

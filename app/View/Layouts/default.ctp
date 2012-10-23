@@ -68,7 +68,7 @@
 			</div>
 			<?php echo $this->Html->link( 
 					$this->Html->image( 'tr.logo.png', array( 'alt' => 'TRSistemas Informaticos Integrales', 'border' => 0 ) ),
-					'emailto:esteban.zeller@gmail.com',
+					'mailto:esteban.zeller@gmail.com',
 					array('target' => '_blank', 'escape' => false ) );
 			      
 			?>
