@@ -29,7 +29,11 @@ $this->set( 'title_for_layout', "Servicio de Backup :: Inicio" );
 		  }
 		  $disponible = round( $disponible, 3 );		  
 		?>
-		<b>Cantidad de backups realizados:</b>&nbsp;<?php echo $usado_cantidad; ?> de <?php echo $datos['ServicioBackup']['limite_cantidad']; ?> disponibles- <?php echo $pcantidad; ?>% usado<br />
+		<?php if( $datos['ServicioBackup']['limite_cantidad'] > 1000 ) { ?>
+			<b>Cantidad de backups realizados:</b>&nbsp;<?php echo $usado_cantidad; ?> de ilimitados disponibles- <?php echo $pcantidad; ?>% usado<br />
+		<?php } else { ?>
+			<b>Cantidad de backups realizados:</b>&nbsp;<?php echo $usado_cantidad; ?> de <?php echo $datos['ServicioBackup']['limite_cantidad']; ?> disponibles- <?php echo $pcantidad; ?>% usado<br />
+		<?php } ?>
 		<div id="uso-cantidad"></div><br />
 		<script>$(function(){ $( "#uso-cantidad" ).progressbar({ value: <?php echo intval( $pcantidad ); ?> } ); });</script>
 		<b>Cantidad de espacio disponible:</b>&nbsp;<?php echo number_format( $disponible )." ".$unidad; ?> de <?php echo $datos['ServicioBackup']['limite_espacio']/1024/1024; ?> Gb disponibles - <?php echo number_format( $pespacio ); ?>% usado<br />
