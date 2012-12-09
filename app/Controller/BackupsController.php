@@ -20,6 +20,7 @@ class BackupsController extends AppController {
 		}
 		$this->set( 'historial', $this->Backup->find( 'all', array( 'conditions' => array( 'id_servicio_backup' => $id_servicio_backup	, 'id_usuario' => $id_usuario ) ) ) );
 		$this->set( 'id_usuario', $id_usuario );
+		$this->set( 'id_servicio_backup', $id_servicio_backup );
 	}
 	
 	public function envio()
@@ -66,9 +67,10 @@ class BackupsController extends AppController {
 					return $this->finalizar_backup( $id_cliente, $id_servicio_backup, $driver );
 				}	
 			}
-			if( isset( $this->request->query['cancelar'] ) ) {
+			/*if( isset( $this->request->query['cancelar'] ) ) {
 				return $this->cancelar_backup( $id_cliente, $id_servicio_backup, $driver );
-			}
+			}*/
+			$this->log( $this->request->data['posicion'].":".$this->request->data['cola'] );
 			// Guardo los datos
 			return $this->guardar_cola( $id_cliente, 
 										$id_servicio_backup, 
@@ -168,5 +170,28 @@ class BackupsController extends AppController {
 		} else {
 			return json_encode( array( 'error' => true, 'mensaje' => 'No se pudo abrir el archivo temporal' ) );
 		}
+	}
+	
+	public function delete( $id_backup = null, $id_servicio_backup = null, $id_usuario = null ) {
+		$this->Backup->id = $id_backup;
+		if( !$this->Backup->exists() ) {
+			throw new NotFoundException( "El backup que intenta eliminar no existe" );
+		}
+		if( $this->Backup->delete( $id_backup ) ) {
+			$this->Session->setFlash( 'El backup ha sido eliminado correctamente', 'default', array( 'class' => 'success' ) );
+		} else {
+			$this->Session->setFlash( 'No se pudo eliminar el backup', 'default', array( 'class' => 'error' ) );
+		}
+		$this->redirect( array( 'action' => 'historial', $id_servicio_backup, $id_usuario ) );
+	}
+	
+	public function descargar( $id_backup = null, $id_servicio_backup = null, $id_usuario = null ) {
+		$this->Backup->id = $id_backup;
+		if( !$this->Backup->exists() ) {
+			throw new NotFoundException( "El backup que intenta descargar no existe" );
+		}
+		// El backup existe, busco su archivo final
+		$archivo = $this->Backup->field( 'archivo_db' );
+		
 	}
 }

@@ -40,7 +40,7 @@ $this->set( 'title_for_layout', "Servicio de Backup :: Inicio" );
 		<div id="uso-disco"></div><br />
 		<script>$(function(){ $( "#uso-disco" ).progressbar({ value: <?php echo intval( $pespacio ); ?> } ); });</script>
 		<?php echo $this->Html->tag( 'a', 'Conseguir mas espacio', array( 'onclick' => '$("#dialogo").dialog({ modal: true, buttons: { "Cerrar": function() { $(this).dialog("close"); } } });' ) ); ?>
-		<?php echo $this->Html->link( 'Ver Historico', array( 'controller' => 'backups', 'action' => 'historial' ) ); ?>
+		<?php echo $this->Html->link( 'Ver Historico', array( 'controller' => 'backups', 'action' => 'historial', $datos['ServicioBackup']['id_servicio_backup'], $datos['ServicioBackup']['id_cliente'] ) ); ?>
 	</div>
 	<h3><a href="#">Datos del servicio</a></h3>
 	<div id="#datoservicio">
