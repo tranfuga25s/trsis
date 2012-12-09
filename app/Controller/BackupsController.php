@@ -7,6 +7,8 @@ App::uses('File', 'Utility');
  *
  */
 class BackupsController extends AppController {
+	
+	public $helpers = array( 'Number' );
 
 	public function beforeFilter() {
 		$this->Auth->allow( '*' );
@@ -40,7 +42,7 @@ class BackupsController extends AppController {
 				return json_encode( array( 'error' => 'true', 'query' => $this->request->query, 'param' => $this->request->params ) );
 			}
 			// Verifico si existen realmente
-			/*$this->loadModel( 'Usuario' );
+			$this->loadModel( 'Usuario' );
 			$this->Usuario->id = $id_cliente;
 			if( !$this->Usuario->exists() ) {
 				return json_encode( array( 'error' => true, 'mensaje' => 'El Usuario no existe!' ) );
@@ -49,7 +51,7 @@ class BackupsController extends AppController {
 			$this->ServicioBackup->id = $id_servicio_backup;
 			if( $this->ServicioBackup->exists() ) {
 				return json_encode( array( 'error' => true, 'mensaje' => 'El Servicio de Backup no existe!' ) );
-			}*/
+			}
 			// veo el driver usado
 			if( isset( $this->request->query['driver'] ) ) {
 				$driver = $this->request->query['driver'];
@@ -70,7 +72,7 @@ class BackupsController extends AppController {
 			/*if( isset( $this->request->query['cancelar'] ) ) {
 				return $this->cancelar_backup( $id_cliente, $id_servicio_backup, $driver );
 			}*/
-			$this->log( $this->request->data['posicion'].":".$this->request->data['cola'] );
+			//$this->log( $this->request->data['posicion'].":".$this->request->data['cola'] );
 			// Guardo los datos
 			return $this->guardar_cola( $id_cliente, 
 										$id_servicio_backup, 
@@ -105,21 +107,32 @@ class BackupsController extends AppController {
 		Cache::delete( 'archivo'.$num_cliente.$id_sb.$driver );
 		// Genero la ubicación final
 		$dir = new Folder( APP );
+		$this->log( $dir->pwd() );
 		$dir->cd( 'webroot' );
-		$dir->cd( 'backups' );
-		$contenido = $dir->read();
-		if( array_search( $num_cliente, $contenido[0] ) == FALSE )  {
-			$dir->create( $num_cliente );
+		$this->log( $dir->pwd() );
+		if( $dir->cd( 'backups' ) == false ) {
+			$dir->create( 'backups' );
+			$dir->cd( 'backups' );
 		}
-		$dir->cd( $num_cliente );
-		$contenido = $dir->read();
-		if( array_search( $driver, $contenido[0] ) == FALSE ) {
-			$dir->create( $driver );
+		$this->log( $dir->pwd() );
+		if( $dir->cd( $num_cliente ) == false ) {
+			$dir->create( $dir->pwd().DS.$num_cliente );
+			$dir->cd( $num_cliente );
 		}
+		$this->log( $dir->pwd() );
+		if( $dir->cd( $driver ) == false ) {
+			$dir->create( $dir->pwd.DS.$driver );
+			$dir->cd( $driver );
+		}
+		$this->log( $dir->pwd() );
 		// Estoy en la ruta deseada, genero el nombre que corresponde al backup
 		$nombre = date( "YmdHis");
 		$archivo_db = $dir->pwd() . DS . $nombre . ".bkp";
-		$f->copy( $archivo_db );
+		$this->log( "Archivo db: ".$archivo_db );
+		if( !$f->copy( $archivo_db ) ) {
+			$this->log( 'Error al copiar el archivo '.$f->pwd().' a '.$archivo_db );
+			return json_encode( array( 'error' => true, 'mensaje' => 'No se pudo copiar el archivo a su ubicación final' ) );
+		}
 		// calculo el tamaño
 		$tam = $f->size();
 		// elimino el archivo temporal

@@ -56,8 +56,9 @@ class ServicioBackupUsuario extends AppModel {
 	
 	public function actualizarUso( $num_cliente, $cantidad, $tam, $id_servicio ) {
 		$data = $this->find( 'first', array( 'conditions' => array( 'id_usuario' => $num_cliente, 'id_servicio_backup' => $id_servicio ), 'recursive' => -1 ) );
-		$this->saveField( 'cantidad', $data['ServicioBackupUsuario']['cantidad'] + $cantidad );
-		$this->saveField( 'tamano', $data['ServicioBackupUsuario']['tamano'] + $tam );
+		$this->updateAll( array( 'cantidad' => $data['ServicioBackupUsuario']['cantidad'] + $cantidad,
+								 'tamano' => $data['ServicioBackupUsuario']['tamano'] + $tam  ),
+						  array( 'id_usuario' => $num_cliente, 'id_servicio_backup' => $id_servicio ) ) ;
 	}
 	
 }

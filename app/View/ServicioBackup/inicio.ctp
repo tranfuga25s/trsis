@@ -36,7 +36,7 @@ $this->set( 'title_for_layout', "Servicio de Backup :: Inicio" );
 		<?php } ?>
 		<div id="uso-cantidad"></div><br />
 		<script>$(function(){ $( "#uso-cantidad" ).progressbar({ value: <?php echo intval( $pcantidad ); ?> } ); });</script>
-		<b>Cantidad de espacio disponible:</b>&nbsp;<?php echo number_format( $disponible )." ".$unidad; ?> de <?php echo $datos['ServicioBackup']['limite_espacio']/1024/1024; ?> Gb disponibles - <?php echo number_format( $pespacio ); ?>% usado<br />
+		<b>Cantidad de espacio disponible:</b>&nbsp;<?php echo $this->Number->toReadableSize( $disponible ); ?> de <?php echo $this->Number->toReadableSize( $datos['ServicioBackup']['limite_espacio'] ); ?> disponibles - <?php echo number_format( $pespacio ); ?>% usado<br />
 		<div id="uso-disco"></div><br />
 		<script>$(function(){ $( "#uso-disco" ).progressbar({ value: <?php echo intval( $pespacio ); ?> } ); });</script>
 		<?php echo $this->Html->tag( 'a', 'Conseguir mas espacio', array( 'onclick' => '$("#dialogo").dialog({ modal: true, buttons: { "Cerrar": function() { $(this).dialog("close"); } } });' ) ); ?>

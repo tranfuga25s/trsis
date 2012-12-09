@@ -30,7 +30,7 @@ $( function() {
 			<tr>
 				<td style="text-align: center; border: 1px solid black;">#<?php echo $numero; ?></td>
 				<td style="border: 1px solid black;"><?php echo $b['Backup']['fecha']; ?></td>
-				<td style="text-align: right; border: 1px solid black;"><?php echo $b['Backup']['tamano']; ?></td>
+				<td style="text-align: right; border: 1px solid black;"><?php echo $this->Number->toReadableSize( $b['Backup']['tamano'] ); ?></td>
 				<td style="text-align: right; border: 1px solid black;">
 					<?php echo $this->Html->link( 'Descargar', array( 'action' => 'descargar', $b['Backup']['id_backup'], $id_servicio_backup, $id_usuario ) ); ?>
 					<?php echo $this->Html->link( 'Eliminar', array( 'action' => 'delete', $b['Backup']['id_backup'], $id_servicio_backup, $id_usuario ) ); ?>

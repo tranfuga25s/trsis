@@ -1,5 +1,7 @@
 <?php
 class ServicioBackupController extends AppController {
+	
+	public $helpers = array( 'Number' );
 
 	public function inicio( $id_usuario = null, $id_servicio = null )
 	{
