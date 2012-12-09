@@ -207,5 +207,18 @@ class BackupsController extends AppController {
 		// El backup existe, busco su archivo final
 		$archivo = $this->Backup->field( 'archivo_db' );
 		
+		// Pongo la vista para que sea una descarga
+		$this->viewClass = 'Media';
+		$this->autoLayout = false;
+		$temp = explode( '/', $archivo );
+		$id = array_pop( $temp );
+        // Download app/outside_webroot_dir/example.zip
+        $this->set( 'id'       , $id );
+        $this->set( 'name'     , $name );
+		$this->set( 'download' , true );
+		$this->set( 'entension', $ext );
+		$this->set( 'path'     , '/webroot'.implode( DS, $temp ).DS );
+		$this->set( 'mimeType' , array( $ext => $type ) );
+		
 	}
 }
