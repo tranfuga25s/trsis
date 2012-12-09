@@ -18,7 +18,7 @@ class BackupsController extends AppController {
 		// Cargo los datos del historial
 		if( $this->request->isPost() ) {
 			// Solicitud de parte del programa
-			return json_encode( array( 'error' => true, 'mensaje' => 'No implementado' ) );
+			return json_encode( $this->set( 'historial', $this->Backup->find( 'all', array( 'conditions' => array( 'id_servicio_backup' => $id_servicio_backup	, 'id_usuario' => $id_usuario ) ) ) ) );
 		}
 		$this->set( 'historial', $this->Backup->find( 'all', array( 'conditions' => array( 'id_servicio_backup' => $id_servicio_backup	, 'id_usuario' => $id_usuario ) ) ) );
 		$this->set( 'id_usuario', $id_usuario );
@@ -91,9 +91,13 @@ class BackupsController extends AppController {
 		$d->cd( 'tmp' );
 		$d->cd( 'backups' );
 		// Genero el archivo que va a tener el contenido
-		$f = new File( $d->pwd().DS.$num_cliente.$id_sb.$driver.".sql", true, 0775 );
-		Cache::write( 'archivo'.$num_cliente.$id_sb.$driver, $f->pwd(), 24*60*60 );
-		return json_encode( array( 'error' => false, 'mensaje' => 'Backup Iniciado....' ) );
+		$f = new File( $d->pwd().DS.$num_cliente.$id_sb.$driver.".sql", true, 0777 );
+		$this->log( "Iniciando Backup en archivo: ".$f->pwd() );
+		if( Cache::write( 'archivo'.$num_cliente.$id_sb.$driver, $f->pwd() ) ) {
+			return json_encode( array( 'error' => false, 'mensaje' => 'Backup Iniciado....' ) );
+		} else {
+			return json_encode( array( 'error' => true, 'mensaje' => 'Error al escribir el archivo temproal a la cache' ) );
+		}
 	}
 
 	private function finalizar_backup( $num_cliente = null, $id_sb = null, $driver = null ) {
@@ -108,24 +112,19 @@ class BackupsController extends AppController {
 		Cache::delete( 'archivo'.$num_cliente.$id_sb.$driver );
 		// Genero la ubicación final
 		$dir = new Folder( APP );
-		$this->log( $dir->pwd() );
 		$dir->cd( 'webroot' );
-		$this->log( $dir->pwd() );
 		if( $dir->cd( 'backups' ) == false ) {
 			$dir->create( 'backups' );
 			$dir->cd( 'backups' );
 		}
-		$this->log( $dir->pwd() );
 		if( $dir->cd( $num_cliente ) == false ) {
 			$dir->create( $dir->pwd().DS.$num_cliente );
 			$dir->cd( $num_cliente );
 		}
-		$this->log( $dir->pwd() );
 		if( $dir->cd( $driver ) == false ) {
 			$dir->create( $dir->pwd.DS.$driver );
 			$dir->cd( $driver );
 		}
-		$this->log( $dir->pwd() );
 		// Estoy en la ruta deseada, genero el nombre que corresponde al backup
 		$nombre = date( "YmdHis");
 		$archivo_db = $dir->pwd() . DS . $nombre . ".bkp";
@@ -171,17 +170,21 @@ class BackupsController extends AppController {
 	
 	private function guardar_cola( $num_cliente = null, $id_sb = null, $driver = null, $cola = null, $posicion = null ) {
 		// Leo el archivo
+		//$this->log( 'Data: '.'archivo'.$num_cliente.$id_sb.$driver );
 		$dest = Cache::read( 'archivo'.$num_cliente.$id_sb.$driver );
-		$f = new File( $dest, false );
+		//$this->log( "Archivo:".$dest );
+		$f = new File( $dest, false, 0777 );
 		if( $f->open() ) {
 			if( $f->append( $posicion.': '.$cola ) ) {
 				$f->close();
 				return json_encode( array( 'error' => false, 'mensaje' => 'Cola '.$posicion.' guardada' ) );
 			} else {
 				$f->close();
+				$f->log( 'No se pudieron guardar los datos de la cola '.$posicion );
 				return json_encode( array( 'error' => true, 'mensaje' => 'No se pudieron agregar los datos' ) );
 			}
 		} else {
+			$f->log( 'No se pudo abrir el archivo temporal' );
 			return json_encode( array( 'error' => true, 'mensaje' => 'No se pudo abrir el archivo temporal' ) );
 		}
 	}
