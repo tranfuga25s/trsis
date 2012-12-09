@@ -14,7 +14,7 @@ class BackupsController extends AppController {
 		$this->Auth->allow( '*' );
 	}
 	
-	public function historial( $id_servicio_backup = null, $id_usuario = null ) {
+	public function historial( $id_servicio_backup = null, $id_usuario = null, $id_servicio = null ) {
 		// Cargo los datos del historial
 		if( $this->request->isPost() ) {
 			// Solicitud de parte del programa
@@ -23,6 +23,7 @@ class BackupsController extends AppController {
 		$this->set( 'historial', $this->Backup->find( 'all', array( 'conditions' => array( 'id_servicio_backup' => $id_servicio_backup	, 'id_usuario' => $id_usuario ) ) ) );
 		$this->set( 'id_usuario', $id_usuario );
 		$this->set( 'id_servicio_backup', $id_servicio_backup );
+		$this->set( 'id_servicio', $id_servicio );
 	}
 	
 	public function envio()

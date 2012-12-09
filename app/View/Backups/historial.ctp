@@ -10,7 +10,7 @@ $( function() {
 	<h2>Historicos de backups realizados</h2>
 	<br />
 	<div class="acciones">
-		<?php echo $this->Html->link( 'Volver', array( 'controller' => 'ServicioBackup', 'action' => 'inicio', $id_usuario, $id_servicio_backup ) ); ?>
+		<?php echo $this->Html->link( 'Volver', array( 'controller' => 'ServicioBackup', 'action' => 'inicio', $id_usuario, $id_servicio ) ); ?>
 	</div>
 	<br />
 	<?php
