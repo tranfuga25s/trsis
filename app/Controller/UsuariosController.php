@@ -23,7 +23,7 @@ class UsuariosController extends AppController {
 			$this->loadModel( 'ServicioBackupUsuario' );
 			$cod = $this->ServicioBackupUsuario->buscarCodigo( $id_usuario );
 			if( $cod != $contra ) {
-				return json_encode( array( 'error' => true, 'texto' => 'El codigo de seguridad no coincide para su cliente' ) );
+				return json_encode( array( 'error' => true, 'texto' => 'El codigo de seguridad no coincide para su cliente.' ) );
 			}
 			// Retorno los datos para mostrarlos
 			$id_servicio_backup = $this->ServicioBackupUsuario->buscarIdServicioBackup( $id_usuario );
@@ -33,7 +33,7 @@ class UsuariosController extends AppController {
 			$this->loadModel( 'ServicioBackup' );
 			$datos = $this->ServicioBackup->read( null, $id_servicio_backup );
 			$this->loadModel( 'ServicioBackupUsuario' ); 
-			$temp = $this->ServicioBackupUsuario->find( 'first', array( 'conditions' => array( 'id_servicio_backup' => $id_servicio_backup, 'id_usuario' => $id_usuario ) ) );
+			$temp = $this->ServicioBackupUsuario->find( 'first', array( 'conditions' => array( 'ServicioBackupUsuario.id_servicio_backup' => $id_servicio_backup, 'ServicioBackupUsuario.id_usuario' => $id_usuario ) ) );
 			$datos['ServicioBackupUsuario'] = $temp['ServicioBackupUsuario'];			
 			return json_encode(
                                	array( 	'cantidad' => $datos['ServicioBackupUsuario']['cantidad'],

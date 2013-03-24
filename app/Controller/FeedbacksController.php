@@ -33,5 +33,27 @@ class FeedbacksController extends AppController {
 		$this->set( 'feedback', $this->Feedback->read( null, $id ) );
 	}
 	
+	/**
+	 * delete method
+	 *
+	 * @param string $id
+	 * @return void
+	 */
+	public function delete($id = null) {
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+		$this->Feedback->id = $id;
+		if (!$this->Feedback->exists()) {
+			throw new NotFoundException( __( 'Invalid Feedback' ) );
+		}
+		if ($this->Feedback->delete()) {
+			$this->Session->setFlash(__('Feedback deleted') );
+			$this->redirect( array( 'action' => 'index' ) );
+		}
+		$this->Session->setFlash( __('Feedback was not deleted' ) );
+		$this->redirect( array( 'action' => 'index' ) );
+	}
+	
 }
 ?>

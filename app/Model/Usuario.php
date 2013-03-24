@@ -5,11 +5,12 @@ App::uses('AppModel', 'Model');
  *
  */
 class Usuario extends AppModel {
-/**
- * Primary key field
- *
- * @var string
- */
+	
+	/**
+	 * Primary key field
+	 *
+	 * @var string
+	 */
 	public $primaryKey = 'id_usuario';
 	
 	
@@ -19,12 +20,20 @@ class Usuario extends AppModel {
 		return $t['Usuario']['id_usuario'];
 	}
 
-	public function buscarIdServicioBackup( $ids_backup )
+	public function buscarIdServicioSegunBackup( $ids_backup )
 	{
 		if( $this->id == null ) { return false; }
 		return $this->ServiciosCliente->find( 'first', array( 'conditions' => 
 								  					   		array( 'ServiciosCliente.id_cliente' => $this->id,
 																   'ServiciosCliente.id_servicio' => $ids_backup ),
+													          'fields' => array( 'id_servicio' ),
+													          'recursive' => -1 ) );
+	}
+	
+	public function buscarIdServicioBackup( $id_cliente ) {
+		$this->loadModel( 'ServiciosClientes' );
+		return $this->ServiciosCliente->find( 'first', array( 'conditions' => 
+								  					   		array( 'ServiciosCliente.id_cliente' => $id_cliente ),
 													          'fields' => array( 'id_servicio' ),
 													          'recursive' => -1 ) );
 	}

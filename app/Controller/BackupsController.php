@@ -16,9 +16,25 @@ class BackupsController extends AppController {
 	
 	public function historial( $id_servicio_backup = null, $id_usuario = null, $id_servicio = null ) {
 		// Cargo los datos del historial
-		if( $this->request->isPost() ) {
+		if( isset( $this->request->query['gestotux'] ) ) {
 			// Solicitud de parte del programa
-			return json_encode( $this->set( 'historial', $this->Backup->find( 'all', array( 'conditions' => array( 'id_servicio_backup' => $id_servicio_backup	, 'id_usuario' => $id_usuario ) ) ) ) );
+			$this->autoRender = false;
+			$id_usuario = $this->request->query['num_cliente'];
+			$this->loadModel( 'Usuario' );
+			$id_servicio_backup = $this->Usuario->buscarIdServicioBackup( $id_usuario );
+			$driver = $this->request->query['driver'];
+			$data = $this->Backup->find( 'all', 
+						array( 'conditions' => 
+								array( 	'servicio_backup_id' => $id_servicio_backup, 
+										'usuario_id' => $id_usuario )
+							 )
+			);
+			if( count( $data ) > 0 ) {
+				return json_encode( $data );				
+			} else {
+				return json_encode( array( 'error' => true, 'texto' => 'No existen backups todavia. <br /> id_servicio_backup='.$id_servicio_backup.' - id_usuario='.$id_usuario.'<br />'.print_r( $data, true ) ) );
+			}
+			
 		}
 		$this->set( 'historial', $this->Backup->find( 'all', array( 'conditions' => array( 'id_servicio_backup' => $id_servicio_backup	, 'id_usuario' => $id_usuario ) ) ) );
 		$this->set( 'id_usuario', $id_usuario );

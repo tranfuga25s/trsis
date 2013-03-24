@@ -29,8 +29,8 @@ class ServicioBackupUsuario extends AppModel {
 		return $d['ServicioBackupUsuario']['codigo'];
 	}
 	
-	public function buscarIdServicioBackup( $id_usuario, $id_servicio ) {
-		$d = $this->find( 'first', array( 'conditions' => array( 'ServicioBackupUsuario.id_usuario' => $id_usuario, 'ServicioBackup.id_servicio' => $id_servicio  ),
+	public function buscarIdServicioBackup( $id_usuario ) {
+		$d = $this->find( 'first', array( 'conditions' => array( 'ServicioBackupUsuario.id_usuario' => $id_usuario ),
 										  'fields' => array( 'id_servicio_backup' ),
 										  'recursive' => 1 ) );
 		return $d['ServicioBackupUsuario']['id_servicio_backup'];
