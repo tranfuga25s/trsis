@@ -68,7 +68,7 @@
        </div>
 
         <div class="span10">
-                <ul class="breadcrumb pull-right"><?php echo $this->Html->getCrumbs( ' / ', 'Gestotux' ); ?></ul>
+                <ul class="breadcrumb pull-right"><?php echo $this->Html->getCrumbs( ' / ', 'Inicio' ); ?></ul>
                 <?php echo $this->Session->flash(); ?>
                 <?php echo $this->Session->flash( 'auth' ); ?>
                 <?php echo $content_for_layout; ?>
