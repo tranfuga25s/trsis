@@ -1,18 +1,7 @@
 <?php
-if (Configure::read('debug') == 0):
-	throw new NotFoundException();
-endif;
-App::uses('Debugger', 'Utility');
-?>
-<?php
-if (Configure::read('debug') > 0):
-	Debugger::checkSecurityKeys();
-endif;
 $this->set( "title_for_layout", "Gestotux 0.5 - TRSistemas Informaticos Integrados" );
+$this->Html->addCrumb( 'Inicio' );
 ?>
-<div>
- <h2>Bienvenido.</h2>
-</div>
 <h2>¿Que es Gestotux?</h2>
 <p>
 	Gestotux es un programa que le permite obtener todas las ventajas de un sistema simple y potente que se puede modificar para que se ajuste a sus preferencias.
@@ -20,17 +9,17 @@ $this->set( "title_for_layout", "Gestotux 0.5 - TRSistemas Informaticos Integrad
 <h3>¿En que consiste?</h3>
 <p>El programa general contiene toda la estructura necesaria para gestionar un pequeño emprendimiento.</p>
 <p>Incluye los siguientes componentes opcionales:</p>
-<ul>
-	<li>Generación de presupuestos</li>
-	<li>Generación de facturas</li>
-	<li>Generación y gestión de recibos.</li>
-	<li>Administracion de base de datos de clientes.</li>
-	<li>Gestión de compras y proveedores.</li>
-	<li>Control básico de stock.</li>
-	<li>Gestión de caja.</li>
-	<li>Cuentas corrientes integradas.</li>
+<ul class="unstyled">
+	<li><i class="icon-asterisk"></i>Generación de presupuestos</li>
+	<li><i class="icon-asterisk"></i>Generación de facturas</li>
+	<li><i class="icon-asterisk"></i>Generación y gestión de recibos.</li>
+	<li><i class="icon-asterisk"></i>Administracion de base de datos de clientes.</li>
+	<li><i class="icon-asterisk"></i>Gestión de compras y proveedores.</li>
+	<li><i class="icon-asterisk"></i>Control básico de stock.</li>
+	<li><i class="icon-asterisk"></i>Gestión de caja.</li>
+	<li><i class="icon-asterisk"></i>Cuentas corrientes integradas.</li>
 </ul>
-<br />
+<div class="well">
 <h2>Noticias</h2>
 <?php
 $noticias = $this->requestAction( array( 'controller' => 'noticias', 'action' => 'listado' ) );
@@ -45,3 +34,4 @@ if( count( $noticias ) > 0 ) {
 	echo "<small> No hay noticias aun </small>";
 }
 ?>
+</div>

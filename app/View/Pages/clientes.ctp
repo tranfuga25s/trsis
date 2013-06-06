@@ -1,16 +1,15 @@
-<h1>Algunos de Nuestros clientes</h1>
-<br />
-<div style="margin-left: 145px;">
-<table>
- <tbody>
-  <tr>
-   <td><?php echo $this->Html->image( 'logohicomp.png', array( 'border' => 0, 'alt' => 'HiComp Computación', 'height' => 150 ) ); ?></td>
-   <td><?php echo $this->Html->image( 'logoBS.png', array( 'border' => 0, 'alt' => 'BSComputación', 'height' => 150 ) ); ?></td>
-  </tr>
-  <tr>
-   <td><?php echo $this->Html->link( 'HiComp Computación', 'http://www.hicomp.com.ar/', array( 'alt' => 'Visitar página del cliente' ) ); ?></td>
-   <td><?php echo $this->Html->link( 'BSComputación',  'http://www.bscomputacion.com/'); ?></td>
-  </tr>
- </tbody>
-</table>
-</div>
+<?php
+$this->set( 'title_for_layout', "Nuestros clientes" );
+$this->Html->addCrumb( 'Clientes' );
+?>
+<h2 class="text-center">Algunos de Nuestros clientes</h2>
+<ul class="thumbnails">
+    <li class="text-center">
+        <?php echo $this->Html->image( 'logohicomp.png', array( 'border' => 0, 'alt' => 'HiComp Computación', 'height' => 150, 'class' => 'thumbnail' ) ); ?><br />
+        <?php echo $this->Html->link( 'HiComp Computación', 'http://www.hicomp.com.ar/', array( 'alt' => 'Visitar página del cliente' ) ); ?>
+    </li>
+    <li class="text-center">
+        <?php echo $this->Html->image( 'logoBS.png', array( 'border' => 0, 'alt' => 'BSComputación', 'style' => 'height: 200px;', 'class' => 'thumbnail' ) ); ?><br />
+        <?php echo $this->Html->link( 'BSComputación',  'http://www.bscomputacion.com/'); ?>
+    </li>
+</ul>
