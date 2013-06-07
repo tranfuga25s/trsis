@@ -3,7 +3,7 @@ $this->set( 'title_for_layout', "Servicios disponibles" );
 $this->Html->addCrumb( 'Servicios' );
 ?>
 <div class="row-fluid">
-    <h1>Versiónes disponibles</h1>
+    <h1>Versiones disponibles</h1>
 
     <div class="span5 well">
         <h3>Autonomo</h3>

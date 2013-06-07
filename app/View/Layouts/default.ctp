@@ -59,12 +59,38 @@
 
     <div class="row-fluid">
 
-       <div class="span2 well pull-center">
+       <div class="span2 well text-center">
             <h4 class="text-center">Versiones</h4>
-            <?php echo $this->Html->link( $this->Html->image( 'autonomo.png', array( 'alt' => "Autonomo" ) ), '/pages/servicios', array( 'escape' => false ) ); ?><br />
-            <?php echo $this->Html->link( $this->Html->image( 'multiple.png', array( 'alt' => "Multiple" ) ), '/pages/servicios', array( 'escape' => false ) ); ?><br />
-            <?php echo $this->Html->link( $this->Html->image( 'portatil.png', array( 'alt' => "Portatil" ) ), '/pages/servicios', array( 'escape' => false ) ); ?><br />
-            <?php echo $this->Html->link( $this->Html->image( 'internet.png', array( 'alt' => "Internet" ) ), '/pages/servicios', array( 'escape' => false ) ); ?><br />
+            <ul class="thumbnails">
+                <li class="thumbnail text-center">
+                    <?php echo $this->Html->link(
+                            $this->Html->image( 'autonomo.png', array( 'alt' => "Autonomo" ) ).'<br />'.
+                            'Autonomo',
+                             '/pages/servicios',
+                             array( 'escape' => false ) ); ?>
+                </li>
+                <li class="thumbnail text-center">
+                    <?php echo $this->Html->link(
+                            $this->Html->image( 'multiple.png', array( 'alt' => "Multiple" ) ).'<br />'.
+                            'Multiple',
+                             '/pages/servicios',
+                             array( 'escape' => false ) ); ?>
+                </li>
+                <li class="thumbnail text-center">
+                    <?php echo $this->Html->link(
+                            $this->Html->image( 'portatil.png', array( 'alt' => "Portatil" ) ).'<br />'.
+                            'Portatil',
+                             '/pages/servicios',
+                             array( 'escape' => false ) ); ?>
+                </li>
+                <li class="thumbnail text-center">
+                    <?php echo $this->Html->link(
+                            $this->Html->image( 'internet.png', array( 'alt' => "Internet" ) ).'<br />'.
+                            'Internet',
+                             '/pages/servicios',
+                             array( 'escape' => false ) ); ?>
+                </li>
+            </ul>
        </div>
 
         <div class="span10">
