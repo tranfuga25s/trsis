@@ -3,7 +3,7 @@
 App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
-	
+
 	public $components = array(
     						'Auth' => array(
        							 'loginAction' => array(
@@ -21,5 +21,7 @@ class AppController extends Controller {
     						),
     						'Session'
 						);
+
+    public $helpers = array( 'Number', 'Html', 'Session', 'Form' );
 }
 ?>

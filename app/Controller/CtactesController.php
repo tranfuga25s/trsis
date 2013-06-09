@@ -17,13 +17,14 @@ class CtactesController extends AppController {
 		$this->Usuario->id = $id_usuario['Usuario']['username'];
 		$id_cliente = $this->Usuario->field( 'cliente_id' );
 		$tmp = $this->Ctacte->find( 'first', array( 'conditions' => array( 'id_cliente' => $id_cliente ),
-													'recursive' => -1, 
-													'fields' => array( 'numero_cuenta' ) ) );
+													'recursive' => -1,
+													'fields' => array( 'numero_cuenta', 'saldo' ) ) );
 		$idctacte = $tmp['Ctacte']['numero_cuenta'];
+        $this->set( 'saldo_actual', $tmp['Ctacte']['saldo'] );
 		unset( $tmp ); unset( $id_cliente ); unset( $id_usuario );
 		// Busco la cuenta corriente para el cliente
 		$this->loadModel( 'ItemCtacte' );
 		$this->set( 'lista', $this->ItemCtacte->find( 'all', array( 'conditions' => array( 'id_ctacte' => $idctacte ) ) ) );
 	}
-	
+
 }

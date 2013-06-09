@@ -1,37 +1,41 @@
-<?php $this->set( 'title_for_layout', 'Listado de cuenta corriente' ); ?>
-<script>
-	$( function() {
-		$("a", ".acciones").button();
-	})
-</script>
-<h2>Mi cuenta corriente</h2>
-<br />
-<div class="acciones">
-	<?php echo $this->Html->link( 'Volver', array( 'controller' => 'clientes', 'action' => 'inicio' ) ); ?>
+<?php
+$this->set( 'title_for_layout', 'Listado de cuenta corriente' );
+$this->Html->addCrumb( 'Panel de cliente', array( 'controller' => 'clientes', 'action' => 'inicio'  ) );
+$this->Html->addCrumb( 'Cuenta corriente' );
+?>
+<div class="row-fluid">
+
+    <div class="span12">
+        <h2>Mi cuenta corriente</h2>
+        <div class="btn-group">
+            <?php echo $this->Html->link( 'Volver', array( 'controller' => 'clientes', 'action' => 'inicio' ), array( 'class' => 'btn btn-warning') ); ?>
+        </div>
+        <p><b>Cantidad de items actualmente:</b>&nbsp;<span class="label label-inverse"><?php echo count( $lista ); ?></span></p>
+
+        <table class="table table-bordered table-striped table-hover">
+            <tbody>
+                <th>Fecha</th>
+                <th>Descripcion</th>
+                <th>Debe</th>
+                <th>Haber</th>
+                <th>Saldo</th>
+                <?php foreach( $lista as $item ) : ?>
+                <tr>
+                    <td style="text-align: center;">
+                        <?php echo $this->Time->i18nFormat( $item['ItemCtacte']['fecha'] ); ?>
+                    </td>
+                    <td width="60%"><?php echo $item['ItemCtacte']['descripcion']; ?></td>
+                    <td style="text-align: right;"><?php echo $this->Number->currency( $item['ItemCtacte']['debe'], 'USD', array( 'negative' => '- ' )  ); ?></td>
+                    <td style="text-align: right;"><?php echo $this->Number->currency( $item['ItemCtacte']['haber'], 'USD', array( 'negative' => '- ' )  ); ?></td>
+                    <td style="text-align: right;"><?php $saldo -= $item['ItemCtacte']['debe']; $saldo += $item['ItemCtacte']['haber']; echo $this->Number->currency( $saldo, 'USD', array( 'negative' => '- ' ) ); ?></td>
+                </tr>
+                <?php endforeach; ?>
+                <tr>
+                    <td colspan="4">Saldo Final</td>
+                    <td><?php echo $this->Number->currency( $saldo_actual, 'USD', array( 'negative' => '- ' )  ); ?></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-<br />
-<p><b>Cantidad de items actualmente:</b> <?php echo count( $lista ); ?></p>
-<table cellpadding="0" cellspacing="0" border="1">
-	<tbody>
-		<th style="text-align: center; background-color: #00AFF0; border: 1px solid black;">Fecha</th>
-		<th style=" background-color: #00AFF0; border: 1px solid black;">Descripcion</th>
-		<th style="text-align: center; background-color: #00AFF0; border: 1px solid black;">Debe</th>
-		<th style="text-align: center; background-color: #00AFF0; border: 1px solid black;">Haber</th>
-		<th style="text-align: center; background-color: #00AFF0; border: 1px solid black;">Saldo</th>
-		<?php foreach( $lista as $item ) : ?>
-		<tr>
-			<td style="text-align: center; border: 1px solid black;">
-				<?php echo $item['ItemCtacte']['fecha']; ?>
-			</td>
-			<td style=" border: 1px solid black;" width="60%"><?php echo $item['ItemCtacte']['descripcion']; ?></td>
-			<td style="text-align: right; border: 1px solid black;"><?php echo $item['ItemCtacte']['debe']; ?></td>
-			<td style="text-align: right; border: 1px solid black;"><?php echo $item['ItemCtacte']['haber']; ?></td>
-			<td style="text-align: right; border: 1px solid black;">$0.0</td>
-		</tr>
-		<?php endforeach; ?>
-		<tr>
-			<td colspan="4" style="background-color: black; color: white; font-weight: bold; text-align: right;">Saldo Final</td>
-			<td style="border: 2px solid black; text-align: center; font-size: 110%; font-weight: bold;">$0.0</td>
-		</tr>
-	</tbody>
-</table>
+
