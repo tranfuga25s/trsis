@@ -40,17 +40,19 @@ $this->Html->addCrumb( $datos['Servicio']['nombre'] );
             <?php } else { ?>
                 <b>Cantidad de backups realizados:</b>&nbsp;<?php echo $usado_cantidad; ?> de <?php echo $datos['ServicioBackup']['limite_cantidad']; ?> disponibles- <?php echo $pcantidad; ?>% usado<br />
             <?php } ?>
-            <div id="uso-cantidad"></div><br />
-            <script>$(function(){ $( "#uso-cantidad" ).progressbar({ value: <?php echo intval( $pcantidad ); ?> } ); });</script>
+            <div class="progress progress-primary progress-striped active">
+                <div class="bar"  style="width: <?php echo intval( $pcantidad ); ?>%;"></div>
+            </div>
+            <br />
             <b>Cantidad de espacio disponible:</b>&nbsp;<?php echo $this->Number->toReadableSize( $disponible ); ?> de <?php echo $this->Number->toReadableSize( $datos['ServicioBackup']['limite_espacio'] ); ?> disponibles - <?php echo number_format( $pespacio ); ?>% usado<br />
-            <div id="uso-disco"></div><br />
-            <script>$(function(){ $( "#uso-disco" ).progressbar({ value: <?php echo intval( $pespacio ); ?> } ); });</script>
+            <div class="progress progress-info progress-striped active">
+                <div class="bar" style="width: <?php echo intval( $pespacio ); ?>%;"></div>
+            </div>
+            <br />
             <div class="btn-group">
                 <?php echo $this->Html->tag( 'a', 'Conseguir mas espacio', array( 'onclick' => '$("#dialogo").dialog({ modal: true, buttons: { "Cerrar": function() { $(this).dialog("close"); } } });',  'class' => 'btn btn-primary' ) ); ?>
-                <?php echo $this->Html->link( 'Ver Historico', array( 'controller' => 'backups', 'action' => 'historial', $datos['ServicioBackup']['id_servicio_backup'], $datos['ServicioBackup']['id_cliente'], $datos['ServicioBackup']['id_servicio'] ), array( 'class' => 'btn btn-success') ); ?>
+                <?php echo $this->Html->link( 'Ver Histórico', array( 'controller' => 'backups', 'action' => 'historial', $datos['ServicioBackup']['id_servicio_backup'], $datos['ServicioBackup']['id_cliente'], $datos['ServicioBackup']['id_servicio'] ), array( 'class' => 'btn btn-success') ); ?>
             </div>
-
-
         </div>
 
     </div>
@@ -58,8 +60,9 @@ $this->Html->addCrumb( $datos['Servicio']['nombre'] );
 </div>
 
 <br />
+<!--
 <div>
 	<b>Ayuda:</b>&nbsp; ¿Como realizo un backup?<br />
 	<?php echo $this->Html->tag( 'a', 'Haga click aqui para obtener el plugin necesario', array( 'onclick' => '$("#dialogo").dialog({ modal: true, buttons: { "Cerrar": function() { $(this).dialog("close"); } } });' ) ); ?>
 </div>
-<div style="display: none;" title="No implementado" id="dialogo">Esta caracteristica todavía no se encuentra implementada</div>
+<div style="display: none;" title="No implementado" id="dialogo">Esta caracteristica todavía no se encuentra implementada</div> -->
