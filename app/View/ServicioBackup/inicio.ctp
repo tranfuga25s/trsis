@@ -1,51 +1,62 @@
 <?php
 $this->set( 'title_for_layout', "Servicio de Backup :: Inicio" );
+$this->Html->addCrumb( 'Servicios' );
+$this->Html->addCrumb( $datos['Servicio']['nombre'] );
 ?>
-<script>
-	$(function() {
-		$("#resumen").accordion({ autoHeight: false });
-		$("a", "#historial").button();
-		$("a", "#codigos").button();
-	});
-</script>
-<h2><?php echo $datos['Servicio']['nombre']; ?></h2>
-<div id="resumen">
-	<h3><a href="#">Historial</a></h3>
-	<div id="historial">
-		<?php
-		  $usado_espacio = $datos['ServicioBackupUsuario']['espacio'];
-		  $usado_cantidad = $datos['ServicioBackupUsuario']['cantidad'];
-		  $disponible = $datos['ServicioBackup']['limite_espacio'] - $usado_espacio;
-		  $pespacio = ($usado_espacio*100)/$datos['ServicioBackup']['limite_espacio'];
-		  $pcantidad = round( ($usado_cantidad*100)/$datos['ServicioBackup']['limite_cantidad'], 2 );  
-		?>
-		<?php if( $datos['ServicioBackup']['limite_cantidad'] > 1000 ) { ?>
-			<b>Cantidad de backups realizados:</b>&nbsp;<?php echo $usado_cantidad; ?> de ilimitados disponibles- <?php echo $pcantidad; ?>% usado<br />
-		<?php } else { ?>
-			<b>Cantidad de backups realizados:</b>&nbsp;<?php echo $usado_cantidad; ?> de <?php echo $datos['ServicioBackup']['limite_cantidad']; ?> disponibles- <?php echo $pcantidad; ?>% usado<br />
-		<?php } ?>
-		<div id="uso-cantidad"></div><br />
-		<script>$(function(){ $( "#uso-cantidad" ).progressbar({ value: <?php echo intval( $pcantidad ); ?> } ); });</script>
-		<b>Cantidad de espacio disponible:</b>&nbsp;<?php echo $this->Number->toReadableSize( $disponible ); ?> de <?php echo $this->Number->toReadableSize( $datos['ServicioBackup']['limite_espacio'] ); ?> disponibles - <?php echo number_format( $pespacio ); ?>% usado<br />
-		<div id="uso-disco"></div><br />
-		<script>$(function(){ $( "#uso-disco" ).progressbar({ value: <?php echo intval( $pespacio ); ?> } ); });</script>
-		<?php echo $this->Html->tag( 'a', 'Conseguir mas espacio', array( 'onclick' => '$("#dialogo").dialog({ modal: true, buttons: { "Cerrar": function() { $(this).dialog("close"); } } });' ) ); ?>
-		<?php echo $this->Html->link( 'Ver Historico', array( 'controller' => 'backups', 'action' => 'historial', $datos['ServicioBackup']['id_servicio_backup'], $datos['ServicioBackup']['id_cliente'], $datos['ServicioBackup']['id_servicio'] ) ); ?>
-	</div>
-	<h3><a href="#">Datos del servicio</a></h3>
-	<div id="#datoservicio">
-		<b>Nombre:</b>&nbsp;<?php echo $datos['Servicio']['nombre']; ?><br />
-		<b>Descripcion:</b>&nbsp;<?php if( $datos['Servicio']['descripcion'] != 'NULL' ) { echo $datos['Servicio']['descripcion']; } ?><br />
-		<b>Precio de base:</b>&nbsp;$&nbsp;<?php echo $datos['Servicio']['precio_base']; ?><br />
-	</div>
-	<h3><a href="#">Configuraci&oacute;n del servicio</a></h3>
-	<div id="codigos">
-		Utilice los siguientes codigos en la configuración del programa para configurar el backup remoto.<br />
-		<?php echo $this->Html->tag( 'a', 'Ayuda', array( 'onclick' => '$("#dialogo").dialog({ modal: true, buttons: { "Cerrar": function() { $(this).dialog("close"); } } });' ) ); ?><br /><br />
-		<b>N&uacute;mero de cliente:</b>&nbsp;<?php echo $datos['ServicioBackup']['id_cliente']; ?><br />
-		<b>C&oacute;digo:</b>&nbsp;<?php echo $datos['ServicioBackupUsuario']['codigo']; ?><br />
-	</div>
+    <h2><?php echo $datos['Servicio']['nombre']; ?></h2>
+<div class="row-fluid">
+
+    <div class="span6 well">
+        <h3>Datos del servicio</h3>
+        <b>Nombre:</b>&nbsp;<?php echo $datos['Servicio']['nombre']; ?><br />
+        <b>Descripcion:</b>&nbsp;<?php if( $datos['Servicio']['descripcion'] != 'NULL' ) { echo $datos['Servicio']['descripcion']; } ?><br />
+        <b>Precio de base:</b>&nbsp;$&nbsp;<?php echo $datos['Servicio']['precio_base']; ?><br />
+    </div>
+
+    <div class="span6 well">
+        <h3>Configuraci&oacute;n del servicio</h3>
+        Utilice los siguientes c&oacute;digos en la configuración del programa para configurar el backup remoto.<br />
+        <br />
+        <b>N&uacute;mero de cliente:</b>&nbsp;<?php echo $datos['ServicioBackup']['id_cliente']; ?><br />
+        <b>C&oacute;digo:</b>&nbsp;<?php echo $datos['ServicioBackupUsuario']['codigo']; ?><br />
+    </div>
+
 </div>
+
+<div class="row-fluid">
+
+    <div class="span12">
+        <div class="well">
+            <h3>Historial</h3>
+            <?php
+              $usado_espacio = $datos['ServicioBackupUsuario']['espacio'];
+              $usado_cantidad = $datos['ServicioBackupUsuario']['cantidad'];
+              $disponible = $datos['ServicioBackup']['limite_espacio'] - $usado_espacio;
+              $pespacio = ($usado_espacio*100)/$datos['ServicioBackup']['limite_espacio'];
+              $pcantidad = round( ($usado_cantidad*100)/$datos['ServicioBackup']['limite_cantidad'], 2 );
+            ?>
+            <?php if( $datos['ServicioBackup']['limite_cantidad'] > 1000 ) { ?>
+                <b>Cantidad de backups realizados:</b>&nbsp;<?php echo $usado_cantidad; ?> de ilimitados disponibles- <?php echo $pcantidad; ?>% usado<br />
+            <?php } else { ?>
+                <b>Cantidad de backups realizados:</b>&nbsp;<?php echo $usado_cantidad; ?> de <?php echo $datos['ServicioBackup']['limite_cantidad']; ?> disponibles- <?php echo $pcantidad; ?>% usado<br />
+            <?php } ?>
+            <div id="uso-cantidad"></div><br />
+            <script>$(function(){ $( "#uso-cantidad" ).progressbar({ value: <?php echo intval( $pcantidad ); ?> } ); });</script>
+            <b>Cantidad de espacio disponible:</b>&nbsp;<?php echo $this->Number->toReadableSize( $disponible ); ?> de <?php echo $this->Number->toReadableSize( $datos['ServicioBackup']['limite_espacio'] ); ?> disponibles - <?php echo number_format( $pespacio ); ?>% usado<br />
+            <div id="uso-disco"></div><br />
+            <script>$(function(){ $( "#uso-disco" ).progressbar({ value: <?php echo intval( $pespacio ); ?> } ); });</script>
+            <div class="btn-group">
+                <?php echo $this->Html->tag( 'a', 'Conseguir mas espacio', array( 'onclick' => '$("#dialogo").dialog({ modal: true, buttons: { "Cerrar": function() { $(this).dialog("close"); } } });',  'class' => 'btn btn-primary' ) ); ?>
+                <?php echo $this->Html->link( 'Ver Historico', array( 'controller' => 'backups', 'action' => 'historial', $datos['ServicioBackup']['id_servicio_backup'], $datos['ServicioBackup']['id_cliente'], $datos['ServicioBackup']['id_servicio'] ), array( 'class' => 'btn btn-success') ); ?>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
 <br />
 <div>
 	<b>Ayuda:</b>&nbsp; ¿Como realizo un backup?<br />
