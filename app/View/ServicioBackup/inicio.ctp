@@ -50,7 +50,7 @@ $this->Html->addCrumb( $datos['Servicio']['nombre'] );
             </div>
             <br />
             <div class="btn-group">
-                <?php echo $this->Html->tag( 'a', 'Conseguir mas espacio', array( 'onclick' => '$("#dialogo").dialog({ modal: true, buttons: { "Cerrar": function() { $(this).dialog("close"); } } });',  'class' => 'btn btn-primary' ) ); ?>
+                <?php echo $this->Html->tag( 'a', 'Conseguir más espacio', array( 'onclick' => '$("#dialogo").dialog({ modal: true, buttons: { "Cerrar": function() { $(this).dialog("close"); } } });',  'class' => 'btn btn-primary' ) ); ?>
                 <?php echo $this->Html->link( 'Ver Histórico', array( 'controller' => 'backups', 'action' => 'historial', $datos['ServicioBackup']['id_servicio_backup'], $datos['ServicioBackup']['id_cliente'], $datos['ServicioBackup']['id_servicio'] ), array( 'class' => 'btn btn-success') ); ?>
             </div>
         </div>

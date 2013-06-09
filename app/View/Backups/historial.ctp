@@ -1,43 +1,44 @@
-<?php 
+<?php
 $this->set( 'title_for_layout', "Historial de backups" );
+$this->Html->addCrumb( 'Servicios' );
+$this->Html->addCrumb( 'Historico de Backups' );
 ?>
-<script>
-$( function() {
-	$("a", "#historicos" ).button();
-});
-</script>
-<div id="historicos">
-	<h2>Historicos de backups realizados</h2>
-	<br />
-	<div class="acciones">
-		<?php echo $this->Html->link( 'Volver', array( 'controller' => 'ServicioBackup', 'action' => 'inicio', $id_usuario, $id_servicio ) ); ?>
-	</div>
-	<br />
-	<?php
-	if( count( $historial ) <= 0 ) {
-		echo "Usted todavía no realizó ningún backup";
-	} else {
-		$numero = 1; 
-	?>
-	<p><b>Cantidad de items actualmente:</b> <?php echo count( $historial ); ?></p>
-	<table cellpadding="0" cellspacing="0" border="1">
-		<tbody>
-			<th style="text-align: center; background-color: #00AFF0; border: 1px solid black;">Numero</th>
-			<th style="background-color: #00AFF0; border: 1px solid black;">Fecha y hora</th>
-			<th style="text-align: center; background-color: #00AFF0; border: 1px solid black;">Tama&ntilde;o</th>
-			<th style="text-align: center; background-color: #00AFF0; border: 1px solid black;">Acciones</th>
-			<?php foreach( $historial as $b ) : ?>
-			<tr>
-				<td style="text-align: center; border: 1px solid black;">#<?php echo $numero; ?></td>
-				<td style="border: 1px solid black;"><?php echo $b['Backup']['fecha']; ?></td>
-				<td style="text-align: right; border: 1px solid black;"><?php echo $this->Number->toReadableSize( $b['Backup']['tamano'] ); ?></td>
-				<td style="text-align: right; border: 1px solid black;">
-					<?php echo $this->Html->link( 'Descargar', array( 'action' => 'descargar', $b['Backup']['id_backup'], $id_servicio_backup, $id_usuario ) ); ?>
-					<?php echo $this->Html->link( 'Eliminar', array( 'action' => 'delete', $b['Backup']['id_backup'], $id_servicio_backup, $id_usuario ) ); ?>
-				</td>
-			</tr>
-			<?php $numero+=1; endforeach; ?>
-		</tbody>
-	</table>
-	<?php } ?>
+<h2>Historicos de backups realizados</h2>
+<div class="row-fluid">
+    <div class="span12 btn-group">
+        <?php echo $this->Html->link( 'Volver', array( 'controller' => 'ServicioBackup', 'action' => 'inicio', $id_usuario, $id_servicio ), array( 'class' => 'btn btn-primary') ); ?>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <?php
+        if( count( $historial ) <= 0 ) {
+            echo "Usted todavía no realizó ningún backup";
+        } else {
+            $numero = 1;
+        ?>
+        <p><b>Cantidad de items actualmente:</b> <?php echo count( $historial ); ?></p>
+        <table class="table table-bordered table-hover table-striped">
+            <tbody>
+                <th>Número</th>
+                <th>Fecha y hora</th>
+                <th>Tama&ntilde;o</th>
+                <th>Acciones</th>
+                <?php foreach( $historial as $b ) : ?>
+                <tr>
+                    <td>#<?php echo $numero; ?></td>
+                    <td><?php echo $this->Time->nice( $b['Backup']['fecha'] ); ?></td>
+                    <td><?php echo $this->Number->toReadableSize( $b['Backup']['tamano'] ); ?></td>
+                    <td>
+                        <div class="btn-group">
+                        <?php echo $this->Html->link( 'Descargar', array( 'action' => 'descargar', $b['Backup']['id_backup'], $id_servicio_backup, $id_usuario ), array( 'class' => 'btn btn-primary' ) ); ?>
+                        <?php echo $this->Html->link( 'Eliminar', array( 'action' => 'delete', $b['Backup']['id_backup'], $id_servicio_backup, $id_usuario ), array( 'class' => 'btn btn-danger' )  ); ?>
+                        </div>
+                    </td>
+                </tr>
+                <?php $numero+=1; endforeach; ?>
+            </tbody>
+        </table>
+        <?php } ?>
+    </div>
 </div>

@@ -22,6 +22,6 @@ class AppController extends Controller {
     						'Session'
 						);
 
-    public $helpers = array( 'Number', 'Html', 'Session', 'Form' );
+    public $helpers = array( 'Number', 'Html', 'Session', 'Form', 'Time' );
 }
 ?>
