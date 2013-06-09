@@ -3,7 +3,7 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 ?>
 <h2>Dirección de contacto</h2>
 <div>
-	Contactenos con nosotros a los siguientes telefonos:<br /><br />
+	Contactenos con nosotros a los siguientes telefonos:<br />
 	(+54) 342 154293436 <br />
 	En Argentina<br />
 	<br />
@@ -17,5 +17,5 @@ $this->set( 'title_for_layout', "Contactese con nosotros" );
 		echo $this->Form->input( 'email', array( 'label' => "Su e-mail" ) );
 		echo $this->Form->input( 'texto', array( 'label' => "Texto del mensaje:", 'type' => 'textarea' ) );
 		echo $this->Form->end( 'Enviar' );
-	?>	
+	?>
 </div>
