@@ -10,14 +10,14 @@ class NoticiasController extends AppController {
 	public function beforeFilter() {
 		$this->Auth->allow( array( 'view', 'listado' ) );
 	}
-	
+
 	/**
 	 * Devuelve las noticias para la portada
-	 */	
+	 */
 	public function listado() {
-		return $this->Noticia->find( 'all', array( 'conditions' => array( 'publicada' => true ), 'fields' => array( 'titulo', 'contenido', 'fecha', 'id_noticia' ), 'recursive' => -1, 'limit' => 5 ) );
+		return $this->Noticia->find( 'all', array( 'conditions' => array( 'publicada' => true ), 'fields' => array( 'titulo', 'contenido', 'fecha', 'id_noticia' ), 'recursive' => -1, 'limit' => 5, 'order' => array( 'fecha' => 'desc' ) ) );
 	}
-	
+
 	/**
 	 * index method
 	 *

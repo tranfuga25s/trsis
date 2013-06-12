@@ -59,33 +59,33 @@
 
     <div class="row-fluid">
 
-       <div class="span2 well text-center">
+       <div class="span2 well text-center" style="width: 11.893617%;">
             <h4 class="text-center">Versiones</h4>
             <ul class="thumbnails">
                 <li class="thumbnail text-center">
                     <?php echo $this->Html->link(
-                            $this->Html->image( 'autonomo.png', array( 'alt' => "Autonomo" ) ).'<br />'.
+                            $this->Html->image( 'autonomo.png', array( 'alt' => "Autonomo", 'style' => 'width: 100px;' ) ).'<br />'.
                             'Autonomo',
                              '/pages/servicios',
                              array( 'escape' => false ) ); ?>
                 </li>
                 <li class="thumbnail text-center">
                     <?php echo $this->Html->link(
-                            $this->Html->image( 'multiple.png', array( 'alt' => "Multiple" ) ).'<br />'.
+                            $this->Html->image( 'multiple.png', array( 'alt' => "Multiple", 'style' => 'width: 100px;' ) ).'<br />'.
                             'Multiple',
                              '/pages/servicios',
                              array( 'escape' => false ) ); ?>
                 </li>
                 <li class="thumbnail text-center">
                     <?php echo $this->Html->link(
-                            $this->Html->image( 'portatil.png', array( 'alt' => "Portatil" ) ).'<br />'.
+                            $this->Html->image( 'portatil.png', array( 'alt' => "Portatil", 'style' => 'width: 100px;' ) ).'<br />'.
                             'Portatil',
                              '/pages/servicios',
                              array( 'escape' => false ) ); ?>
                 </li>
                 <li class="thumbnail text-center">
                     <?php echo $this->Html->link(
-                            $this->Html->image( 'internet.png', array( 'alt' => "Internet" ) ).'<br />'.
+                            $this->Html->image( 'internet.png', array( 'alt' => "Internet", 'style' => 'width: 100px;' ) ).'<br />'.
                             'Internet',
                              '/pages/servicios',
                              array( 'escape' => false ) ); ?>

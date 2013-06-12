@@ -19,16 +19,17 @@ $this->Html->addCrumb( 'Inicio' );
 	<li><i class="icon-asterisk"></i>Gestión de caja.</li>
 	<li><i class="icon-asterisk"></i>Cuentas corrientes integradas.</li>
 </ul>
-<div class="well">
+<div class="row-fluid">
 <h2>Noticias</h2>
 <?php
 $noticias = $this->requestAction( array( 'controller' => 'noticias', 'action' => 'listado' ) );
 if( count( $noticias ) > 0 ) {
 	foreach( $noticias as $noticia ) {
+	    echo '<div class="well span8">';
 		echo "<h4>".$this->Html->link( h( $noticia['Noticia']['titulo'] ), array( 'controller' => 'noticias', 'action' => 'view', $noticia['Noticia']['id_noticia'] ) )."</h4>";
-		echo "<div>".$noticia['Noticia']['contenido']."</div>";
+		echo "<div>".$this->Text->truncate( $noticia['Noticia']['contenido'], 400 )."</div>";
 		echo "<small>Publicado: ".date( 'd/m/Y H:i', strtotime( $noticia['Noticia']['fecha'] ) )."</small>";
-		echo "<br />";
+		echo "</div>";
 	}
 } else {
 	echo "<small> No hay noticias aun </small>";
