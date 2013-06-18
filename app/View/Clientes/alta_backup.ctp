@@ -93,7 +93,9 @@ echo $this->Html->css( 'precios' );
         </div>
 
     </div>
+</div>
 
+<div class="row-fluid">
     <div class="span12 well">
         <h3>Características del servicio extra</h3>
         <ul>
