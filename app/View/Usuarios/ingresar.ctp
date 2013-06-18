@@ -68,7 +68,7 @@ $this->Html->addCrumb( 'Ingreso de clientes' );
 	}
 
 	function olvideDatos() {
-		$( "#formRecordarDatos" ).dialog( "open" );
+		$( "#RecordarDatos" ).modal();
 	}
 
 </script>
@@ -104,10 +104,21 @@ $this->Html->addCrumb( 'Ingreso de clientes' );
         <br />
     </div>
 </div>
-<!--
-<div id="formRecordarDatos" title="Recuperar datos de acceso">
-	<?php echo $this->Form->create( 'Usuario', array( 'action' => 'recordarContra', 'id' => 'formRecordarDatos' ) ); ?>
-	<div id="ayudas"></div>
-	<?php echo $this->Form->input( 'email', array( 'label' => "Email", 'class' => "text ui-widget-content ui-corner-all", 'id' => "email" ) );
-		  echo $this->Form->end(); ?>
-</div> -->
+
+
+<div class="modal hide fade" id="RecordarDatos">
+  <?php echo $this->Form->create( 'Usuario', array( 'action' => 'recordarContra', 'id' => 'formRecordarDatos' ) ); ?>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Recuperar datos de acceso al sistema</h3>
+  </div>
+  <div class="modal-body">
+    <p>Para recuperar los datos de acceso por favor ingrese su cuenta de correo habilitada:</p>
+    <?php echo $this->Form->input( 'email', array( 'label' => "Email", 'class' => "text ui-widget-content ui-corner-all", 'id' => "email" ) ); ?>
+  </div>
+  <div class="modal-footer">
+    <?php echo $this->Form->button( 'Cerrar', "#", array( 'class' => "btn" ) ); ?>
+    <?php echo $this->Form->submit( array( 'label' => 'Recuperar', 'class' => "btn btn-primary" ) ); ?>
+  </div>
+  <?php echo $this->Form->end(); ?>
+</div>
