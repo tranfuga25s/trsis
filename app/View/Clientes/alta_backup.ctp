@@ -177,6 +177,7 @@ echo $this->Html->css( 'precios' );
                                                     ); ?>
                     </li>
                 </ul>
-            </div>
+          </div>
+       </div>
     </div>
 </div>
