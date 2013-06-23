@@ -36,7 +36,10 @@ class BackupsController extends AppController {
 			}
 
 		}
-		$this->set( 'historial', $this->Backup->find( 'all', array( 'conditions' => array( 'id_servicio_backup' => $id_servicio_backup	, 'id_usuario' => $id_usuario ) ) ) );
+        ///@TODO agregar verificaciones de que existan los datos pasados como condicion
+		$this->set( 'historial', $this->Backup->find( 'all', array( 'conditions' => array( 'servicio_backup_id' => $id_servicio_backup	,
+		                                                                                   'usuario_id' => $id_usuario ),
+		                                                            'recursive' => -1 ) ) );
 		$this->set( 'id_usuario', $id_usuario );
 		$this->set( 'id_servicio_backup', $id_servicio_backup );
 		$this->set( 'id_servicio', $id_servicio );
@@ -75,9 +78,13 @@ class BackupsController extends AppController {
 			}
 		 	$this->loadModel( 'ServicioBackup' );
 			$this->ServicioBackup->id = $id_servicio_backup;
-			if( $this->ServicioBackup->exists() ) {
-				return json_encode( array( 'error' => true, 'mensaje' => 'El Servicio de Backup no existe!' ) );
+			if( !$this->ServicioBackup->exists() ) {
+				return json_encode( array( 'error' => true, 'mensaje' => 'El Servicio de Backup no existe! id: '.$id_servicio_backup ) );
 			}
+            $this->loadModel( 'ServicioBackupUsuario' );
+            if( !$this->ServicioBackupUsuario->verificarRelacionUsuario( $id_cliente, $id_servicio_backup ) ) {
+                return json_encode( array( 'error' => true, 'mensaje' => 'El usuario no está asociado a este servicio de backup' ) );
+            }
 			// veo el driver usado
 			if( isset( $this->request->query['driver'] ) ) {
 				$driver = $this->request->query['driver'];
@@ -98,10 +105,9 @@ class BackupsController extends AppController {
 			/*if( isset( $this->request->query['cancelar'] ) ) {
 				return $this->cancelar_backup( $id_cliente, $id_servicio_backup, $driver );
 			}*/
-			//$this->log( $this->request->data['posicion'].":".$this->request->data['cola'] );
 
 		} else {
-			return json_encode( array( 'error' => true, 'mensaje' => 'Metodo desconocido' ) );
+			return json_encode( array( 'error' => true, 'mensaje' => 'Método desconocido' ) );
 	    }
 	}
 
@@ -142,7 +148,7 @@ class BackupsController extends AppController {
 			$dir->cd( $num_cliente );
 		}
 		if( $dir->cd( $driver ) == false ) {
-			$dir->create( $dir->pwd.DS.$driver );
+			$dir->create( $dir->pwd().DS.$driver );
 			$dir->cd( $driver );
 		}
 		// Estoy en la ruta deseada, genero el nombre que corresponde al backup
@@ -190,14 +196,12 @@ class BackupsController extends AppController {
 
 	private function guardar_cola( $ids = null, $cola = null, $posicion = null ) {
 		// Leo el archivo
-		//$this->log( 'Data: '.'archivo'.$ids );
 		$dest = Cache::read( 'archivo'.$ids );
-		//$this->log( "Archivo:".$dest );
-		$f = new File( $dest, false, 0777 );
-		if( $f->open() ) {
-			if( $f->append( $posicion.': '.$cola ) ) {
+		$f = new File( $dest );
+		if( $f->open( 'w' ) ) {
+			if( $f->append( $posicion.': '.$cola, true ) ) {
 				$f->close();
-                //$this->log( "Dato guardado correctamente: ".$posicion.': '.$cola );
+                //$this->log( $posicion.': Ok.' );
 				return json_encode( array( 'error' => false, 'mensaje' => 'Cola '.$posicion.' guardada' ) );
 			} else {
 				$f->close();
@@ -230,18 +234,22 @@ class BackupsController extends AppController {
 		}
 		// El backup existe, busco su archivo final
 		$archivo = $this->Backup->field( 'archivo_db' );
+        $temp = explode( '/', $archivo );
+        $name = array_pop( $temp );
+        $temp2 = explode( '.', $name );
+        $id = $temp2[0];
+        $ext = $temp2[1];
+        $type = 'plain/text';
 
 		// Pongo la vista para que sea una descarga
 		$this->viewClass = 'Media';
 		$this->autoLayout = false;
-		$temp = explode( '/', $archivo );
-		$id = array_pop( $temp );
-        // Download app/outside_webroot_dir/example.zip
-        $this->set( 'id'       , $id );
-        $this->set( 'name'     , $name );
+
+        $this->set( 'id'       , $name );
+        $this->set( 'name'     , $name.'.'.$ext );
 		$this->set( 'download' , true );
 		$this->set( 'entension', $ext );
-		$this->set( 'path'     , '/webroot'.implode( DS, $temp ).DS );
+		$this->set( 'path'     , implode( DS, $temp ).DS );
 		$this->set( 'mimeType' , array( $ext => $type ) );
 
 	}
