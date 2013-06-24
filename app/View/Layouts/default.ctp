@@ -9,7 +9,7 @@
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('bootstrap');
         echo $this->Html->css('trsis');
-		echo $this->Html->script( 'jquery-1.7.2.min' );
+		echo $this->Html->script( 'jquery-1.10.1.min' );
         echo $this->Html->script( 'bootstrap.min' );
 		echo $scripts_for_layout;
 	?>
@@ -126,5 +126,6 @@
 		</script>
 		<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 	</div>
+	<?php echo $this->Js->writeBuffer(); ?>
 </body>
 </html>
