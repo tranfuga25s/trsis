@@ -20,7 +20,7 @@ echo $this->Html->css( 'precios' );
                 <ul>
                     <li class="plan-feature">Normal: <b>$ 25</b></li>
                     <li class="plan-feature">Descuento: 0%</li>
-                    <li class="plan-feature">Precio Final: <b>$25</b></li>
+                    <li class="plan-feature">Precio Final:<br /><b>$25</b></li>
                     <li class="plan-feature">
                         <?php echo $this->Html->link( "Contratar!",
                                                       array( 'controller' => 'servicios',
@@ -39,7 +39,7 @@ echo $this->Html->css( 'precios' );
                 <ul>
                     <li class="plan-feature">Normal: <b>$75</b></li>
                     <li class="plan-feature">Descuento:  5%</li>
-                    <li class="plan-feature">Precio Final: <b>$ 71,25</b></li>
+                    <li class="plan-feature">Precio Final:<br /><b>$ 71,25</b></li>
                     <li class="plan-feature">
                         <?php echo $this->Html->link( "Contratar!",
                                                       array( 'controller' => 'servicios',
@@ -58,7 +58,7 @@ echo $this->Html->css( 'precios' );
                 <ul>
                     <li class="plan-feature">Normal: <b>$150</b></li>
                     <li class="plan-feature">Descuento:  10%</li>
-                    <li class="plan-feature">Precio Final: <b>$ 135,25</b></li>
+                    <li class="plan-feature">Precio Final:<br /><b>$ 135,25</b></li>
                     <li class="plan-feature">
                         <?php echo $this->Html->link( "Contratar!",
                                                       array( 'controller' => 'servicios',
@@ -77,7 +77,7 @@ echo $this->Html->css( 'precios' );
                 <ul>
                     <li class="plan-feature">Normal: <b>$250</b></li>
                     <li class="plan-feature">Descuento:  15%</li>
-                    <li class="plan-feature">Precio Final: <b>$ 212,50</b></li>
+                    <li class="plan-feature">Precio Final:<br /><b>$ 212,50</b></li>
                     <li class="plan-feature">
                         <?php echo $this->Html->link( "Contratar!",
                                                       array( 'controller' => 'servicios',
@@ -93,7 +93,9 @@ echo $this->Html->css( 'precios' );
         </div>
 
     </div>
+</div>
 
+<div class="row-fluid">
     <div class="span12 well">
         <h3>Características del servicio extra</h3>
         <ul>
@@ -108,7 +110,7 @@ echo $this->Html->css( 'precios' );
                 <ul>
                     <li class="plan-feature">Normal: <b>$ 50</b></li>
                     <li class="plan-feature">Descuento: 0%</li>
-                    <li class="plan-feature">Precio Final: <b>$50</b></li>
+                    <li class="plan-feature">Precio Final:<br /><b>$50</b></li>
                     <li class="plan-feature">
                         <?php echo $this->Html->link( "Contratar!",
                                                       array( 'controller' => 'servicios',
@@ -127,7 +129,7 @@ echo $this->Html->css( 'precios' );
                 <ul>
                     <li class="plan-feature">Normal: <b>$150</b></li>
                     <li class="plan-feature">Descuento:  5%</li>
-                    <li class="plan-feature">Precio Final: <b>$ 143,50</b></li>
+                    <li class="plan-feature">Precio Final:<br /><b>$ 143,50</b></li>
                     <li class="plan-feature">
                         <?php echo $this->Html->link( "Contratar!",
                                                       array( 'controller' => 'servicios',
@@ -146,7 +148,7 @@ echo $this->Html->css( 'precios' );
                 <ul>
                     <li class="plan-feature">Normal: <b>$300</b></li>
                     <li class="plan-feature">Descuento:  10%</li>
-                    <li class="plan-feature">Precio Final: <b>$ 270,00</b></li>
+                    <li class="plan-feature">Precio Final:<br /><b>$ 270,00</b></li>
                     <li class="plan-feature">
                         <?php echo $this->Html->link( "Contratar!",
                                                       array( 'controller' => 'servicios',
@@ -165,7 +167,7 @@ echo $this->Html->css( 'precios' );
                 <ul>
                     <li class="plan-feature">Normal: <b>$600</b></li>
                     <li class="plan-feature">Descuento:  15%</li>
-                    <li class="plan-feature">Precio Final: <b>$ 510,00</b></li>
+                    <li class="plan-feature">Precio Final:<br /><b>$ 510,00</b></li>
                     <li class="plan-feature">
                         <?php echo $this->Html->link( "Contratar!",
                                                       array( 'controller' => 'servicios',

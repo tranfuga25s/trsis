@@ -11,13 +11,14 @@ $this->Html->addCrumb( 'Historico de Backups' );
 </div>
 <div class="row-fluid">
     <div class="span12">
+        <br />
         <?php
         if( count( $historial ) <= 0 ) {
             echo "Usted todavía no realizó ningún backup";
         } else {
             $numero = 1;
         ?>
-        <p><b>Cantidad de items actualmente:</b> <?php echo count( $historial ); ?></p>
+        <p><b>Cantidad de items actualmente:</b> <span class="badge"><?php echo count( $historial ); ?></span></p>
         <table class="table table-bordered table-hover table-striped">
             <tbody>
                 <th>Número</th>

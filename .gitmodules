@@ -1,0 +1,3 @@
+[submodule "app/Plugin/Recaptcha"]
+	path = app/Plugin/Recaptcha
+	url = https://github.com/lamanabie/cakephp-recaptcha.git
