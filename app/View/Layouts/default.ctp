@@ -22,7 +22,7 @@
       <h1>Gestotux</h1>
       <p class="lead">Programa de Gestion Simplificada</p>
     </div>
-    <div class="span9">
+    <div class="span8">
       <div class="pull-right"><?php echo $this->Html->image( 'cabecera.png', array( 'id' => 'cabecera' ) ); ?></div>
     </div>
   </div>
