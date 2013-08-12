@@ -30,7 +30,7 @@ class BackupsController extends AppController {
 							 )
 			);
 			if( count( $data ) > 0 ) {
-				return json_encode( $data );
+				return json_encode( array( 'error' => false, 'data' => $data ) );
 			} else {
 				return json_encode( array( 'error' => true, 'texto' => 'No existen backups todavia. <br /> id_servicio_backup='.$id_servicio_backup.' - id_usuario='.$id_usuario.'<br />'.print_r( $data, true ) ) );
 			}
@@ -197,9 +197,9 @@ class BackupsController extends AppController {
 	private function guardar_cola( $ids = null, $cola = null, $posicion = null ) {
 		// Leo el archivo
 		$dest = Cache::read( 'archivo'.$ids );
-		$f = new File( $dest );
-		if( $f->open( 'w' ) ) {
-			if( $f->append( $posicion.': '.$cola, true ) ) {
+		$f = new File( $dest, false, 0777 );
+		if( $f->open( 'a+' ) ) {
+			if( $f->append( $cola.';', true ) ) {
 				$f->close();
                 //$this->log( $posicion.': Ok.' );
 				return json_encode( array( 'error' => false, 'mensaje' => 'Cola '.$posicion.' guardada' ) );

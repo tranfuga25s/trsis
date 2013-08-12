@@ -12,12 +12,12 @@ Por favor, selecci&oacute;ne su sistema operativo de preferencia:<br />
     <div class="span5 well">
         <h4 class="text-center">Windows</h4>
         <h4>Ultima Versi&oacute;n Compilada</h4>
-        <b>Versi&oacute;n 0.5 Release Candidate 13</b><br />
+        <b>Versi&oacute;n 0.5 Release Candidate 16</b><br />
         Compilada para sistemas Microsoft Windows de 32 bits aunque tambi&eacute;n funcionar&aacute; sobre plataformas de 64 bits.<br />
         Posee soporte para ambos motores de base de datos ( SQLite - MySQL ).<br />
         <br />
         Versi&oacute;n probada sobre Windows XP 32 bits.<br />
-        <?php echo $this->Html->link( 'Descargar Gestotux 0.5 RC 13', 'http://gestotux.googlecode.com/files/Gestotux-0.5-RC13.zip', array( 'class' => 'btn btn-success') ); ?>
+        <?php echo $this->Html->link( 'Descargar Gestotux 0.5 RC 16', 'http://gestotux.googlecode.com/files/Gestotux-0.5-RC16.zip', array( 'class' => 'btn btn-success') ); ?>
         <br />
         <h6>Instrucciones de uso:</h6>
         <small>Para utiliza la demostraci&oacute;n aqu&iacute; brindada, primero descargue el archivo referenciado m&aacute;s arriba.<br />
@@ -55,5 +55,5 @@ Por favor, selecci&oacute;ne su sistema operativo de preferencia:<br />
 
 <div class="alert alert-info">
     <small>La ultima versi&oacute;n compilada puede no ser la ultima declarada como estable.</small><br />
-    Actualmente la &uacute;ltima versi&oacute;n declarada como estable es <b>Release Candidate 13.</b>
+    Actualmente la &uacute;ltima versi&oacute;n declarada como estable es <b>Release Candidate 16.</b>
 </div>

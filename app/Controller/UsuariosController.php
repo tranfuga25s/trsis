@@ -1,14 +1,14 @@
 <?php
 
 class UsuariosController extends AppController {
-	
+
 	var $scaffold;
-	
+
 	public function beforeFilter() {
-		$this->Auth->allow( array( '*'  ) );
-		//$this->Auth->allow( array( 'ingresar', 'registrar', 'verificar' ) );
+		//$this->Auth->allow( array( '*'  ) );
+		$this->Auth->allow( array( 'ingresar', 'registrar', 'verificar' ) );
 	}
-	
+
 	public function verificar()
 	{
 		$this->autoRender = false;
@@ -32,9 +32,9 @@ class UsuariosController extends AppController {
 			}
 			$this->loadModel( 'ServicioBackup' );
 			$datos = $this->ServicioBackup->read( null, $id_servicio_backup );
-			$this->loadModel( 'ServicioBackupUsuario' ); 
+			$this->loadModel( 'ServicioBackupUsuario' );
 			$temp = $this->ServicioBackupUsuario->find( 'first', array( 'conditions' => array( 'ServicioBackupUsuario.id_servicio_backup' => $id_servicio_backup, 'ServicioBackupUsuario.id_usuario' => $id_usuario ) ) );
-			$datos['ServicioBackupUsuario'] = $temp['ServicioBackupUsuario'];			
+			$datos['ServicioBackupUsuario'] = $temp['ServicioBackupUsuario'];
 			return json_encode(
                                	array( 	'cantidad' => $datos['ServicioBackupUsuario']['cantidad'],
 										'limite_cantidad' => $datos['ServicioBackup']['limite_cantidad'],
@@ -66,7 +66,7 @@ class UsuariosController extends AppController {
 
 	public function registrar() {
 		if( $this->request->isPost() ) {
-			
+
 			$this->loadModel('Cliente');
 			if( $this->Cliente->existe( $this->data['Usuario']['email'] ) ) {
 				$this->Session->setFlash( 'El email utilizado ya existe como cliente. <br />Por favor, recupere sus datos de ingreso desde la seccion "ya soy cliente"');
@@ -81,14 +81,14 @@ class UsuariosController extends AppController {
 			$this->Usuario->create();
 			if( !$this->Usuario->save( $this->data ) ) {
 				$this->Session->setFlash( 'No se pudo guardar el usuario' );
-				$this->redirect( array( 'action' => 'ingresar' ) );				
+				$this->redirect( array( 'action' => 'ingresar' ) );
 			}
 			// Mensaje de bienvenida
 			$this->loadModel( 'Aviso' );
 			$this->Aviso->bienvenida( $this->data['Usuario']['id_usuario'] );
 			// Listo
 			$this->Session->setFlash( 'Bienvenido a nuestro sistema' );
-			$this->redirect( array( 'controller' => 'clientes', 'action' => 'inicio' ) ); 
+			$this->redirect( array( 'controller' => 'clientes', 'action' => 'inicio' ) );
 		} else {
 			$this->Session->setFlash( 'Metodo de registro desconocido' );
 		}
