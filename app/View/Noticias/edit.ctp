@@ -14,9 +14,9 @@ $this->Html->addCrumb( 'Editar' );
 		<legend>Editar Noticia</legend>
     	<?php
     		echo $this->Form->input( 'id_noticia' );
-    		echo $this->Form->input( 'titulo', array( 'type' => 'text' ) );
+    		echo $this->Form->input( 'titulo', array( 'type' => 'text', 'placeholder' => 'Titulo de la noticia', 'class' => 'imput-xxlarge' ) );
     		echo $this->Form->input( 'contenido', array( 'class' => 'ckeditor' ) );
-    		echo $this->Form->input( 'publicada' );
+    		echo $this->Form->input( 'publicada', array( 'class' => 'checkbox' ) );
     		echo $this->Form->input( 'fecha', array( 'dateFormat' => 'DMY') );
     	?>
 	</fieldset>

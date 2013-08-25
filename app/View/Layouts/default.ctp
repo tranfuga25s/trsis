@@ -9,7 +9,7 @@
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('bootstrap');
         echo $this->Html->css('trsis');
-		echo $this->Html->script( 'jquery-1.7.2.min' );
+		echo $this->Html->script( 'jquery-1.10.1.min' );
         echo $this->Html->script( 'bootstrap.min' );
 		echo $scripts_for_layout;
 	?>
@@ -18,11 +18,11 @@
 
     <!-- Cabecera -->
   <div class="row">
-    <div class="span6">
+    <div class="span8">
       <h1>Gestotux</h1>
       <p class="lead">Programa de Gestion Simplificada</p>
     </div>
-    <div class="span9">
+    <div class="span2">
       <div class="pull-right"><?php echo $this->Html->image( 'cabecera.png', array( 'id' => 'cabecera' ) ); ?></div>
     </div>
   </div>
@@ -62,28 +62,28 @@
        <div class="span2 well text-center" style="width: 11.893617%;">
             <h4 class="text-center">Versiones</h4>
             <ul class="thumbnails">
-                <li class="thumbnail text-center">
+                <li class="thumbnail text-center" style="margin-left: -4px;">
                     <?php echo $this->Html->link(
                             $this->Html->image( 'autonomo.png', array( 'alt' => "Autonomo", 'style' => 'width: 100px;' ) ).'<br />'.
                             'Autonomo',
                              '/pages/servicios',
                              array( 'escape' => false ) ); ?>
                 </li>
-                <li class="thumbnail text-center">
+                <li class="thumbnail text-center"  style="margin-left: -4px;">
                     <?php echo $this->Html->link(
                             $this->Html->image( 'multiple.png', array( 'alt' => "Multiple", 'style' => 'width: 100px;' ) ).'<br />'.
                             'Multiple',
                              '/pages/servicios',
                              array( 'escape' => false ) ); ?>
                 </li>
-                <li class="thumbnail text-center">
+                <li class="thumbnail text-center"  style="margin-left: -4px;">
                     <?php echo $this->Html->link(
                             $this->Html->image( 'portatil.png', array( 'alt' => "Portatil", 'style' => 'width: 100px;' ) ).'<br />'.
                             'Portatil',
                              '/pages/servicios',
                              array( 'escape' => false ) ); ?>
                 </li>
-                <li class="thumbnail text-center">
+                <li class="thumbnail text-center"  style="margin-left: -4px;">
                     <?php echo $this->Html->link(
                             $this->Html->image( 'internet.png', array( 'alt' => "Internet", 'style' => 'width: 100px;' ) ).'<br />'.
                             'Internet',
