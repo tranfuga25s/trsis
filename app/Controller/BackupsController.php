@@ -21,7 +21,7 @@ class BackupsController extends AppController {
 			$this->autoRender = false;
 			$id_usuario = $this->request->query['num_cliente'];
 			$this->loadModel( 'Usuario' );
-			$id_servicio_backup = $this->Usuario->buscarIdServicioBackup( $id_usuario );
+			$id_servicio_backup = $this->request->query['id_servicio_backup'];
 			$driver = $this->request->query['driver'];
 			$data = $this->Backup->find( 'all',
 						array( 'conditions' =>
@@ -32,7 +32,7 @@ class BackupsController extends AppController {
 			if( count( $data ) > 0 ) {
 				return json_encode( array( 'error' => false, 'data' => $data ) );
 			} else {
-				return json_encode( array( 'error' => true, 'texto' => 'No existen backups todavia. <br /> id_servicio_backup='.$id_servicio_backup.' - id_usuario='.$id_usuario.'<br />'.print_r( $data, true ) ) );
+				return json_encode( array( 'error' => true, 'mensaje' => 'No existen backups todavia. <br /> id_servicio_backup='.$id_servicio_backup.' - id_usuario='.$id_usuario.'<br />'.print_r( $data, true ) ) );
 			}
 
 		}
