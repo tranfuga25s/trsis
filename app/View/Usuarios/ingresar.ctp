@@ -99,8 +99,8 @@ $this->Html->addCrumb( 'Ingreso de clientes' );
         <br />
         <br />
         <br />
-        Si usted ya es un cliente pero no conoce su clave de acceso, solicitela aqui.
-        <br />
+        Si usted ya es un cliente pero no conoce su clave de acceso: <br />
+        <?php echo $this->Html->link( 'solicitela aquí', '#', array( 'class' => 'btn btn-success' ) ); ?>
         <br />
     </div>
 </div>
