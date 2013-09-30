@@ -52,9 +52,6 @@ $this->Html->addCrumb( 'Panel de cliente' );
             <dt>N&uacute;mero de cliente:</dt>
             <dd><?php echo $datos['Usuario']['id_usuario']; ?>&nbsp;</dd>
 
-            <dt>C&oacute;digo de ingreso:</dt>
-            <dd><!--<?php echo $datos['Cliente']['codigo']; ?>-->Oculto por seguridad.&nbsp;</dd>
-
             <dt>Direcci&oacute;n de contacto:</dt>
             <dd><?php echo $datos['Cliente']['calle'].' '.$datos['Cliente']['numero'].' '.$datos['Cliente']['piso']. $datos['Cliente']['depto']. ' - '. $datos['Cliente']['ciudad']; ?>&nbsp;</dd>
 

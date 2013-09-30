@@ -1,4 +1,4 @@
-<?php 
+<?php
 class AppSchema extends CakeSchema {
 
 	public function before($event = array()) {
@@ -54,6 +54,7 @@ class AppSchema extends CakeSchema {
 		'ultimo_acceso' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'ultimo_backup' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'cliente_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 20),
+		'email' => array('type' => 'string', 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'charset' => 'utf8'),
 		'indexes' => array('PRIMARY' => array('column' => 'id_usuario', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_spanish_ci', 'engine' => 'InnoDB')
 	);

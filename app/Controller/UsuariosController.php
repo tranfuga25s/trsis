@@ -1,12 +1,12 @@
 <?php
 
-class UsuariosController extends AppController {
+App::uses('CakeEmail', 'Network/Email');
 
-	var $scaffold;
+class UsuariosController extends AppController {
 
 	public function beforeFilter() {
 		//$this->Auth->allow( array( '*'  ) );
-		$this->Auth->allow( array( 'ingresar', 'registrar', 'verificar' ) );
+		$this->Auth->allow( array( 'ingresar', 'registrar', 'verificar', 'recordarContra' ) );
 	}
 
 	public function verificar()
@@ -99,6 +99,50 @@ class UsuariosController extends AppController {
 			$this->redirect( '/' );
 		}
 	}
+
+    public function recordarContra() {
+        if( $this->request->isPost() ) {
+            // Tengo que recibir una dirección de email y desde ahi trabajar
+            if( !array_key_exists( 'Usuario', $this->request->data ) ||
+                !array_key_exists( 'email'  , $this->request->data['Usuario'] ) ) {
+                $this->Session->setFlash( 'Por favor, ingrese una dirección de email' );
+                return $this->redirect( array( 'action' => 'ingresar' ) );
+            }
+
+            // Verifico que sea una direccion de correo real
+            $this->Usuario->set( $this->request->data );
+            if( ! $this->Usuario->validates() ) {
+                $this->Session->setFlash( 'Por favor, ingrese una dirección de email válida' );
+                return $this->redirect( array( 'action' => 'ingresar' ) );
+            }
+
+            if( ! $this->Usuario->verificarSiExiste( $this->request->data['Usuario']['email'] ) ) {
+                $this->Session->setFlash( 'La dirección proporcionada no está dada de alta en el sistema' );
+                return $this->redirect( array( 'action' => 'ingresar' ) );
+            }
+
+            // Busco los datos necesarios para generar el email
+            $usuario = $this->Usuario->findByEmail( $this->request->data['Usuario']['email'] );
+            // Coloco una contraseña nueva predeterminada
+            $usuario['Usuario']['codigo'] = $this->Usuario->generarNuevaContraseña( $this->request->data['Usuario']['email'], "" );
+            $usuario['Usuario']['contra'] = $usuario['Usuario']['codigo'];
+            if( $this->Usuario->save( $usuario ) ) {
+                $email = new CakeEmail();
+                $email->addTo( $usuario['Usuario']['email'] )
+                      ->from( 'no-reply@gestotux.com.ar' )
+                      ->subject( 'Datos de acceso' )
+                      ->template( 'recupera', 'usuario' )
+                      ->viewVars( array( 'usuario' => $usuario ) )
+                      ->send();
+                $this->Session->setFlash( 'Se enviaron los datos de acceso a la dirección proporcionada.' );
+            } else {
+                $this->Session->setFlash( 'No se pudo generar una nueva contraseña de acceso' );
+            }
+        } else {
+            throw new NotFoundException( 'Metodo de envio no implementado!' );
+        }
+        $this->redirect( array( 'action' => 'ingresar' ) );
+    }
 }
 
 ?>
