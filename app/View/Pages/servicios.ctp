@@ -11,7 +11,7 @@ $this->Html->addCrumb( 'Servicios' );
         Se utiliza un sistema de base de datos que le permite colocar todos sus datos en uns solo archivo y así mantener la simplicidad de su sistema.
         Además, permite trasladar fácilmente su programa hacia su nueva computadora y/o restaurar sus datos de manera muy comoda con solo copiar ese archivo o utilizando una copia de seguridad.
         <br />
-        <?php echo $this->Html->link( 'Solicitar Presupuesto', '/contacto/formulario', array( 'class' => 'btn btn-primary pull-right' ) ); ?>
+        <?php echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary pull-right' ) ); ?>
     </div>
 
 
@@ -24,14 +24,14 @@ $this->Html->addCrumb( 'Servicios' );
         </ul>
         Esta ultima opción es ideal para gran cantidad de programas corriendo simultaneamente, mientras que la primera es ideal si posee 1 o 2 maquinas interconectadas en red.
         <br />
-        <?php echo $this->Html->link( 'Solicitar Presupuesto', '/contacto/formulario', array( 'class' => 'btn btn-primary pull-right' )  ); ?>
+        <?php echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary pull-right' )  ); ?>
     </div>
 
     <div class="span5 well">
         <h3>Portatil</h3>
         Esta versión del programa se presenta en un práctico paquete que le permite conectarlo a cualquier maquina que posea una conexión USB y luego utilizar el programa en esa computadora como si fuera la propia suya, ya que contendrá todos los datos necesarios para no tener que estar copiando archivos de una maquina a otra.
         <br /><br />
-        <?php echo $this->Html->link( 'Solicitar Presupuesto', '/contacto/formulario', array( 'class' => 'btn btn-primary pull-right' )  ); ?>
+        <?php echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary pull-right' )  ); ?>
     </div>
 
 
@@ -39,7 +39,7 @@ $this->Html->addCrumb( 'Servicios' );
         <h3>Internet</h3>
         Esta versión del programa es ideal para aquellas personas que viajan mucho, ya que le permite acceder desde cualquier punto donde se encuentre conectado a internet a su base de datos.
         <br /><br />
-        <?php echo $this->Html->link( 'Solicitar Presupuesto', '/contacto/formulario', array( 'class' => 'btn btn-primary pull-right' )  ); ?>
+        <?php echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary pull-right' )  ); ?>
     </div>
 </div>
 <div class="row-fluid">
@@ -58,7 +58,7 @@ $this->Html->addCrumb( 'Servicios' );
         Construya un modulo del programa que se adapte a las necesidades específicas de su negocio!<br />
         Con nuestro aseoramiento y luego de una consulta con usted podremos definir cual es la mejor estategia para integrar sus necesidades espec&iacute;ficas de su negocio para que se integre con nuestro sistema, sin importar que tipo de versi&oacute;n elija.
         <br /><br />
-        <?php echo $this->Html->link( 'Solicitar Presupuesto', '/contacto/formulario', array( 'class' => 'btn btn-primary pull-right' )   ); ?>
+        <?php echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary pull-right' ) ); ?>
     </div>
 
 

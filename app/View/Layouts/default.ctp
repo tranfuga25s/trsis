@@ -8,8 +8,9 @@
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('bootstrap');
+        echo $this->Html->css('bootstrap-responsive.min');
         echo $this->Html->css('trsis');
-		echo $this->Html->script( 'jquery-1.10.1.min' );
+		echo $this->Html->script( 'jquery-1.10.2.min' );
         echo $this->Html->script( 'bootstrap.min' );
 		echo $scripts_for_layout;
 	?>

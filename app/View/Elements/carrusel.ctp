@@ -37,49 +37,49 @@
                     '#',
                     array( 'escape' => false ) ); ?>
         </div>
-        <div class="active item">
+        <div class="item">
             <?php echo $this->Html->link(
                     $this->Html->image( 'galeria/image67.png' ).
                     $this->Html->tag( 'div', 'Listado de clientes', array( 'class' => 'texto-carrusel' ) ),
                     '#',
                     array( 'escape' => false ) ); ?>
         </div>
-        <div class="active item">
+        <div class="item">
             <?php echo $this->Html->link(
                     $this->Html->image( 'galeria/image70.png' ).
                     $this->Html->tag( 'div', 'Resumen de cuenta corriente', array( 'class' => 'texto-carrusel' ) ),
                     '#',
                     array( 'escape' => false ) ); ?>
         </div>
-        <div class="active item">
+        <div class="item">
             <?php echo $this->Html->link(
                     $this->Html->image( 'galeria/image86.png' ).
                     $this->Html->tag( 'div', 'Lista de recibos', array( 'class' => 'texto-carrusel' ) ),
                     '#',
                     array( 'escape' => false ) ); ?>
         </div>
-        <div class="active item">
+        <div class="item">
             <?php echo $this->Html->link(
                     $this->Html->image( 'galeria/image62.png' ).
                     $this->Html->tag( 'div', 'Creación de recibo', array( 'class' => 'texto-carrusel' ) ),
                     '#',
                     array( 'escape' => false ) ); ?>
         </div>
-        <div class="active item">
+        <div class="item">
             <?php echo $this->Html->link(
                     $this->Html->image( 'galeria/image19.png' ).
                     $this->Html->tag( 'div', 'Creación de factura', array( 'class' => 'texto-carrusel' ) ),
                     '#',
                     array( 'escape' => false ) ); ?>
         </div>
-        <div class="active item">
+        <div class="item">
             <?php echo $this->Html->link(
                     $this->Html->image( 'galeria/image15.png' ).
                     $this->Html->tag( 'div', 'Creación de presupuesto', array( 'class' => 'texto-carrusel' ) ),
                     '#',
                     array( 'escape' => false ) ); ?>
         </div>
-        <div class="active item">
+        <div class="item">
             <?php echo $this->Html->link(
                     $this->Html->image( 'galeria/image33.png' ).
                     $this->Html->tag( 'div', 'Datos de clientes', array( 'class' => 'texto-carrusel' ) ),
@@ -91,4 +91,4 @@
     <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
     <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
-<?php $this->Js->buffer( "$('#myCarousel').carousel()" );
+<?php $this->Js->buffer( "$('#myCarousel').carousel({ interval: 2000 });" ); ?>
