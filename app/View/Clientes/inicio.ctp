@@ -9,16 +9,16 @@ $this->Html->addCrumb( 'Panel de cliente' );
 
 	<div class="span6 well">
 	    <h3>Mis servicios</h3>
-		<?php if( count( $datos['ServiciosCliente'] ) > 0 ) {
-			echo "		Estos son los servicios que posee habilitados en nuestros sistemas web:<br />";
-		 		 foreach( $datos['ServiciosCliente'] as $servicio ) { ?>
-		 			<?php echo $this->Html->link( $servicios[$servicio['id_servicio']],
+		<?php if( count( $datos['ServiciosCliente'] ) > 0 ) { ?>
+	    <p>Estos son los servicios que posee habilitados en nuestros sistemas web:</p>
+	    <? foreach( $datos['ServiciosCliente'] as $servicio ) :  
+		 			 echo $this->Html->link( $servicios[$servicio['id_servicio']],
 		 										 array( 'controller' => 'ServicioBackup',
 		 										 		'action' => 'inicio',
 		 										 		$datos['Usuario']['id_usuario'],
 		 										 		$servicio['id_servicio'] ),
-		 										 array( 'class' => 'btn btn-primary') ); ?>
-		<?php 	 }
+		 										 array( 'class' => 'btn btn-primary') ); 
+           endforeach;
 			  } else { ?>
 			No posee ning&uacute;n servicio activado todav&iacute;a<br />
 		<?php }  ?>
