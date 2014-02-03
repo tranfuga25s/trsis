@@ -5,8 +5,16 @@ App::uses('CakeEmail', 'Network/Email');
 class UsuariosController extends AppController {
 
 	public function beforeFilter() {
-		//$this->Auth->allow( array( '*'  ) );
-		$this->Auth->allow( array( 'ingresar', 'registrar', 'verificar', 'recordarContra' ) );
+	    parent::beforeFilter();
+		$this->Auth->allow( array(    'ingresar',
+                        'administracion_ingresaradmin',
+                        'administracion_salir',
+                        'salir',
+                        'recuperarContra',
+                        'registrarse',
+                        'cancelar',
+                        'eliminarUsuario' ) );
+
 	}
 
 	public function verificar()
@@ -143,6 +151,170 @@ class UsuariosController extends AppController {
         }
         $this->redirect( array( 'action' => 'ingresar' ) );
     }
-}
 
-?>
+    /*!
+     *  Metodo de login de usuario para la administracion
+     *
+     * @return void
+     */
+    public function administracion_ingresaradmin() {
+        if ($this->request->is('post')) {
+            if ($this->Auth->login()) {
+                return $this->redirect( '/administracion/usuarios/cpanel' );
+            } else {
+                echo AuthComponent::password( $this->request->data['Usuario']['contra'] );
+                $this->Session->setFlash( 'El email ingresado o la contraseña son incorrectas', 'default', array( 'class' => 'error' ), 'auth');
+            }
+        }
+    }
+
+    /**
+     * Metodo de salir de login de usuario para la administracion
+     *
+     * @return void
+     */
+    public function administracion_salir() {
+        // Evita el problema del loggeo por facebook
+        $this->Session->destroy();
+        $this->redirect( $this->Auth->logout() );
+    }
+
+        /**
+     * Metodo para mostrar el panel de control de la administración
+     * @return void
+     */
+    public function administracion_cpanel() {}
+
+    /**
+     * Listado de usuarios de la administración.
+     *
+     * @return void
+     */
+    public function administracion_index() {
+        $this->Usuario->recursive = 0;
+        $this->set( 'usuarios', $this->paginate() );
+    }
+
+    /**
+     * administracion_view method
+     *
+     * @param string $id
+     * @return void
+     */
+    public function administracion_view($id = null) {
+        $this->Usuario->id = $id;
+        if (!$this->Usuario->exists()) {
+            throw new NotFoundException( 'Usuario invalido' );
+        }
+        $this->set('usuario', $this->Usuario->read(null, $id));
+    }
+
+    /**
+     * administracion_add method
+     *
+     * @return void
+     */
+    public function administracion_add() {
+        if ($this->request->is('post')) {
+            $this->Usuario->create();
+            if ($this->Usuario->save($this->request->data)) {
+                $this->borrarCacheUsuarios();
+                $this->Session->correcto('El usuario se agregó correctamente' );
+                $this->redirect( array( 'action' => 'index' ) );
+            } else {
+                $this->Session->error( 'Los datos del usuario no se pudieron guardar. Por favor, intentelo nuevamente.' );
+
+            }
+        }
+        $this->set( 'grupos', $this->Usuario->Grupo->find( 'list' ) );
+        $this->set( 'obras_sociales', $this->Usuario->ObraSocial->find( 'list' ) );
+    }
+
+    /**
+     * administracion_edit method
+     *
+     * @param string $id
+     * @return void
+     */
+    public function administracion_edit($id = null) {
+        $this->Usuario->id = $id;
+        if (!$this->Usuario->exists()) {
+            throw new NotFoundException( 'Usuario invalido' );
+        }
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if ($this->Usuario->save($this->request->data)) {
+                $this->Session->correcto( 'Los datos del usuario se modificaron correctamente' );
+                $this->borrarCacheUsuarios();
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->incorrecto( 'Los datos del usuario no pudieron ser guardados correctamente. Por favor intente nuevamente.' );
+            }
+        }
+        $this->request->data = $this->Usuario->read(null, $id);
+        $this->set( 'grupos', $this->Usuario->Grupo->find( 'list' ) );
+        $this->set( 'obras_sociales', $this->Usuario->ObraSocial->find( 'list' ) );
+    }
+
+    /**
+     * administracion_delete method
+     *
+     * @param string $id
+     * @return void
+     */
+    public function administracion_delete($id = null) {
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
+        }
+        $this->Usuario->id = $id;
+        if (!$this->Usuario->exists()) {
+            throw new NotFoundException( 'El usuario no es valido' );
+        }
+        $this->loadModel( 'Turno' );
+        if( $this->Turno->find( 'count', array( 'conditions' => array( 'paciente_id' => $id ) ) ) > 0 ) {
+            $this->Session->incorrecto( "No se pudo eliminar el usuario solicitado. \n <b>Razón:</b> El usuario tiene turnos asociados todavía." );
+            $this->redirect( array( 'action' => 'index'  ) );
+        }
+        $this->loadModel( 'Medico' );
+        if( $this->Medico->find( 'count', array( 'conditions' => array( 'usuario_id' => $id ) ) ) > 0 ) {
+            $this->Session->incorrecto( "No se pudo eliminar el usuario solicitado. \n <b>Razón:</b> El usuario tiene un medico asociado" );
+            $this->redirect( array( 'action' => 'index' ) );
+        }
+        $this->loadModel( 'Secretaria' );
+        if( $this->Secretaria->find( 'count', array( 'conditions' => array( 'usuario_id' => $id ) ) ) > 0 ) {
+            $this->Session->incorrecto( "No se pudo eliminar el usuario solicitado. \n <b>Razón:</b> El usuario tiene una secretaria asociada" );
+            $this->redirect( array( 'action' => 'index' ) );
+        }
+        if( $this->Usuario->delete() ) {
+            $this->borrarCacheUsuarios();
+            $this->Session->correcto( 'El Usuario ha sido eliminado correctamente' );
+            $this->redirect(array('action'=>'index'));
+        }
+        $this->Session->incorrecto( 'El Usuario no fue eliminado' );
+        $this->redirect(array('action' => 'index'));
+    }
+
+   /**
+    * Función para cambiar la contraseña
+    * @param string $id_usuario Identificador de usuario
+    */
+    public function administracion_cambiarContra( $id_usuario = null ) {
+        if( $this->request->is( 'post' ) ) {
+            if( $this->request->data['Usuario']['contra'] != $this->request->data['Usuario']['recontra'] ) {
+                $this->Session->incorrecto( "Las contraseñas no coinciden." );
+            } else {
+                if( $this->Usuario->save( $this->request->data, false ) ) {
+                    $this->Session->correcto( "Contraseña cambiada correctamente", 'default', array( 'class' => 'success' ) );
+                    $this->redirect( array( 'action' => 'index' ) );
+                } else {
+                    $this->Session->incorrecto( "No se pudo cambiar la contraseña", 'default', array( 'class' => 'error' ) );
+                    pr( $this->Usuario->invalidFields() );
+                }
+            }
+        }
+        $this->Usuario->id = $id_usuario;
+        if (!$this->Usuario->exists()) {
+            throw new NotFoundException( 'El usuario no es valido' );
+        }
+        $this->set( 'data', $this->Usuario->read() );
+    }
+}

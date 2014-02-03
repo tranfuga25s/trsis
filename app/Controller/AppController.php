@@ -8,7 +8,7 @@ class AppController extends Controller {
     						'Auth' => array(
        							 'loginAction' => array(
            						 		'controller' => 'usuarios',
-            					 		'action' => 'ingresar'
+            					 		'action' => 'ingresaradmin'
         						 		),
         						'authError' => 'Usted no tiene permisos para ingresar en esta sección',
         						'authenticate' => array(

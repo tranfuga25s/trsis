@@ -60,14 +60,14 @@ $this->Html->addCrumb( "Autonoma" );
             array( 'nombre' => 'Servicio de suscripcion', 'imagen' => 'servicios.png'   )
         );
         ?>
-        <ol class="thumbnails">
+        <div class="thumbnails row-fluid">
             <?php foreach( $modulos as $modulo ) : ?>
-            <li class="span3 thumbnail text-center">
+            <div class="span3 thumbnail text-center" style="height: 100px;">
                 <?php
-                echo $this->Html->image( 'modulos/'.$modulo['imagen'], array( 'border' => 0, 'heigth' => 50, 'width' => 50  ) );
+                echo $this->Html->image( 'modulos/'.$modulo['imagen'], array( 'style' => 'width: 50px; height: 50px;'  ) );
                 echo $this->Html->tag( 'div', $modulo['nombre'], array( 'class' => 'btn' ) );
                 ?>
-            </li>
+            </div>
             <?php endforeach; ?>
         </ol>
     </div>
