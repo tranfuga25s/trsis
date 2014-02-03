@@ -18,10 +18,10 @@ $this->set( 'title_for_layout', "Nosotros" );
     </div>
     <div class="span12 well thumbnails">
         <?php
-            echo $this->Html->image( 'https://code.google.com/p/gestotux/logo?cct=1363131001', array( 'class' => 'thumbnail' ) );
-            echo $this->Html->image( 'http://qt-project.org/images/qt13a/Qt-logo.png', array( 'class' => 'thumbnail' )  );
-            echo $this->Html->image( 'http://www.slite.org/images/sqlite370_banner.gif', array( 'class' => 'thumbnail' )  );
-            echo $this->Html->image( 'http://www.mysql.com/common/logos/logo-mysql-110x57.png', array( 'class' => 'thumbnail' )  );
+            echo $this->Html->image( 'https://code.google.com/p/gestotux/logo?cct=1363131001', array( 'class' => 'thumbnail span1', 'style' => 'height: 71px;' ) );
+            echo $this->Html->image( 'http://qt-project.org/images/qt13a/Qt-logo.png', array( 'class' => 'thumbnail span1' )  );
+            echo $this->Html->image( 'sqlite370_banner.gif', array( 'class' => 'thumbnail span2' )  );
+            echo $this->Html->image( 'http://www.mysql.com/common/logos/logo-mysql-110x57.png', array( 'class' => 'thumbnail span2', 'style' => 'height: 71px;' )  );
         ?>
     </div>
 </div>
