@@ -1,3 +1,6 @@
 [submodule "app/Plugin/Recaptcha"]
 	path = app/Plugin/Recaptcha
 	url = https://github.com/lamanabie/cakephp-recaptcha.git
+[submodule "app/Plugin/PreguntaFrecuente"]
+	path = app/Plugin/PreguntaFrecuente
+	url = git@github.com:tranfuga25s/cakephp-preguntafrecuente.git

@@ -38,33 +38,33 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestotux <i class="caret"></i></a>
               <ul class="dropdown-menu" role="menu">
-                <li><?php echo $this->Html->link( 'Gestotux', array( 'controller' => 'pages', 'action' => 'display', 'gestotux' ) ); ?></li>
-                <li><?php echo $this->Html->link( 'Modulos', array( 'controller' => 'pages', 'action' => 'display', 'modulos' ) ); ?></li>
-                <li><?php echo $this->Html->link( 'Ver pantallas', array( 'controller' => 'pages', 'action' => 'display', 'pantallas' ) ); ?></li>
-                <li><?php echo $this->Html->link( 'Versiones', array( 'controller' => 'pages', 'action' => 'display', 'versiones', 'general' ) ); ?></li>
+                <li><?php echo $this->Html->link( 'Gestotux', array( 'controller' => 'pages', 'action' => 'display', 'gestotux', 'plugin' => false ) ); ?></li>
+                <li><?php echo $this->Html->link( 'Modulos', array( 'controller' => 'pages', 'action' => 'display', 'modulos', 'plugin' => false ) ); ?></li>
+                <li><?php echo $this->Html->link( 'Ver pantallas', array( 'controller' => 'pages', 'action' => 'display', 'pantallas', 'plugin' => false ) ); ?></li>
+                <li><?php echo $this->Html->link( 'Versiones', array( 'controller' => 'pages', 'action' => 'display', 'versiones', 'general', 'plugin' => false ) ); ?></li>
                 <li class="divider"></li>
-                <li><?php echo $this->Html->link( 'Descargar', array( 'controller' => 'pages', 'action' => 'display', 'descargar' ) ); ?></li>
+                <li><?php echo $this->Html->link( 'Descargar', array( 'controller' => 'pages', 'action' => 'display', 'descargar', 'plugin' => false ) ); ?></li>
               </ul>
             </li>
 
             <li class="dropdown">
               <?php echo $this->Html->link( 'Versiones'.$this->Html->tag( 'i', '', array( 'class' => 'caret' ) ), array( 'controller' => 'pages', 'action' => 'versiones', 'general' ), array( 'class' => "dropdown-toggle", 'data-toggle' => "dropdown", 'escape' => false ) ); ?>
               <ul class="dropdown-menu" role="menu">
-                <li><?php echo $this->Html->link( 'Autonoma', array( 'controller' => 'pages', 'action' => 'display', 'versiones', 'autonomo' ) ); ?></li>
-                <li><?php echo $this->Html->link( 'Múltiple', array( 'controller' => 'pages', 'action' => 'display', 'versiones', 'multiple' ) ); ?></li>
-                <li><?php echo $this->Html->link( 'Portatil', array( 'controller' => 'pages', 'action' => 'display', 'versiones', 'portatil' ) ); ?></li>
-                <li><?php echo $this->Html->link( 'Internet', array( 'controller' => 'pages', 'action' => 'display', 'versiones', 'internet' ) ); ?></li>
+                <li><?php echo $this->Html->link( 'Autonoma', array( 'controller' => 'pages', 'action' => 'display', 'versiones', 'autonomo', 'plugin' => false ) ); ?></li>
+                <li><?php echo $this->Html->link( 'Múltiple', array( 'controller' => 'pages', 'action' => 'display', 'versiones', 'multiple', 'plugin' => false ) ); ?></li>
+                <li><?php echo $this->Html->link( 'Portatil', array( 'controller' => 'pages', 'action' => 'display', 'versiones', 'portatil', 'plugin' => false ) ); ?></li>
+                <li><?php echo $this->Html->link( 'Internet', array( 'controller' => 'pages', 'action' => 'display', 'versiones', 'internet', 'plugin' => false ) ); ?></li>
               </ul>
             </li>
 
-            <li><?php echo $this->Html->link( 'Servicios web'  , array( 'controller' => 'pages'   , 'action' => 'servicios'  ) ); ?></li>
-            <li><?php echo $this->Html->link( 'Clientes'       , array( 'controller' => 'pages'   , 'action' => 'clientes'   ) ); ?></li>
-            <li><?php echo $this->Html->link( 'Acceso Clientes', array( 'controller' => 'usuarios', 'action' => 'ingresar'   ) ); ?></li>
-            <li><?php echo $this->Html->link( 'Nosotros'       , array( 'controller' => 'pages'   , 'action' => 'nosotros'   ) ); ?></li>
-            <li><?php echo $this->Html->link( 'Contacto'       , array( 'controller' => 'contacto', 'action' => 'formulario' ) ); ?></li>
+            <li><?php echo $this->Html->link( 'Servicios web'  , array( 'controller' => 'pages'   , 'action' => 'servicios', 'plugin' => false  ) ); ?></li>
+            <li><?php echo $this->Html->link( 'Clientes'       , array( 'controller' => 'pages'   , 'action' => 'clientes', 'plugin' => false   ) ); ?></li>
+            <li><?php echo $this->Html->link( 'Acceso Clientes', array( 'controller' => 'usuarios', 'action' => 'ingresar', 'plugin' => false   ) ); ?></li>
+            <li><?php echo $this->Html->link( 'Nosotros'       , array( 'controller' => 'pages'   , 'action' => 'nosotros', 'plugin' => false   ) ); ?></li>
+            <li><?php echo $this->Html->link( 'Contacto'       , array( 'controller' => 'contacto', 'action' => 'formulario', 'plugin' => false ) ); ?></li>
           </ul>
           <ul class="nav pull-right">
-            <li><?php echo $this->Html->link( 'Ayuda', '/' ); ?></li>
+            <li><?php echo $this->Html->link( 'Ayuda', array( 'controller' => 'pregunta_frecuente', 'action' => 'index', 'plugin' => 'pregunta_frecuente' ) ); ?></li>
           </ul>
         </div><!-- /.nav-collapse -->
       </div>

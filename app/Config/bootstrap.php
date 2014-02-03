@@ -64,3 +64,4 @@ Cache::config( 'default', array( 'engine' => 'File' ) );
  *
  */
 CakePlugin::load( 'Recaptcha', array( 'bootstrap' => true ) );
+CakePlugin::load( 'PreguntaFrecuente' );
