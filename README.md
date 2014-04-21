@@ -1,4 +1,5 @@
-trsis
+TRSis
 =====
 
-Pagina web que permite generar una interfaz con gestotux
+Pagina web que permite generar una interfaz con gestotux.
+
