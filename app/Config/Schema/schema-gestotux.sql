@@ -1,55 +1,39 @@
-
-
-DROP TABLE IF EXISTS "main"."backup";
-DROP TABLE IF EXISTS "main"."noticias";
-DROP TABLE IF EXISTS "main"."servicio_backup";
-DROP TABLE IF EXISTS "main"."servicio_backup_usuario";
-DROP TABLE IF EXISTS "main"."usuarios";
-
-
-CREATE TABLE "main"."backup" (
-	"id_backup" integer primary key autoincrement,
-	"servicio_backup_id" integer(20) NOT NULL,
-	"usuario_id" integer(20) NOT NULL,
-	"fecha" datetime NOT NULL,
-	"tamano" integer(20) DEFAULT 0 NOT NULL,
-	"archivo_db" varchar(255) NOT NULL,
-	"archivo_est" varchar(255) DEFAULT NULL,
-	"archivo_pref" varchar(255) DEFAULT NULL);
-	CREATE INDEX "main"."backup_servicio_backup_id" ON "backup"("servicio_backup_id");
-	CREATE INDEX "main"."backup_usuario_id" ON "backup"("usuario_id");
-
-CREATE TABLE "main"."noticias" (
-	"id_noticia" integer primary key autoincrement,
-	"titulo" text NOT NULL,
-	"contenido" text NOT NULL,
-	"publicada" boolean NOT NULL,
-	"fecha" datetime NOT NULL);
-	
-
-CREATE TABLE "main"."servicio_backup" (
-	"id_servicio_backup" integer primary key autoincrement,
-	"id_servicio" integer(20) NOT NULL,
-	"fecha_alta" date DEFAULT NULL,
-	"limite_cantidad" integer NOT NULL,
-	"limite_espacio" integer NOT NULL);
-	
-
-CREATE TABLE "main"."servicio_backup_usuario" (
-	"id_servicio_backup" integer primary key autoincrement,
-	"id_usuario" integer primary key autoincrement,
-	"suspendido" boolean NOT NULL,
-	"codigo" varchar(255) NOT NULL,
-	"cantidad" integer DEFAULT 0 NOT NULL,
-	"espacio" integer(20) DEFAULT 0 NOT NULL);
-	CREATE INDEX "main"."servicio_backup_usuario_id_usuario" ON "servicio_backup_usuario"("id_usuario");
-
-CREATE TABLE "main"."usuarios" (
-	"id_usuario" integer primary key autoincrement,
-	"contra" text NOT NULL,
-	"ultimo_acceso" datetime DEFAULT NULL,
-	"ultimo_backup" datetime DEFAULT NULL,
-	"cliente_id" integer(20) NOT NULL,
-	"email" varchar(255) NOT NULL);
-	
-
+CREATE TABLE IF NOT EXISTS clientes ( "id" INTEGER PRIMARY KEY autoincrement, "razon_social" TEXT NOT NULL, "nombre" TEXT NOT NULL, "apellido" TEXT DEFAULT null, "calle" TEXT DEFAULT null, "numero" INTEGER DEFAULT null, "piso" INTEGER DEFAULT null,"depto" INTEGER DEFAULT null,"ciudad" TEXT DEFAULT null,"codigo_postal" TEXT DEFAULT null, "provincia" INTEGER DEFAULT null,"pais" INTEGER DEFAULT null,"tel_fijo" TEXT DEFAULT null,"tel_celular" TEXT DEFAULT null,"fax" TEXT DEFAULT null,"email" TEXT DEFAULT null, "comprobante_email" INTEGER DEFAULT 1, "CUIT/CUIL" TEXT DEFAULT null, "id_estado_fiscal" INTEGER DEFAULT NULL );
+INSERT OR UPDATE INTO `clientes` (`id`, `razon_social`, `nombre`, `comprobante_email` ) VALUES ( 0, 'Consumidor Final','Consumidor Final', 1 );
+CREATE TABLE IF NOT EXISTS estado_fiscal ( "id_estado_fiscal" INTEGER PRIMARY KEY autoincrement, "titulo" TEXT NOT NULL );
+INSERT OR UPDATE INTO `estado_fiscal` (`id_estado_fiscal`, `titulo`) VALUES (1, 'Responsable Inscripto');
+INSERT OR UPDATE INTO `estado_fiscal` (`id_estado_fiscal`, `titulo`) VALUES (2, 'Responsable Monotributista');
+INSERT OR UPDATE INTO `estado_fiscal` (`id_estado_fiscal`, `titulo`) VALUES (3, 'No Responable Inscripto');
+INSERT OR UPDATE INTO `estado_fiscal` (`id_estado_fiscal`, `titulo`) VALUES (4, 'Exento');
+INSERT OR UPDATE INTO `estado_fiscal` (`id_estado_fiscal`, `titulo`) VALUES (5, 'Consumidor Final');
+INSERT OR UPDATE INTO `estado_fiscal` (`id_estado_fiscal`, `titulo`) VALUES (6, 'Monotributista Social');
+INSERT OR UPDATE INTO `estado_fiscal` (`id_estado_fiscal`, `titulo`) VALUES (7, 'Pequeño Contribuidor Eventual');
+INSERT OR UPDATE INTO `estado_fiscal` (`id_estado_fiscal`, `titulo`) VALUES (8, 'Pequeño Contribuyente Eventual Social');
+CREATE TABLE IF NOT EXISTS paises ( "id_pais" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL , "nombre" TEXT NOT NULL );
+INSERT OR UPDATE INTO `paises` VALUES (13, 'Argentina');
+CREATE TABLE IF NOT EXISTS provincias ( "id_provincia" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , "nombre" TEXT NOT NULL , "id_pais" INTEGER NOT NULL );
+INSERT OR UPDATE INTO `provincias` VALUES ( 168, 'Buenos Aires',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 169, 'Catamarca',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 170, 'Chaco',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 171, 'Chubut',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 172, 'Cordoba',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 173, 'Corrientes',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 174, 'Distrito Federal',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 175, 'Entre Rios',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 176, 'Formosa',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 177, 'Jujuy',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 178, 'La Pampa',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 179, 'La Rioja',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 180, 'Mendoza',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 181, 'Misiones',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 182, 'Neuquen',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 183, 'Rio Negro',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 184, 'Salta',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 185, 'San Juan',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 186, 'San Luis',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 187, 'Santa Cruz',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 188, 'Santa Fe',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 189, 'Santiago del Estero',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 190, 'Tierra del Fuego',  13 );
+INSERT OR UPDATE INTO `provincias` VALUES ( 191, 'Tucuman',  13 );
+CREATE TABLE IF NOT EXISTS "servicios" ("id_servicio" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , "nombre" TEXT NOT NULL , "descripcion" TEXT, "fecha_alta" DATETIME NOT NULL , "fecha_baja" DATETIME, "precio_base" DOUBLE NOT NULL , "periodo" INTEGER NOT NULL , "dia_cobro" INTEGER NOT NULL , "forma_incompleto" INTEGER NOT NULL );
