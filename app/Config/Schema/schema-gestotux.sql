@@ -1,3 +1,4 @@
+USE "trsis";
 CREATE TABLE IF NOT EXISTS clientes ( "id" INTEGER PRIMARY KEY autoincrement, "razon_social" TEXT NOT NULL, "nombre" TEXT NOT NULL, "apellido" TEXT DEFAULT null, "calle" TEXT DEFAULT null, "numero" INTEGER DEFAULT null, "piso" INTEGER DEFAULT null,"depto" INTEGER DEFAULT null,"ciudad" TEXT DEFAULT null,"codigo_postal" TEXT DEFAULT null, "provincia" INTEGER DEFAULT null,"pais" INTEGER DEFAULT null,"tel_fijo" TEXT DEFAULT null,"tel_celular" TEXT DEFAULT null,"fax" TEXT DEFAULT null,"email" TEXT DEFAULT null, "comprobante_email" INTEGER DEFAULT 1, "CUIT/CUIL" TEXT DEFAULT null, "id_estado_fiscal" INTEGER DEFAULT NULL );
 INSERT OR UPDATE INTO `clientes` (`id`, `razon_social`, `nombre`, `comprobante_email` ) VALUES ( 0, 'Consumidor Final','Consumidor Final', 1 );
 CREATE TABLE IF NOT EXISTS estado_fiscal ( "id_estado_fiscal" INTEGER PRIMARY KEY autoincrement, "titulo" TEXT NOT NULL );
@@ -37,3 +38,5 @@ INSERT OR UPDATE INTO `provincias` VALUES ( 189, 'Santiago del Estero',  13 );
 INSERT OR UPDATE INTO `provincias` VALUES ( 190, 'Tierra del Fuego',  13 );
 INSERT OR UPDATE INTO `provincias` VALUES ( 191, 'Tucuman',  13 );
 CREATE TABLE IF NOT EXISTS "servicios" ("id_servicio" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , "nombre" TEXT NOT NULL , "descripcion" TEXT, "fecha_alta" DATETIME NOT NULL , "fecha_baja" DATETIME, "precio_base" DOUBLE NOT NULL , "periodo" INTEGER NOT NULL , "dia_cobro" INTEGER NOT NULL , "forma_incompleto" INTEGER NOT NULL );
+CREATE TABLE IF NOT EXISTS "periodo_servicio" ("id_periodo_servicio" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL , "id_servicio" INTEGER NOT NULL , "periodo" INTEGER NOT NULL , "ano" INTEGER NOT NULL , "fecha" DATETIME NOT NULL , "fecha_inicio" DATETIME NOT NULL , "fecha_fin" DATETIME NOT NULL );
+CREATE TABLE IF NOT EXISTS "cobro_servicio_cliente_periodo" ("id_periodo_servicio" INTEGER NOT NULL , "id_servicio" INTEGER NOT NULL , "id_cliente" INTEGER NOT NULL , "id_factura" INTEGER NOT NULL , "id_recibo" INTEGER, "id_ctacte" INTEGER, PRIMARY KEY ("id_periodo_servicio", "id_servicio", "id_cliente"));
