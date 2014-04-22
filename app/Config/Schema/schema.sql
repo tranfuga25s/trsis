@@ -40,8 +40,8 @@ CREATE TABLE `trsis`.`servicio_backup` (
 	ENGINE=InnoDB;
 
 CREATE TABLE `trsis`.`servicio_backup_usuario` (
-	`id_servicio_backup` int(20) NOT NULL AUTO_INCREMENT,
-	`id_usuario` int(20) NOT NULL AUTO_INCREMENT,
+	`id_servicio_backup` int(20) NOT NULL,
+	`id_usuario` int(20) NOT NULL,
 	`suspendido` tinyint(1) NOT NULL,
 	`codigo` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
 	`cantidad` int(11) DEFAULT 0 NOT NULL,
