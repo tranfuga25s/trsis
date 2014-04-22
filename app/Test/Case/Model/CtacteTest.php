@@ -11,7 +11,7 @@ class CtacteTestCase extends CakeTestCase {
  *
  * @var array
  */
-	public $fixtures = array('app.ctacte', 'app.item', 'app.item_ctacte');
+	public $fixtures = array('app.ctacte', 'app.item_ctacte');
 
 /**
  * setUp method

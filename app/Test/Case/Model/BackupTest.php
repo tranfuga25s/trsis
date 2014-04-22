@@ -12,7 +12,14 @@ class BackupTestCase extends CakeTestCase {
  *
  * @var array
  */
-	public $fixtures = array('app.backup', 'app.servicio_backup', 'app.servicio', 'app.servicios_cliente', 'app.cliente', 'app.usuario');
+	public $fixtures = array(
+	   'app.backup',
+	   'app.servicio_backup',
+	   'app.servicio',
+	   'app.servicios_cliente',
+	   'app.cliente',
+	   'app.usuario'
+    );
 
 /**
  * setUp method
@@ -36,4 +43,5 @@ class BackupTestCase extends CakeTestCase {
 		parent::tearDown();
 	}
 
+    public function testA() { $this->assertEqual( true, true ); }
 }
