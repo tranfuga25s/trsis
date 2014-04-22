@@ -5,7 +5,7 @@ $this->Html->addCrumb( "Autonoma" );
 ?>
 <div class="row-fluid">
     <div class="span12">
-        <h2>Versión autonoma</h2>
+        <h2>Versión múltiple</h2>
     </div>
 </div>
 
@@ -15,8 +15,8 @@ $this->Html->addCrumb( "Autonoma" );
         <h4>Características</h4>
         <br />
         <ul>
-            <li>Base de datos en un solo archivo en su computadora.</li>
-            <li>Administrable en un solo puesto de trabajo.</li>
+            <li>Base de datos en un puesto o servidor centralizado local.</li>
+            <li>Administrable desde varios puestos de trabajo.</li>
             <li>Máximo control sobre todas las operaciones.</li>
             <li>Ideal para PyMES y pequeños emprendimientos.</li>
         </ul>

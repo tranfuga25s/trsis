@@ -15,8 +15,8 @@ $this->Html->addCrumb( "Autonoma" );
         <h4>Características</h4>
         <br />
         <ul>
-            <li>Base de datos en un archivo en su computadora o un servidor de base de datos en un nodo.</li>
-            <li>Administrable desde varios puestos de trabajo.</li>
+            <li>Base de datos y programa en un PenDrive.</li>
+            <li>Administrable desde cualquier pc sin conexión a internet.</li>
             <li>Máximo control sobre todas las operaciones.</li>
             <li>Ideal para PyMES y pequeños emprendimientos.</li>
         </ul>

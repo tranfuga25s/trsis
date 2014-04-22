@@ -15,8 +15,8 @@ $this->Html->addCrumb( "Autonoma" );
         <h4>Características</h4>
         <br />
         <ul>
-            <li>Base de datos en un archivo en su computadora o un servidor de base de datos en un nodo.</li>
-            <li>Administrable desde varios puestos de trabajo.</li>
+            <li>Base de datos en la nube.</li>
+            <li>Administrable desde cualquier parte del mundo.</li>
             <li>Máximo control sobre todas las operaciones.</li>
             <li>Ideal para PyMES y pequeños emprendimientos.</li>
         </ul>
@@ -25,13 +25,13 @@ $this->Html->addCrumb( "Autonoma" );
 
     <div class="span3 well text-center">
         <h4>Sin soporte</h4>
-        $ 0.0
+        $ 40.0
         <?php echo $this->Html->tag( 'span', 'Gratis!', array( 'class' => 'label label-success' ) ); ?>
     </div>
 
     <div class="span3 well text-center">
         <h4>Con soporte</h4>
-        $ 50.00 <?php echo $this->Html->tag( 'span', 'por mes', array( 'class' => 'label' ) ); ?>
+        $ 90.00 <?php echo $this->Html->tag( 'span', 'por mes', array( 'class' => 'label' ) ); ?>
     </div>
 
     <div class="span6 well">
