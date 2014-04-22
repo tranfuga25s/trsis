@@ -34,4 +34,6 @@ class CtacteTestCase extends CakeTestCase {
 		parent::tearDown();
 	}
 
+    public function testA() { $this->assertEqual( true, true ); }
+
 }
