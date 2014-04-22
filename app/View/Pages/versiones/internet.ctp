@@ -5,7 +5,7 @@ $this->Html->addCrumb( "Autonoma" );
 ?>
 <div class="row-fluid">
     <div class="span12">
-        <h2>Versión múltiple</h2>
+        <h2>Versión Internet</h2>
     </div>
 </div>
 

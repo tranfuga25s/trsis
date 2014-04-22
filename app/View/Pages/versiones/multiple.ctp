@@ -5,7 +5,7 @@ $this->Html->addCrumb( "Autonoma" );
 ?>
 <div class="row-fluid">
     <div class="span12">
-        <h2>Versión múltiple</h2>
+        <h2>Versión autonoma</h2>
     </div>
 </div>
 
@@ -15,8 +15,8 @@ $this->Html->addCrumb( "Autonoma" );
         <h4>Características</h4>
         <br />
         <ul>
-            <li>Base de datos en un archivo en su computadora o un servidor de base de datos en un nodo.</li>
-            <li>Administrable desde varios puestos de trabajo.</li>
+            <li>Base de datos en un solo archivo en su computadora.</li>
+            <li>Administrable en un solo puesto de trabajo.</li>
             <li>Máximo control sobre todas las operaciones.</li>
             <li>Ideal para PyMES y pequeños emprendimientos.</li>
         </ul>
@@ -39,14 +39,14 @@ $this->Html->addCrumb( "Autonoma" );
         <div class="btn-group">
             <?php
             echo $this->Html->link( 'Backup Online', array( 'controller' => 'pages', 'action' => 'display', 'servicios' ), array( 'class' => 'btn btn-primary' ) );
-            echo $this->Html->link( 'Módulos a medida', array( 'controller' => 'pages', 'action' => 'display', 'servicios' ), array( 'class' => 'btn btn-info' ) );
+            echo $this->Html->link( 'Modulos a medida', array( 'controller' => 'pages', 'action' => 'display', 'servicios' ), array( 'class' => 'btn btn-info' ) );
             ?>
             <button class="btn disabled">Estadisticas detalladas</button>
         </div>
     </div>
 
     <div class="span10 well">
-        <h4>Módulos disponibles</h4>
+        <h4>Modulos disponibles</h4>
         <?php
         $modulos = array(
             array( 'nombre' => 'Compras'                , 'imagen' => 'compras.png'     ),
