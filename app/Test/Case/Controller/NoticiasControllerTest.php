@@ -1,5 +1,4 @@
 <?php
-
 App::uses('NoticiasController', 'Controller');
 
 /**
@@ -23,11 +22,15 @@ class NoticiasControllerTest extends ControllerTestCase {
      * @return void
      */
     public function testListado() {
-        $datos = $this->testAction( '/noticias' );
-        if( count( $this->vars['noticias'] ) > 0 ) {
-            foreach( $this->vars['noticias'] as $noticia ) {
+        $datos = $this->testAction( '/noticias/listado' );
+        $this->assertNotEqual( count( $datos ), 0 );
+        if( count( $datos ) > 0 ) {
+            foreach( $datos as $noticia ) {
                 $this->assertArrayHasKey( 'Noticia', $noticia );
                 $this->assertArrayHasKey( 'id_noticia', $noticia['Noticia'] );
+                $this->assertArrayHasKey( 'titulo', $noticia['Noticia'] );
+                $this->assertArrayHasKey( 'contenido', $noticia['Noticia'] );
+                $this->assertArrayHasKey( 'fecha', $noticia['Noticia'] );
             }
         }
     }
@@ -47,42 +50,6 @@ class NoticiasControllerTest extends ControllerTestCase {
                 $this->assertArrayHasKey( 'titulo', $noticia['Noticia'] );
             }
         }
-    }
-
-    /**
-     * testView method
-     *
-     * @return void
-     */
-    public function testView() {
-        
-    }
-
-    /**
-     * testAdd method
-     *
-     * @return void
-     */
-    public function testAdd() {
-        
-    }
-
-    /**
-     * testEdit method
-     *
-     * @return void
-     */
-    public function testEdit() {
-        
-    }
-
-    /**
-     * testDelete method
-     *
-     * @return void
-     */
-    public function testDelete() {
-        
     }
 
 }
