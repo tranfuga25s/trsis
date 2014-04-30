@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Static content controller.
  *
@@ -28,60 +29,61 @@
  */
 class PagesController extends AppController {
 
-/**
- * Controller name
- *
- * @var string
- */
-	public $name = 'Pages';
+    /**
+     * Controller name
+     *
+     * @var string
+     */
+    public $name = 'Pages';
 
-/**
- * Default helper
- *
- * @var array
- */
-	public $helpers = array('Html');
+    /**
+     * Default helper
+     *
+     * @var array
+     */
+    public $helpers = array('Html');
 
-/**
- * This controller does not use a model
- *
- * @var array
- */
-	public $uses = array();
-
+    /**
+     * This controller does not use a model
+     *
+     * @var array
+     */
+    public $uses = array();
 
     public function beforeFilter() {
-    	$this->Auth->allow('*');
+        $this->Auth->allow('*');
     }
-/**
- * Displays a view
- *
- * @param mixed What page to display
- */
-	public function display() {
 
-		$path = func_get_args();
-		
-	
-		$count = count($path);
-		if (!$count) {
-			$this->redirect('/');
-		}
-		$page = $subpage = $title_for_layout = null;
+    /**
+     * Displays a view
+     *
+     * @param mixed What page to display
+     */
+    public function display() {
 
-		if (!empty($path[0])) {
-			$page = $path[0];
-		}
-		if (!empty($path[1])) {
-			$subpage = $path[1];
-		}
-		if (!empty($path[$count - 1])) {
-			$title_for_layout = Inflector::humanize($path[$count - 1]);
-		}
-		if( $page == 'ayuda' ) {
-			$this->layout = 'ayuda';
-		}
-		$this->set(compact('page', 'subpage', 'title_for_layout'));
-		$this->render(implode('/', $path));
-	}
+        $path = func_get_args();
+
+
+        $count = count($path);
+        if (!$count) {
+            $this->redirect('/');
+        }
+        $page = $subpage = $title_for_layout = null;
+
+        if (!empty($path[0])) {
+            $page = $path[0];
+        }
+        if (!empty($path[1])) {
+            $subpage = $path[1];
+        }
+        if (!empty($path[$count - 1])) {
+            $title_for_layout = Inflector::humanize($path[$count - 1]);
+        }
+        if ($page == 'ayuda') {
+            $this->layout = 'ayuda';
+        }
+        $this->set(compact('page', 'subpage', 'title_for_layout'));
+        $this->render(implode('/', $path));
+    }
+
 }

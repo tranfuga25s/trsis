@@ -6,6 +6,25 @@ class AppSchema extends CakeSchema {
 	}
 
 	public function after($event = array()) {
+            if (isset($event['create'])) {
+                switch ($event['create']) {
+                    case "users": {
+                      App::uses('ClassRegistry', 'Utility');
+                        $user = ClassRegistry::init('Usuario');
+                        $user->saveMany(array(
+                            array('User' =>
+                                array('id_usuario' => 1,
+                                      'email' => 'admin@admin.com',
+                                      'contra' => '123456',
+                                      'cliente_id' => 1,
+                                 )
+                            )
+                          )
+                       );
+                       break;
+                    }
+                }
+            }
 	}
 
 	public $backup = array(

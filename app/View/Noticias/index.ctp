@@ -1,43 +1,42 @@
-<div class="btn-group">
-	<?php echo $this->Html->link( 'Nueva Noticia', array( 'action' => 'add' ), array( 'class' => 'btn btn-primary') ); ?>
-</div>
+<?php
+$this->set( 'title_for_layout', 'Nuestras noticias' );
+$this->Html->addCrumb( 'Noticias' );
+?>
 <div class="row-fluid">
     <div class="span12">
-    	<h2>Noticias</h2>
-    	<table class="table table-bordered table-hover table-striped">
-    	<tr>
-    			<th><?php echo $this->Paginator->sort('titulo');?></th>
-    			<th><?php echo $this->Paginator->sort('publicada');?></th>
-    			<th><?php echo $this->Paginator->sort('fecha');?></th>
-    			<th class="actions">Acciones</th>
-    	</tr>
-    	<?php
-    	$i = 0;
-    	foreach ($noticias as $noticia): ?>
-    	<tr>
-    		<td><?php echo h($noticia['Noticia']['titulo']); ?>&nbsp;</td>
-    		<td><?php if( $noticia['Noticia']['publicada'] ) {
-    					echo "Si";
-    				} else {
-    					echo "No";
-    				} ?></td>
-    		<td><?php echo $this->Time->nice( $noticia['Noticia']['fecha'] ); ?>&nbsp;</td>
-    		<td class="actions">
-    			<?php echo $this->Html->link( 'Ver', array('action' => 'view', $noticia['Noticia']['id_noticia'] ), array( 'class' => 'btn btn-small') ); ?>
-    			<?php echo $this->Html->link( 'Editar', array('action' => 'edit', $noticia['Noticia']['id_noticia']), array( 'class' => 'btn btn-small') ); ?>
-    			<?php echo $this->Form->postLink( 'Eliminar', array('action' => 'delete', $noticia['Noticia']['id_noticia']), array( 'class' => 'btn btn-small') , __('Are you sure you want to delete # %s?', $noticia['Noticia']['id_noticia'])); ?>
-    		</td>
-    	</tr>
+    	<h2>Nuestras noticias</h2>
+    <?php if( count( $noticias ) > 0 ) : ?>
+    	<?php foreach ($noticias as $noticia): ?>
+        <div class="">
+            <h2><?php echo h($noticia['Noticia']['titulo']); ?></h2>
+            <p><?php echo $this->Text->truncate( $noticia['Noticia']['contenido'] ); ?></p>
+            <p>Creado el: <?php echo $this->Time->nice( $noticia['Noticia']['fecha'] ); ?></p>
+            <p class="pull-left">
+                <?php echo $this->Html->link( 'Seguir leyendo', 
+                                              array( 'controller' => 'noticias', 'action' => 'view', $noticia['Noticia']['id']), 
+                                              array( 'class' => 'btn btn-primary' ) ); ?>
+            </p>
+        </div>
+        <hr />
         <?php endforeach; ?>
     	</table>
-    	<p><?php echo $this->Paginator->counter(array('format' => 'Pagina {:page} de {:pages}, mostrando {:current} de {:count}, desde {:start} hasta {:end}')); ?></p>
+
+    	<p><?php echo $this->Paginator->counter(array('format' => 'Página {:page} de {:pages}, mostrando {:current} de {:count}, desde {:start} hasta {:end}')); ?></p>
+        
 
     	<div class="pagination">
     	    <ul>
-    	        <li><?php echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled')); ?></li>
+    	        <li><?php 
+                if( $this->Paginator->hasPrev() ) {
+                    echo $this->Paginator->prev('< Anterior', array(), null, array('class' => 'prev disabled'));    
+                }
+                ?></li>
     	        <li><?php echo $this->Paginator->numbers(array('separator' => '')); ?></li>
-    	        <li><?php echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled')); ?></li>
+                <li><?php if( $this->Paginator->hasNext() ) { echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled')); } ?></li>
     	    </ul>
     	</div>
-	</div>
+    <?php else : ?>
+        <p>No tenemos ninguna noticia por ahora...</p>
+    <?php endif; ?>
+    </div>
 </div>
