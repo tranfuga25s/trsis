@@ -10,7 +10,7 @@ App::uses('AppController', 'Controller');
 class NoticiasController extends AppController {
 
     public function beforeFilter() {
-        $this->Auth->allow(array('view', 'listado'));
+        $this->Auth->allow( array( 'index', 'view', 'listado' ) );
     }
 
     /**
@@ -43,13 +43,23 @@ class NoticiasController extends AppController {
         }
         $this->set('noticia', $this->Noticia->read(null, $id));
     }
-
+    
     /**
-     * add method
+     * index method
      *
      * @return void
      */
-    public function add() {
+    public function administracion_index() {
+        $this->Noticia->recursive = 0;
+        $this->set('noticias', $this->paginate());
+    }
+
+    /**
+     * administracion_add method
+     *
+     * @return void
+     */
+    public function administracion_add() {
         if ($this->request->is('post')) {
             $this->Noticia->create();
             if ($this->Noticia->save($this->request->data)) {
@@ -62,12 +72,12 @@ class NoticiasController extends AppController {
     }
 
     /**
-     * edit method
+     * administracion_edit method
      *
      * @param string $id
      * @return void
      */
-    public function edit($id = null) {
+    public function administracion_edit($id = null) {
         $this->Noticia->id = $id;
         if (!$this->Noticia->exists()) {
             throw new NotFoundException(__('Invalid noticia'));
@@ -85,12 +95,12 @@ class NoticiasController extends AppController {
     }
 
     /**
-     * delete method
+     * administracion_delete method
      *
      * @param string $id
      * @return void
      */
-    public function delete($id = null) {
+    public function administracion_delete($id = null) {
         if (!$this->request->is('post')) {
             throw new MethodNotAllowedException();
         }
