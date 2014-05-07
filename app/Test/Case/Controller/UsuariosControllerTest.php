@@ -14,7 +14,8 @@ class UsuariosControllerTest extends ControllerTestCase {
      * @var array
      */
     public $fixtures = array(
-        'app.usuario'
+        'app.usuario',
+        'app.cliente'
     );
 
     /**
@@ -137,7 +138,18 @@ class UsuariosControllerTest extends ControllerTestCase {
      * @return void
      */
     public function testAdministracionEdit() {
+        $data = array( 'Usuario' => array( 'id_usuario' => '1', 'email' => 'admin@admin.com', 'contra' => '123456' ) );
+        $this->testAction( '/administracion/usuarios/edit/1', array( 'method' => 'POST', 'data' => $data ) );
+        $this->assertContains( '/administracion/usuarios', $this->headers['Location'] );
         
+        $this->testAction( '/administracion/usuarios/edit/1', array( 'method' => 'POST' ) );
+    }
+    
+    /**
+     * @expectedException NotFoundException
+     */
+    public function testAdministracionEditInvalido() {
+        $this->testAction( '/administracion/usuarios/edit' );
     }
 
     /**

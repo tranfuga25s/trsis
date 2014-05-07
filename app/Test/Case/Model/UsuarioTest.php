@@ -1,5 +1,6 @@
 <?php
-/* Usuario Test cases generated on: 2012-05-22 15:36:32 : 1337711792*/
+
+/* Usuario Test cases generated on: 2012-05-22 15:36:32 : 1337711792 */
 App::uses('Usuario', 'Model');
 
 /**
@@ -7,35 +8,45 @@ App::uses('Usuario', 'Model');
  *
  */
 class UsuarioTestCase extends CakeTestCase {
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array('app.usuario');
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array('app.usuario');
 
-		$this->Usuario = ClassRegistry::init('Usuario');
-	}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp() {
+        parent::setUp();
 
-/**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		unset($this->Usuario);
+        $this->Usuario = ClassRegistry::init('Usuario');
+    }
 
-		parent::tearDown();
-	}
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown() {
+        unset($this->Usuario);
 
-    public function testA() { $this->assertEqual( true, true ); }
+        parent::tearDown();
+    }
+
+    public function testA() {
+        $this->assertEqual(true, true);
+    }
+    
+    /*!
+     * Testea que cuando se guarden datos te de una contraesña correcta en la db
+     */
+    public function testCambiaContrasena() {
+        
+    }
 
 }

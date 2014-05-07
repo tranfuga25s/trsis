@@ -11,22 +11,24 @@ $this->Html->addCrumb( 'Usuarios' );
 <h2>Lista de Usuarios</h2>
 <table class="table table-bordered table-striped">
 <tr>
-		<th><?php echo $this->Paginator->sort('email', 'Razon Social' );?></th>
-		<th><?php echo $this->Paginator->sort('razonsocial', 'Razon Social' );?></th>
+		<th><?php echo $this->Paginator->sort('email');?></th>
 		<th><?php echo $this->Paginator->sort('cliente_id');?></th>
+                <th><?php echo $this->Paginator->sort('ultimo_acceso' ); ?></th>
+                <th><?php echo $this->Paginator->sort('ultimo_backup' ); ?></th>
 		<th class="actions">Acciones</th>
 </tr>
 <?php
 foreach ($usuarios as $usuario): ?>
 <tr>
 	<td><?php echo $this->Html->link( h($usuario['Usuario']['email']), 'mailto:' . $usuario['Usuario']['email'] ); ?>&nbsp;</td>
-	<td><?php echo h($usuario['Usuario']['razonsocial']); ?>&nbsp;</td>
-	<td><?php echo $this->Html->link( '#'.$usuario['Cliente']['id'], array('controller' => 'clientes', 'action' => 'view', $usuario['Cliente']['id'])); ?></td>
-	<td class="actions">
-		<?php echo $this->Html->link( 'Ver', array('action' => 'view', $usuario['Usuario']['id_usuario'])); ?>
-		<?php echo $this->Html->link( 'Editar', array('action' => 'edit', $usuario['Usuario']['id_usuario'])); ?>
-		<?php echo $this->Html->link( 'Camb Contra', array( 'action' => 'cambiarContra', $usuario['Usuario']['id_usuario'] ) ); ?>
-		<?php echo $this->Form->postLink( 'Eliminar', array('action' => 'delete', $usuario['Usuario']['id_usuario']), null, __('Are you sure you want to delete # %s?', $usuario['Usuario']['id_usuario'])); ?>
+	<td><?php echo $this->Html->link( $usuario['Cliente']['razon_social'], array('controller' => 'clientes', 'action' => 'view', $usuario['Cliente']['id'])); ?></td>
+        <td><?php echo $this->Time->i18nFormat( $usuario['Usuario']['ultimo_acceso'] ); ?></td>
+        <td><?php echo $this->Time->i18nFormat( $usuario['Usuario']['ultimo_backup'] ); ?></td>
+	<td class="btn-group">
+		<?php echo $this->Html->link( 'Ver', array('action' => 'view', $usuario['Usuario']['id_usuario']), array( 'class' => 'btn btn-info' )); ?>
+		<?php echo $this->Html->link( 'Editar', array('action' => 'edit', $usuario['Usuario']['id_usuario']), array( 'class' => 'btn btn-primary' )); ?>
+		<?php echo $this->Html->link( 'Camb Contra', array( 'action' => 'cambiarContra', $usuario['Usuario']['id_usuario'] ), array( 'class' => 'btn btn-inverse' ) ); ?>
+		<?php echo $this->Form->postLink( 'Eliminar', array('action' => 'delete', $usuario['Usuario']['id_usuario']), array( 'class' => 'btn btn-danger' ), __('Are you sure you want to delete # %s?', $usuario['Usuario']['id_usuario'])); ?>
 	</td>
 </tr>
 <?php endforeach; ?>

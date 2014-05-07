@@ -14,6 +14,12 @@ class Usuario extends AppModel {
      * @var string
      */
     public $primaryKey = 'id_usuario';
+    
+    public $belongsTo = array(
+      'Cliente' => array(
+          'dependent' => false
+      )
+    );
 
     public function buscarIdUsuario($id_cliente) {
         $t = $this->find('first', array('conditions' => array('cliente_id' => $id_cliente), 'fields' => array('id_usuario'), 'recursive' => -1));

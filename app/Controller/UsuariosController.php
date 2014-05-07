@@ -250,16 +250,14 @@ class UsuariosController extends AppController {
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Usuario->save($this->request->data)) {
-                $this->Session->correcto('Los datos del usuario se modificaron correctamente');
-                $this->borrarCacheUsuarios();
-                $this->redirect(array('action' => 'index'));
+                $this->Session->setFlash('Los datos del usuario se modificaron correctamente');
+                return $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->incorrecto('Los datos del usuario no pudieron ser guardados correctamente. Por favor intente nuevamente.');
+                $this->Session->setFlash('Los datos del usuario no pudieron ser guardados correctamente. Por favor intente nuevamente.');
             }
         }
         $this->request->data = $this->Usuario->read(null, $id);
-        $this->set('grupos', $this->Usuario->Grupo->find('list'));
-        $this->set('obras_sociales', $this->Usuario->ObraSocial->find('list'));
+        $this->set( 'clientes', $this->Usuario->Cliente->find('list') );
     }
 
     /**
