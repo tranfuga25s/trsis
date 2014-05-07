@@ -10,11 +10,11 @@ class ControllersTests extends PHPUnit_Framework_TestSuite {
      * @return $suite
      */
 	public static function suite() {
-		$suite = new PHPUnit_Framework_TestSuite('Test de controladores');
-        $path = APP_TEST_CASES . DS . 'Controller' . DS;
-        $suite->addTestFile( $path.'CtactesControllerTest.php' );
-        //$suite->addTestFile( $path.'TurnosControllerTest.php' );
-        //$suite->addTestFile( $path.'UsuariosControllerTest.php' );
-		return $suite;
+   	    $suite = new PHPUnit_Framework_TestSuite('Test de controladores');
+            $path = APP_TEST_CASES . DS . 'Controller' . DS;
+            $suite->addTestFile( $path.'CtactesControllerTest.php' );
+            $suite->addTestFile( $path.'NoticiasControllerTest.php' );
+            $suite->addTestFile( $path.'UsuariosControllerTest.php' );
+            return $suite;
 	}
 }

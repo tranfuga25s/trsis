@@ -23,10 +23,9 @@ class AppController extends Controller {
     );
     public $helpers = array('Number', 'Html', 'Session', 'Form', 'Time', 'Text', 'Js');
     
-    /*public function beforeFilter() {
+    public function beforeFilter() {
         $this->Auth->allow('*');
-        parent::beforeFilter();
-    } */
+    }
 
 }
 

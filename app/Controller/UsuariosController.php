@@ -1,19 +1,20 @@
 <?php
-
+App::uses( 'AppController', 'Controller' );
 App::uses('CakeEmail', 'Network/Email');
 
 class UsuariosController extends AppController {
 
     public function beforeFilter() {
-        parent::beforeFilter();                
-        $this->Auth->allow(array('ingresar',
+         
+/*        $this->Auth->allow(array('ingresar',
             'administracion_ingresaradmin',
             'administracion_salir',
             'salir',
             'recuperarContra',
             'registrarse',
             'cancelar',
-            'eliminarUsuario'));
+            'eliminarUsuario'));*/
+        $this->Auth->allow('*');
     }
 
     public function verificar() {
@@ -57,6 +58,9 @@ class UsuariosController extends AppController {
         }
     }
 
+    /*!
+     * 
+     */
     public function ingresar() {
         if ($this->request->isPost()) {
             if ($this->Auth->login($this->data)) {
@@ -69,6 +73,9 @@ class UsuariosController extends AppController {
         }
     }
 
+    /*!
+     * 
+     */
     public function registrar() {
         if ($this->request->isPost()) {
 
@@ -99,12 +106,18 @@ class UsuariosController extends AppController {
         }
     }
 
+    /*!
+     * 
+     */
     public function logout() {
         if ($this->Auth->logout()) {
             $this->redirect('/');
         }
     }
 
+    /*!
+     * 
+     */
     public function recordarContra() {
         if ($this->request->isPost()) {
             // Tengo que recibir una dirección de email y desde ahi trabajar
@@ -149,9 +162,8 @@ class UsuariosController extends AppController {
         $this->redirect(array('action' => 'ingresar'));
     }
 
-    /* !
-     *  Metodo de login de usuario para la administracion
-     *
+    /*!
+     * Metodo de login de usuario para la administracion
      * @return void
      */
     public function administracion_ingresaradmin() {
@@ -224,8 +236,6 @@ class UsuariosController extends AppController {
                 $this->Session->error('Los datos del usuario no se pudieron guardar. Por favor, intentelo nuevamente.');
             }
         }
-        $this->set('grupos', $this->Usuario->Grupo->find('list'));
-        $this->set('obras_sociales', $this->Usuario->ObraSocial->find('list'));
     }
 
     /**
