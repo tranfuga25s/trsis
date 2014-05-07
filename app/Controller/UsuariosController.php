@@ -274,27 +274,11 @@ class UsuariosController extends AppController {
         if (!$this->Usuario->exists()) {
             throw new NotFoundException('El usuario no es valido');
         }
-        $this->loadModel('Turno');
-        if ($this->Turno->find('count', array('conditions' => array('paciente_id' => $id))) > 0) {
-            $this->Session->incorrecto("No se pudo eliminar el usuario solicitado. \n <b>Razón:</b> El usuario tiene turnos asociados todavía.");
-            $this->redirect(array('action' => 'index'));
-        }
-        $this->loadModel('Medico');
-        if ($this->Medico->find('count', array('conditions' => array('usuario_id' => $id))) > 0) {
-            $this->Session->incorrecto("No se pudo eliminar el usuario solicitado. \n <b>Razón:</b> El usuario tiene un medico asociado");
-            $this->redirect(array('action' => 'index'));
-        }
-        $this->loadModel('Secretaria');
-        if ($this->Secretaria->find('count', array('conditions' => array('usuario_id' => $id))) > 0) {
-            $this->Session->incorrecto("No se pudo eliminar el usuario solicitado. \n <b>Razón:</b> El usuario tiene una secretaria asociada");
-            $this->redirect(array('action' => 'index'));
-        }
         if ($this->Usuario->delete()) {
-            $this->borrarCacheUsuarios();
-            $this->Session->correcto('El Usuario ha sido eliminado correctamente');
-            $this->redirect(array('action' => 'index'));
+            $this->Session->setFlash('El Usuario ha sido eliminado correctamente');
+            return $this->redirect(array('action' => 'index'));
         }
-        $this->Session->incorrecto('El Usuario no fue eliminado');
+        $this->Session->setFlash('El Usuario no fue eliminado');
         $this->redirect(array('action' => 'index'));
     }
 

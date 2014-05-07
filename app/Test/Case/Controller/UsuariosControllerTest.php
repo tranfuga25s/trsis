@@ -170,7 +170,14 @@ class UsuariosControllerTest extends ControllerTestCase {
         $this->testAction( '/administracion/usuarios/delete', array( 'method' => 'GET') );
     }
     
-
+    /**
+     * testAdministracionDeleteMetodoInvalido method
+     */
+    public function testAdministracionDelete() {
+        $this->testAction( '/administracion/usuarios/delete/1', array( 'method' => 'POST') );
+        $this->assertContains( '/administracion/usuarios', $this->headers['Location'] );
+    }
+    
     /**
      * testAdministracionCambiarContra method
      *
