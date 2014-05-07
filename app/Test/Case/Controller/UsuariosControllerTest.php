@@ -124,7 +124,11 @@ class UsuariosControllerTest extends ControllerTestCase {
      * @return void
      */
     public function testAdministracionAdd() {
-        $this->testAction( '/administracion/usuarios/index', array( 'method' => 'POST' ) );
+        $data = array( 'Usuario' => array( 'email' => 'admin@admin.com', 'contra' => '123456' ) );
+        $this->testAction( '/administracion/usuarios/add', array( 'method' => 'POST', 'data' => $data ) );
+        $this->assertContains( '/administracion/usuarios', $this->headers['Location'] );
+        
+        $this->testAction( '/administracion/usuarios/add', array( 'method' => 'POST' ) );
     }
 
     /**

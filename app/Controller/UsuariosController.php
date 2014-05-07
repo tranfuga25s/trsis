@@ -229,9 +229,8 @@ class UsuariosController extends AppController {
         if ($this->request->is('post')) {
             $this->Usuario->create();
             if ($this->Usuario->save($this->request->data)) {
-                $this->borrarCacheUsuarios();
-                $this->Session->correcto('El usuario se agregó correctamente');
-                $this->redirect(array('action' => 'index'));
+                $this->Session->setFlash( 'El usuario se agregó correctamente' );
+                return $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->error('Los datos del usuario no se pudieron guardar. Por favor, intentelo nuevamente.');
             }
