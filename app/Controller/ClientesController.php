@@ -27,6 +27,7 @@ class ClientesController extends AppController {
 		$id_cliente = $this->Usuario->field( 'cliente_id' );
 		$datos = $this->Cliente->find( 'first', array( 'conditions' => array( '`Cliente`.`id`' => $id_cliente ), 'recursive' => 1 ) );
 		$datos2 = $this->Usuario->read();
+                debug( $datos2 );
 		$datos['Usuario'] = $datos2['Usuario'];
 		unset( $datos2 );
 		$this->loadModel( 'Servicio' );

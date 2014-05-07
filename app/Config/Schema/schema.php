@@ -16,7 +16,7 @@ class AppSchema extends CakeSchema {
                                 array('id_usuario' => 1,
                                       'email' => 'admin@admin.com',
                                       'contra' => '123456',
-                                      'cliente_id' => 1,
+                                      'cliente_id' => 2,
                                  )
                             )
                           )

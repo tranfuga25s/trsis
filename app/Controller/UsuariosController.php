@@ -5,6 +5,7 @@ App::uses('CakeEmail', 'Network/Email');
 class UsuariosController extends AppController {
 
     public function beforeFilter() {
+        parent::beforeFilter();                
         $this->Auth->allow(array('ingresar',
             'administracion_ingresaradmin',
             'administracion_salir',
@@ -13,7 +14,6 @@ class UsuariosController extends AppController {
             'registrarse',
             'cancelar',
             'eliminarUsuario'));
-        parent::beforeFilter();        
     }
 
     public function verificar() {
@@ -159,7 +159,7 @@ class UsuariosController extends AppController {
             if ($this->Auth->login()) {
                 return $this->redirect('/administracion/usuarios/cpanel');
             } else {
-                echo AuthComponent::password($this->request->data['Usuario']['contra']);
+                //echo AuthComponent::password($this->request->data['Usuario']['contra']);
                 $this->Session->setFlash('El email ingresado o la contraseña son incorrectas', 'default', array('class' => 'error'), 'auth');
             }
         }
