@@ -8,7 +8,7 @@ class AppSchema extends CakeSchema {
 	public function after($event = array()) {
             if (isset($event['create'])) {
                 switch ($event['create']) {
-                    case "users": {
+                    case "usuarios": {
                       App::uses('ClassRegistry', 'Utility');
                         $user = ClassRegistry::init('Usuario');
                         $user->saveMany(array(
