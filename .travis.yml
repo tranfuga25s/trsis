@@ -6,7 +6,6 @@ php:
   - 5.5
 
 before_script:
-  - phpunit --version
   - sh -c "mysql -e 'CREATE DATABASE trsis;'"
   - mkdir app/tmp
   - mkdir app/tmp/cache
@@ -39,6 +38,7 @@ before_script:
   - sh -c "mysql < ./app/Config/Schema/schema.sql"
   - composer install --dev
   - mkdir -p build/logs
+  - ls -l -1 vendor
 
 script:
   - ./app/Console/cake test app AllTests --stderr --coverage-clover build/logs/clover.xml
