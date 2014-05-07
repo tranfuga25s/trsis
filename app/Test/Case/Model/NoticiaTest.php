@@ -43,8 +43,10 @@ class NoticiaTestCase extends CakeTestCase {
      */
     public function testTituloRepetido() {
         $data = $this->Noticia->find('first');
+        $this->Noticia->create();
         unset( $data[$this->Noticia->alias][$this->Noticia->primaryKey] );
-        $this->assertEqual( $this->Noticia->save( $data ), false );
+        $resultado = $this->Noticia->save( $data );
+        $this->assertEqual( $resultado, false );
     }
 
 }
