@@ -6,6 +6,7 @@ php:
   - 5.5
 
 before_script:
+  - phpunit --version
   - sh -c "mysql -e 'CREATE DATABASE trsis;'"
   - mkdir app/tmp
   - mkdir app/tmp/cache
