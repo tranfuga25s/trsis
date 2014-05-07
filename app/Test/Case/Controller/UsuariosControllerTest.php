@@ -153,13 +153,23 @@ class UsuariosControllerTest extends ControllerTestCase {
     }
 
     /**
-     * testAdministracionDelete method
-     *
+     * testAdministracionDeleteInvalido method
+     * @expectedException NotFoundException
      * @return void
      */
-    public function testAdministracionDelete() {
-        
+    public function testAdministracionDeleteInvalido() {
+        $this->testAction( '/administracion/usuarios/delete' );
     }
+    
+    /**
+     * testAdministracionDeleteMetodoInvalido method
+     * @expectedException MethodNotAllowedException
+     * @return void
+     */
+    public function testAdministracionDeleteMetodoInvalido() {
+        $this->testAction( '/administracion/usuarios/delete', array( 'method' => 'GET') );
+    }
+    
 
     /**
      * testAdministracionCambiarContra method
