@@ -14,7 +14,7 @@ class AllTests extends PHPUnit_Framework_TestSuite {
 	public static function suite() {
 		$suite = new self('All Tests');
         	$path = APP_TEST_CASES . DS;
-        	//$suite->addTestFile( $path.'Controller'.DS.'ControllersTest.php' );
+        	$suite->addTestFile( $path.'Controller'.DS.'ControllersTest.php' );
         	$suite->addTestFile( $path.'Model'.DS.'AllModelsTest.php' );
         	//$suite->addTestFile( $path.'View'.DS.'AllViewsTest.php');
 		return $suite;
