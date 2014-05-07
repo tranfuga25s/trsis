@@ -27,7 +27,11 @@ class Noticia extends AppModel {
 			'notempty' => array(
 				'rule' => array('notempty'),
 				'message' => 'El titulo no puede estar vacío'
-			)
+			),
+                        'repetido' => array(
+                            'rule' => array( 'isUnique' ),
+                            'message' => 'El titulo ingresado ya existe'
+                        )
 		),
 		'contenido' => array(
 			'notempty' => array(
