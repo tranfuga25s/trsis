@@ -20,6 +20,13 @@ class Usuario extends AppModel {
           'dependent' => false
       )
     );
+    
+    public $validate = array(
+        'email' => array(
+            'rule' => array( 'email' ),
+            'message' => 'Ingrese un email correcto'
+        )
+    );
 
     public function buscarIdUsuario($id_cliente) {
         $t = $this->find('first', array('conditions' => array('cliente_id' => $id_cliente), 'fields' => array('id_usuario'), 'recursive' => -1));
@@ -57,7 +64,7 @@ class Usuario extends AppModel {
      */
 
     public function verificarSiExiste($email = null) {
-        $cantidad = $this->find('count', array('conditions' => array('email' => $email)));
+        $cantidad = $this->find('count', array('conditions' => array('email' => $email), 'recursive' => -1 ));
         if ($cantidad > 0) {
             return true;
         } else {

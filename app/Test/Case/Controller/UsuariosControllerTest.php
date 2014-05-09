@@ -22,37 +22,29 @@ class UsuariosControllerTest extends ControllerTestCase {
      * testVerificar method
      *
      * @return void
-     */
-    public function testVerificar() {
-        
-    }
+     *
+    public function testVerificar() {}
 
     /**
      * testIngresar method
      *
      * @return void
-     */
-    public function testIngresar() {
-        
-    }
+     *
+    public function testIngresar() {}
 
     /**
      * testRegistrar method
      *
      * @return void
-     */
-    public function testRegistrar() {
-        
-    }
+     *
+    public function testRegistrar() {}
 
     /**
      * testLogout method
      *
      * @return void
-     */
-    public function testLogout() {
-        
-    }
+     *
+    public function testLogout() {}
 
     /**
      * testRecordarContra method
@@ -60,14 +52,34 @@ class UsuariosControllerTest extends ControllerTestCase {
      * @return void
      */
     public function testRecordarContra() {
-        
+        $data = array( 'Usuario' => array( 'email' => 'invalido@gmail.com' ) );
+        $this->testAction( '/usuarios/recordarContra', array( 'method' => 'POST', 'data' => $data ) );
     }
 
+    /**
+     */
+    public function testRecordarContraInvalido() {
+        $data = array( 'email' => 'invalido@gmail.com' );
+        $this->testAction( '/usuarios/recordarContra', array( 'method' => 'POST', 'data' => $data ) );
+        $this->assertContains( '/usuarios/ingresar', $this->headers['Location'] );
+        
+        $data = array( 'Usuario' => array( 'email' => 'invalido.com' ) );
+        $this->testAction( '/usuarios/recordarContra', array( 'method' => 'POST', 'data' => $data ) );
+        $this->assertContains( '/usuarios/ingresar', $this->headers['Location'] );
+    }
+
+    /**
+     * @expectedException MethodNotAllowedException
+     */
+    public function testRecordarContraInvalidoGet() {
+        $this->testAction( '/usuarios/recordarContra', array( 'method' => 'GET' ) );
+    }
+    
     /**
      * testAdministracionIngresaradmin method
      *
      * @return void
-     */
+     *
     public function testAdministracionIngresaradmin() {
         
     }
@@ -76,7 +88,7 @@ class UsuariosControllerTest extends ControllerTestCase {
      * testAdministracionSalir method
      *
      * @return void
-     */
+     *
     public function testAdministracionSalir() {
         
     }
@@ -85,7 +97,7 @@ class UsuariosControllerTest extends ControllerTestCase {
      * testAdministracionCpanel method
      *
      * @return void
-     */
+     *
     public function testAdministracionCpanel() {
         
     }
@@ -183,8 +195,6 @@ class UsuariosControllerTest extends ControllerTestCase {
      *
      * @return void
      */
-    public function testAdministracionCambiarContra() {
-        
-    }
+    public function testAdministracionCambiarContra() {}
 
 }

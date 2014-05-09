@@ -155,7 +155,7 @@ class UsuariosController extends AppController {
                 $this->Session->setFlash('No se pudo generar una nueva contraseña de acceso');
             }
         } else {
-            throw new NotFoundException('Metodo de envio no implementado!');
+            throw new MethodNotAllowedException('Metodo de envio no implementado!');
         }
         $this->redirect(array('action' => 'ingresar'));
     }

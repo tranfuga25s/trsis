@@ -62,5 +62,10 @@ class UsuarioTestCase extends CakeTestCase {
         /// @TODO: Agregar hashing de contraseñas
         
     }
+    
+    public function testExisteEmail() {
+        $this->assertNotEqual( $this->Usuario->verificarSiExiste( 'email@email.com' ), true );
+        $this->assertEqual( $this->Usuario->verificarSiExiste( 'admin@admin.com' ), true );
+    }
 
 }
