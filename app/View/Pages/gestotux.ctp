@@ -39,7 +39,7 @@ $this->Html->addCrumb( 'Gestotux 0.5' );
         <br />
         <?php echo $this->Html->link(
                          $this->Html->image( 'descargar.png', array( 'border' => 0, 'alt' => "Ver partes disponibles", 'class' => 'btn btn-inverse' ) ),
-                         array( 'controller' => 'pages', 'action' => 'descargar' ),
+                         array( 'controller' => 'pages', 'action' => 'display', 'descargar' ),
                           array( 'escape' => false ) ); ?>
     </div>
     <div class="span4 well text-center">
@@ -48,7 +48,7 @@ $this->Html->addCrumb( 'Gestotux 0.5' );
         <?php
         echo $this->Html->link(
              $this->Html->image( 'nubes.png', array( 'border' => 0, 'alt' => "Servicios en la nube", 'class' => 'btn btn-inverse' ) ),
-             array( 'controller' => 'pages', 'action' => 'view', 'servicios' ),
+             array( 'controller' => 'pages', 'action' => 'display', 'servicios' ),
              array( 'escape' => false ) );
         ?>
     </div>
