@@ -6,13 +6,13 @@
 	<link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
 	<?php
-		echo $this->Html->meta('icon');
-		echo $this->Html->css('bootstrap');
+	echo $this->Html->meta('icon');
+	echo $this->Html->css('bootstrap');
         echo $this->Html->css('bootstrap-responsive.min');
         echo $this->Html->css('trsis');
-		echo $this->Html->script( 'jquery-1.10.2.min' );
+	echo $this->Html->script( 'jquery-1.10.2.min' );
         echo $this->Html->script( 'bootstrap.min' );
-		echo $scripts_for_layout;
+	echo $scripts_for_layout;
 	?>
 </head>
 <body>

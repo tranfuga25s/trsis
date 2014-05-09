@@ -1,5 +1,4 @@
 <?php
-
 App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
@@ -17,16 +16,20 @@ class AppController extends Controller {
                     'fields' => array('username' => 'id_usuario',
                                       'password' => 'codigo')
                 )
-            )
+            ),
+            'authorize' => array( 'Controller' )
         ),
         'Session'
     );
+    
     public $helpers = array('Number', 'Html', 'Session', 'Form', 'Time', 'Text', 'Js');
     
     public function beforeFilter() {
-        $this->Auth->allow('*');
+        $this->Auth->allow();
     }
-
+    
+    public function isAuthorized( $user = array() ) { 
+        return true;
+    }
+    
 }
-
-?>

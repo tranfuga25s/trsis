@@ -5,16 +5,14 @@ App::uses('CakeEmail', 'Network/Email');
 class UsuariosController extends AppController {
 
     public function beforeFilter() {
-         
-/*        $this->Auth->allow(array('ingresar',
+        $this->Auth->allow(array('ingresar',
             'administracion_ingresaradmin',
             'administracion_salir',
             'salir',
             'recuperarContra',
             'registrarse',
             'cancelar',
-            'eliminarUsuario'));*/
-        $this->Auth->allow('*');
+            'eliminarUsuario'));
     }
 
     public function verificar() {
