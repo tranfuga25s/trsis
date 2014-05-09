@@ -80,28 +80,28 @@
                     <?php echo $this->Html->link(
                             $this->Html->image( 'autonomo.png', array( 'alt' => "Autonomo", 'style' => 'width: 100px;' ) ).'<br />'.
                             'Autonomo',
-                             '/pages/servicios',
+                             '/pages/versiones/autonomo',
                              array( 'escape' => false ) ); ?>
                 </li>
                 <li class="thumbnail text-center"  style="margin-left: -4px;">
                     <?php echo $this->Html->link(
                             $this->Html->image( 'multiple.png', array( 'alt' => "Multiple", 'style' => 'width: 100px;' ) ).'<br />'.
                             'Multiple',
-                             '/pages/servicios',
+                             '/pages/versiones/multiple',
                              array( 'escape' => false ) ); ?>
                 </li>
                 <li class="thumbnail text-center"  style="margin-left: -4px;">
                     <?php echo $this->Html->link(
                             $this->Html->image( 'portatil.png', array( 'alt' => "Portatil", 'style' => 'width: 100px;' ) ).'<br />'.
                             'Portatil',
-                             '/pages/servicios',
+                             '/pages/versiones/portatil',
                              array( 'escape' => false ) ); ?>
                 </li>
                 <li class="thumbnail text-center"  style="margin-left: -4px;">
                     <?php echo $this->Html->link(
                             $this->Html->image( 'internet.png', array( 'alt' => "Internet", 'style' => 'width: 100px;' ) ).'<br />'.
                             'Internet',
-                             '/pages/servicios',
+                             '/pages/versiones/internet',
                              array( 'escape' => false ) ); ?>
                 </li>
             </ul>
