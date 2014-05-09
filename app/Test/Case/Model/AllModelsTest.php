@@ -14,6 +14,7 @@ class AllModelTests extends PHPUnit_Framework_TestSuite {
         $path = APP_TEST_CASES . DS . 'Model' . DS;
         $suite->addTestFile( $path.'BackupTest.php' );
         $suite->addTestFile( $path.'CtacteTest.php' );
+        $suite->addTestFile( $path.'ClienteTest.php' );
         $suite->addTestFile( $path.'ItemCtacteTest.php' );
         $suite->addTestFile( $path.'NoticiaTest.php' );
         $suite->addTestFile( $path.'ServicioBackupTest.php' );
