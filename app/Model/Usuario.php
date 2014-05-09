@@ -70,14 +70,13 @@ class Usuario extends AppModel {
      * Genera una nueva contraseña para el usuario, la coloca en la variable $contra y la asigna al email pasado como referencia.
      * @return Verdadero si el email está dado de alta en el sistema
      */
-
     public function generarNuevaContraseña($email = null, $contra = null) {
         $str = "ABCDE2FGHIJKLM4NOPQRSTUVWXY2Zabcdefghij5klmnopqrstu2vwxyz1234567890";
         $contra = "";
         for ($i = 0; $i < 8; $i++) {
             $contra .= substr($str, rand(0, 64), 1);
         }
-        $id = $this->find('first', array('conditions' => array('email' => $email), 'fields' => 'id_usuario'));
+        $id = $this->find('first', array('conditions' => array('Usuario.email' => $email), 'fields' => 'id_usuario', 'recurive' => -1 ) );
         if ($id['Usuario']['id_usuario'] != 0) {
             $this->id = $id['Usuario']['id_usuario'];
             if (!$this->saveField('contra', $contra)) {
