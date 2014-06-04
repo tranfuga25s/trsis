@@ -62,18 +62,16 @@ $modulos = array(
 <div class="row-fluid">
     <div class="span12 well">
         <h4>Módulos disponibles</h4>      
-        <div class="row-fluid">
+        <ul class="row-fluid thumbnails">
             <?php foreach( $modulos as $modulo ) : ?>
-            <div class="span2">
+            <li class="span2">
                 <div class="thumbnail">
                     <?php echo $this->Html->image( 'modulos/'.$modulo['imagen'], array( 'style' => 'width: 50px; height: 50px; margin-top: 9px;'  ) ); ?>
-                    <div class="caption text-center">
-                        <h4><?php echo $this->Html->link( $modulo['nombre'], array( 'controller' => 'pages', 'action' => 'display', 'modulos' ) ); ?></h4>
-                    </div>
+                    <div class="caption text-center"><?php echo $this->Html->link( $modulo['nombre'], array( 'controller' => 'pages', 'action' => 'display', 'modulos' ) ); ?></div>
                 </div>
-            </div>
+            </li>
             <?php endforeach; ?>
-        </div>
+        </ul>
     </div>
 
 </div>
