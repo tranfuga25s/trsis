@@ -44,32 +44,36 @@ $this->Html->addCrumb( "Autonoma" );
             <button class="btn disabled">Estadisticas detalladas</button>
         </div>
     </div>
+</div>
 
-    <div class="span10 well">
-        <h4>Módulos disponibles</h4>
-        <?php
-        $modulos = array(
-            array( 'nombre' => 'Compras'                , 'imagen' => 'compras.png'     ),
-            array( 'nombre' => 'Presupuestos'           , 'imagen' => 'presupuesto.png' ),
-            array( 'nombre' => 'Facturas'               , 'imagen' => 'ventas.jpg'      ),
-            array( 'nombre' => 'Recibos'                , 'imagen' => 'recibo.png'      ),
-            array( 'nombre' => 'Cuentas Corrientes'     , 'imagen' => 'ctacte.png'      ),
-            array( 'nombre' => 'Control de caja'        , 'imagen' => 'caja.png'        ),
-            array( 'nombre' => 'Productos'              , 'imagen' => 'productos.png'   ),
-            array( 'nombre' => 'Proveedores'            , 'imagen' => 'proveedores.jpg' ),
-            array( 'nombre' => 'Servicio de suscripcion', 'imagen' => 'servicios.png'   )
-        );
-        ?>
-        <div class="thumbnails row-fluid">
+<?php
+$modulos = array(
+    array( 'nombre' => 'Compras'                , 'imagen' => 'compras.png'     ),
+    array( 'nombre' => 'Presupuestos'           , 'imagen' => 'presupuesto.png' ),
+    array( 'nombre' => 'Facturas'               , 'imagen' => 'ventas.jpg'      ),
+    array( 'nombre' => 'Recibos'                , 'imagen' => 'recibo.png'      ),
+    array( 'nombre' => 'Cuentas Corrientes'     , 'imagen' => 'ctacte.png'      ),
+    array( 'nombre' => 'Control de caja'        , 'imagen' => 'caja.png'        ),
+    array( 'nombre' => 'Productos'              , 'imagen' => 'productos.png'   ),
+    array( 'nombre' => 'Proveedores'            , 'imagen' => 'proveedores.jpg' ),
+    array( 'nombre' => 'Servicio de suscripción', 'imagen' => 'servicios.png'   )
+);
+?>
+<div class="row-fluid">
+    <div class="span12 well">
+        <h4>Módulos disponibles</h4>      
+        <div class="row-fluid">
             <?php foreach( $modulos as $modulo ) : ?>
-            <div class="span3 thumbnail text-center" style="height: 100px;">
-                <?php
-                echo $this->Html->image( 'modulos/'.$modulo['imagen'], array( 'style' => 'width: 50px; height: 50px;'  ) );
-                echo $this->Html->link( $modulo['nombre'], array( 'controller' => 'pages', 'action' => 'display', 'modulos' ), array( 'class' => 'btn' ) );
-                ?>
+            <div class="span2">
+                <div class="thumbnail">
+                    <?php echo $this->Html->image( 'modulos/'.$modulo['imagen'], array( 'style' => 'width: 50px; height: 50px; margin-top: 9px;'  ) ); ?>
+                    <div class="caption text-center">
+                        <h4><?php echo $this->Html->link( $modulo['nombre'], array( 'controller' => 'pages', 'action' => 'display', 'modulos' ) ); ?></h4>
+                    </div>
+                </div>
             </div>
             <?php endforeach; ?>
-        </ol>
+        </div>
     </div>
 
 </div>
