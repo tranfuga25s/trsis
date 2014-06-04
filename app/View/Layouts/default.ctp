@@ -18,14 +18,17 @@
 <body>
 
   <!-- Cabecera -->
-  <div class="row">
-    <div class="span8">
+  <div class="row-fluid">
+    <div class="span10">
       <h1>Gestotux</h1>
-      <p class="lead">Programa de Gestion Simplificada</p>
+      <p class="lead">
+          Programa de Gestión Simplificada    
+      </p>
+      
     </div>
-    <div class="span2">
-      <div class="pull-right"><?php echo $this->Html->image( 'cabecera.png', array( 'id' => 'cabecera' ) ); ?></div>
-    </div>
+      <div class="span2">
+          <?php echo $this->Html->image( 'cabecera.png', array( 'id' => 'cabecera', 'class' => 'pull-right' ) ); ?>
+      </div>
   </div>
 
   <div class="navbar">
