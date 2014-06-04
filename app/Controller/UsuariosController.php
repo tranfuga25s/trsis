@@ -5,16 +5,14 @@ App::uses('CakeEmail', 'Network/Email');
 class UsuariosController extends AppController {
 
     public function beforeFilter() {
-         
-/*        $this->Auth->allow(array('ingresar',
+        $this->Auth->allow(array('ingresar',
             'administracion_ingresaradmin',
             'administracion_salir',
             'salir',
             'recuperarContra',
             'registrarse',
             'cancelar',
-            'eliminarUsuario'));*/
-        $this->Auth->allow('*');
+            'eliminarUsuario'));
     }
 
     public function verificar() {
@@ -157,7 +155,7 @@ class UsuariosController extends AppController {
                 $this->Session->setFlash('No se pudo generar una nueva contraseña de acceso');
             }
         } else {
-            throw new NotFoundException('Metodo de envio no implementado!');
+            throw new MethodNotAllowedException('Metodo de envio no implementado!');
         }
         $this->redirect(array('action' => 'ingresar'));
     }

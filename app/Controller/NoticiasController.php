@@ -11,6 +11,7 @@ class NoticiasController extends AppController {
 
     public function beforeFilter() {
         $this->Auth->allow( array( 'index', 'view', 'listado' ) );
+        parent::beforeFilter();
     }
 
     /**

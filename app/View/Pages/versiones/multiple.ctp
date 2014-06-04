@@ -65,7 +65,7 @@ $this->Html->addCrumb( "Autonoma" );
             <div class="span3 thumbnail text-center" style="height: 100px;">
                 <?php
                 echo $this->Html->image( 'modulos/'.$modulo['imagen'], array( 'style' => 'width: 50px; height: 50px;'  ) );
-                echo $this->Html->tag( 'div', $modulo['nombre'], array( 'class' => 'btn' ) );
+                echo $this->Html->link( $modulo['nombre'], array( 'controller' => 'pages', 'action' => 'display', 'modulos' ), array( 'class' => 'btn' ) );
                 ?>
             </div>
             <?php endforeach; ?>

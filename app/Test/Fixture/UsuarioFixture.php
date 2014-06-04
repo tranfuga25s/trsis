@@ -12,6 +12,7 @@ class UsuarioFixture extends CakeTestFixture {
      */
     public $fields = array(
         'id_usuario' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 20, 'key' => 'primary', 'collate' => NULL, 'comment' => ''),
+        'email' =>  array('type' => 'text', 'null' => false, 'default' => NULL, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'charset' => 'utf8'),
         'contra' => array('type' => 'text', 'null' => false, 'default' => NULL, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'charset' => 'utf8'),
         'ultimo_acceso' => array('type' => 'datetime', 'null' => true, 'default' => NULL, 'collate' => NULL, 'comment' => ''),
         'ultimo_backup' => array('type' => 'datetime', 'null' => true, 'default' => NULL, 'collate' => NULL, 'comment' => ''),
@@ -28,6 +29,7 @@ class UsuarioFixture extends CakeTestFixture {
     public $records = array(
         array(
             'id_usuario' => 1,
+            'email' => 'admin@admin.com',
             'contra' => '123456',
             'ultimo_acceso' => '2012-05-22 15:36:31',
             'ultimo_backup' => '2012-05-22 15:36:31',
