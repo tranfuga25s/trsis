@@ -1,28 +1,31 @@
 <?php
+
 App::uses('CtactesController', 'Controller');
 
 /**
  * TestCtactesController *
  */
 class TestCtactesController extends CtactesController {
-/**
- * Auto render
- *
- * @var boolean
- */
-	public $autoRender = false;
 
-/**
- * Redirect action
- *
- * @param mixed $url
- * @param mixed $status
- * @param boolean $exit
- * @return void
- */
-	public function redirect($url, $status = null, $exit = true) {
-		$this->redirectUrl = $url;
-	}
+    /**
+     * Auto render
+     *
+     * @var boolean
+     */
+    public $autoRender = false;
+
+    /**
+     * Redirect action
+     *
+     * @param mixed $url
+     * @param mixed $status
+     * @param boolean $exit
+     * @return void
+     */
+    public function redirect($url, $status = null, $exit = true) {
+        $this->redirectUrl = $url;
+    }
+
 }
 
 /**
@@ -30,33 +33,34 @@ class TestCtactesController extends CtactesController {
  *
  */
 class CtactesControllerTestCase extends CakeTestCase {
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array('app.ctacte', 'app.item', 'app.item_ctacte');
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
-		$this->Ctactes = new TestCtactesController();
-		$this->Ctactes->constructClasses();
-	}
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array('app.ctacte', 'app.item', 'app.item_ctacte');
 
-/**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		unset($this->Ctactes);
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp() {
+        parent::setUp();
+        $this->Ctactes = new TestCtactesController();
+        $this->Ctactes->constructClasses();
+    }
 
-		parent::tearDown();
-	}
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown() {
+        unset($this->Ctactes);
+
+        parent::tearDown();
+    }
 
 }
