@@ -154,7 +154,7 @@ class CakeTestSuiteDispatcher {
 			}
 		}
                 
-		include App::path('vendors') . DS . 'phpunit'. DS. 'phpunit'. DS. 'PHPUnit' . DS . 'Autoload.php';
+		include APP . DS . 'vendors' . DS . 'phpunit'. DS. 'phpunit'. DS. 'PHPUnit' . DS . 'Autoload.php';
 		return class_exists('PHPUnit_Framework_TestCase');
 	}
 
