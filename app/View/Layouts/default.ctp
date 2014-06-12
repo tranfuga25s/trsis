@@ -78,7 +78,7 @@
 
        <div class="span2 well text-center" style="width: 11.893617%;">
             <h4 class="text-center">Versiones</h4>
-            <ul class="thumbnails">
+            <ul class="thumbnails text-center">
                 <li class="thumbnail text-center" style="margin-left: -4px;">
                     <?php echo $this->Html->link(
                             $this->Html->image( 'autonomo.png', array( 'alt' => "Autonomo", 'style' => 'width: 100px;' ) ).'<br />'.

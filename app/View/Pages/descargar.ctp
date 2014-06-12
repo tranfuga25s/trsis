@@ -34,7 +34,7 @@ Por favor, selecci&oacute;ne su sistema operativo de preferencia:<br />
 
     <div class="span5 well">
         <h4 class="text-center">Mac</h4>
-        Todav&iacute;a no existe ninguna versión precompilada para Linux.<br />
+        Todav&iacute;a no existe ninguna versión precompilada para iOS.<br />
         <?php echo $this->Html->link( 'Descargar código fuente',  '#cf' ); ?><br />
     </div>
 
@@ -43,11 +43,11 @@ Por favor, selecci&oacute;ne su sistema operativo de preferencia:<br />
 <div class="row-fluid">
     <div class="span12 well">
         <h4 class="text-center">Código fuente</h4>
-        Si lo desea, puede bajar el codigo fuente del programa y compilarlo usted mismo. Para esto se le brinda acceso al repositorio SVN del programa gratuitamente.
+        Si lo desea, puede bajar el código fuente del programa y compilarlo usted mismo. Para esto se le brinda acceso al repositorio Git del programa gratuitamente.
         <h6>Instrucciones</h6>
         Para descargar el repositorio con la &uacute;ltima versi&oacute;n de desarrollo utilice el siguiente comando:<br />
         <br />
-        <span style=" font-family: system;">svn checkout http://gestotux.googlecode.com/svn/trunk/trunk/ gestotux-read-only</span><br />
+        <span style=" font-family: system;">git clone https://github.com/tranfuga25s/gestotux.git</span><br />
         <br />
         Consulte la ayuda de su sistema operativo para obtener el repositorio y construirlo.<br />
     </div>
