@@ -40,7 +40,7 @@ class NoticiasController extends AppController {
     public function view($id = null) {
         $this->Noticia->id = $id;
         if (!$this->Noticia->exists()) {
-            throw new NotFoundException(__('Invalid noticia'));
+            throw new NotFoundException( "Noticia invalida" );
         }
         $this->set('noticia', $this->Noticia->read(null, $id));
     }
@@ -64,10 +64,10 @@ class NoticiasController extends AppController {
         if ($this->request->is('post')) {
             $this->Noticia->create();
             if ($this->Noticia->save($this->request->data)) {
-                $this->Session->setFlash(__('The noticia has been saved'));
+                $this->Session->setFlash( "La noticia fue guardada correctamente" );
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The noticia could not be saved. Please, try again.'));
+                $this->Session->setFlash( 'La noticia no pudo ser guardada. Intente nuevamente.');
             }
         }
     }

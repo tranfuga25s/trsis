@@ -1,5 +1,4 @@
 <?php
-/* ServiciosCliente Test cases generated on: 2012-05-22 15:20:59 : 1337710859*/
 App::uses('ServiciosCliente', 'Model');
 
 /**
@@ -7,35 +6,38 @@ App::uses('ServiciosCliente', 'Model');
  *
  */
 class ServiciosClienteTestCase extends CakeTestCase {
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array('app.servicios_cliente');
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array('app.servicios_cliente');
 
-		$this->ServiciosCliente = ClassRegistry::init('ServiciosCliente');
-	}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp() {
+        parent::setUp();
 
-/**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		unset($this->ServiciosCliente);
+        $this->ServiciosCliente = ClassRegistry::init('ServiciosCliente');
+    }
 
-		parent::tearDown();
-	}
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown() {
+        unset($this->ServiciosCliente);
 
-    public function testA() { $this->assertEqual( true, true ); }
+        parent::tearDown();
+    }
+
+    public function testA() {
+        $this->assertEqual(true, true);
+    }
 
 }

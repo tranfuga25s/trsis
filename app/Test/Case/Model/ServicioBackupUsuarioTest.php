@@ -1,5 +1,4 @@
 <?php
-/* ServicioBackupUsuario Test cases generated on: 2012-05-23 21:17:25 : 1337818645*/
 App::uses('ServicioBackupUsuario', 'Model');
 
 /**
@@ -7,35 +6,45 @@ App::uses('ServicioBackupUsuario', 'Model');
  *
  */
 class ServicioBackupUsuarioTestCase extends CakeTestCase {
-/**
- * Fixtures
- *
- * @var array
- */
-	public $fixtures = array('app.servicio_backup_usuario');
 
-/**
- * setUp method
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = array('app.servicio_backup_usuario');
 
-		$this->ServicioBackupUsuario = ClassRegistry::init('ServicioBackupUsuario');
-	}
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp() {
+        parent::setUp();
 
-/**
- * tearDown method
- *
- * @return void
- */
-	public function tearDown() {
-		unset($this->ServicioBackupUsuario);
+        $this->ServicioBackupUsuario = ClassRegistry::init('ServicioBackupUsuario');
+    }
 
-		parent::tearDown();
-	}
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown() {
+        unset($this->ServicioBackupUsuario);
 
-    public function testA() { $this->assertEqual( true, true ); }
+        parent::tearDown();
+    }
+
+    public function testCodigoPorUsuarioIncorrecto() {
+        $this->assertEqual( $this->ServicioBackupUsuario->buscarCodigo(), false );
+        $this->assertEqual( $this->ServicioBackupUsuario->buscarCodigo( 0 ), false );
+        $this->assertEqual( $this->ServicioBackupUsuario->buscarCodigo( -1 ), false );
+        $this->assertEqual( $this->ServicioBackupUsuario->buscarCodigo( 222 ), false );
+    }
+    
+    public function testCodigoPorUsuario() {
+        $this->assertEqual( $this->ServicioBackupUsuario->buscarCodigo( 1 ), '123456' );
+    }
 
 }

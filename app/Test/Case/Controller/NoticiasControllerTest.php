@@ -51,5 +51,22 @@ class NoticiasControllerTest extends ControllerTestCase {
             }
         }
     }
+    
+    /**
+     * @expectedException NotFoundException
+     * @expectedExceptionMessage Noticia invalida
+     */
+    public function testView() {
+        $this->testAction( '/noticias/view/-1' );
+    }
+    
+    public function testViewCorrect() {
+        $this->testAction( '/noticias/view/1' );
+        $this->assertArrayHasKey( 'noticia', $this->vars );
+    }
+    
+    public function testAdminIndex() {
+        $this->testAction( '/administracion/noticias/index' );
+    }
 
 }
