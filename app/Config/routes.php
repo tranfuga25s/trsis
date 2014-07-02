@@ -18,7 +18,8 @@
  * how to customize the loading of plugin routes.
  */
 	CakePlugin::routes();
-	Router::parseExtensions('json');
+        Router::mapResources('backups');
+        Router::parseExtensions();
 
 /**
  * Load the CakePHP default routes. Remove this if you do not want to use

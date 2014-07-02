@@ -19,16 +19,21 @@ class AppController extends Controller {
             ),
             'authorize' => array( 'Controller' )
         ),
-        'Session'
+        'Session',
+        'RequestHandler'
     );
     
     public $helpers = array('Number', 'Html', 'Session', 'Form', 'Time', 'Text', 'Js');
     
     public function beforeFilter() {
-        $this->Auth->allow();
+        parent::beforeFilter();
+        $this->Auth->allow(array('*'));
     }
     
     public function isAuthorized( $user = array() ) { 
+        if( $this->prefix == 'api' ) {
+            return true;
+        }
         return true;
     }
     

@@ -13,7 +13,7 @@ $this->Html->addCrumb( 'Inicio' );
 	<li><i class="icon-asterisk"></i>Generación de presupuestos</li>
 	<li><i class="icon-asterisk"></i>Generación de facturas</li>
 	<li><i class="icon-asterisk"></i>Generación y gestión de recibos.</li>
-	<li><i class="icon-asterisk"></i>Administracion de base de datos de clientes.</li>
+	<li><i class="icon-asterisk"></i>Administración de base de datos de clientes.</li>
 	<li><i class="icon-asterisk"></i>Gestión de compras y proveedores.</li>
 	<li><i class="icon-asterisk"></i>Control básico de stock.</li>
 	<li><i class="icon-asterisk"></i>Gestión de caja.</li>
