@@ -18,6 +18,10 @@
  * how to customize the loading of plugin routes.
  */
 	CakePlugin::routes();
+        
+        /**
+         * Enables REST API for backups
+         */
         Router::mapResources('backups');
         Router::parseExtensions();
 
