@@ -16,6 +16,12 @@ class Cliente extends AppModel {
      * @var string
      */
     public $useDbConfig = 'gestotux';
+    
+    /**
+     * Primary Key
+     * 
+     * @var string 
+     */
     public $primaryKey = 'id';
 
     /**
@@ -25,9 +31,33 @@ class Cliente extends AppModel {
      */
     public $displayField = 'razon_social';
 
-    public $hasMany = array('ServiciosCliente' => array('foreignKey' => 'id_cliente'));
-    public $hasOne = array('Ctacte' => array('foreignKey' => 'id_cliente'));
+    /**
+     *
+     * @var array 
+     */
+    public $hasMany = array(
+        'ServiciosCliente' => array(
+            'foreignKey' => 'id_cliente'
+        )
+    );
     
+    /**
+     *
+     * @var array
+     */
+    public $hasOne = array(
+        'Ctacte' => array(
+            'foreignKey' => 'id_cliente'
+        ),
+        'Usuario' => array(
+            'foreignKey' => 'cliente_id'
+        )
+    );
+    
+    /**
+     *
+     * @var array 
+     */
     public $validate = array(
       'email' => array(
           'rule' => array( 'email' ),
@@ -75,6 +105,28 @@ class Cliente extends AppModel {
         } else {
             return false;
         }
+    }
+    
+    /**
+     *  Verifica la existencia de un token
+     * 
+     * @param type $token
+     * @return boolean
+     */
+    public function existeToken( $token = null ) {
+        if( is_null( $token ) ) { return false; }
+        if( empty( $token ) ) { return false; }
+        
+        return $this->Usuario->existeToken( $token );
+    }
+    
+    /**
+     * 
+     * @param type $token
+     * @return type
+     */
+    public function getUserSegunToken( $token = null ) {
+        return $this->Usuario->findByToken( $token );
     }
 
 }

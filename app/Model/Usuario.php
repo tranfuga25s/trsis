@@ -7,7 +7,7 @@ App::uses('AppModel', 'Model');
  *
  */
 class Usuario extends AppModel {
-
+    
     /**
      * Primary key field
      *
@@ -15,12 +15,20 @@ class Usuario extends AppModel {
      */
     public $primaryKey = 'id_usuario';
     
+    /**
+     *
+     * @var array 
+     */
     public $belongsTo = array(
       'Cliente' => array(
           'dependent' => false
       )
     );
     
+    /**
+     *
+     * @var type 
+     */
     public $validate = array(
         'email' => array(
             'rule' => array( 'email' ),
@@ -28,11 +36,21 @@ class Usuario extends AppModel {
         )
     );
 
+    /**
+     * 
+     * @param type $id_cliente
+     * @return type
+     */
     public function buscarIdUsuario($id_cliente) {
         $t = $this->find('first', array('conditions' => array('cliente_id' => $id_cliente), 'fields' => array('id_usuario'), 'recursive' => -1));
         return $t['Usuario']['id_usuario'];
     }
 
+    /**
+     * 
+     * @param type $ids_backup
+     * @return boolean
+     */
     public function buscarIdServicioSegunBackup($ids_backup) {
         if ($this->id == null) {
             return false;
@@ -98,7 +116,18 @@ class Usuario extends AppModel {
         }
         return $contra;
     }
+    
+    /**
+     * Verifica la existencia de un token
+     * 
+     * @param type $token
+     * @return boolean
+     */
+    public function existeToken( $token ) {
+        $t = $this->find( 'count', array( 'conditions' => array( 'token' => $token ), 
+                                          'recursive' => -1 ) 
+        );
+        if( $t == 1 ) { return true; } else { return false; }
+    }
 
 }
-
-?>

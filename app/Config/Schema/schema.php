@@ -17,6 +17,7 @@ class AppSchema extends CakeSchema {
                                       'email' => 'admin@admin.com',
                                       'contra' => '123456',
                                       'cliente_id' => 2,
+                                      'token' => 'token_seguridad_123456789'
                                  )
                             )
                           )
@@ -74,6 +75,7 @@ class AppSchema extends CakeSchema {
 		'ultimo_backup' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'cliente_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 20),
 		'email' => array('type' => 'string', 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'charset' => 'utf8'),
+                'token' => array('type' => 'string', 'null' => false, 'default' => null, 'collate' => 'utf8_spanish_ci', 'charset' => 'utf8'),
 		'indexes' => array('PRIMARY' => array('column' => 'id_usuario', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_spanish_ci', 'engine' => 'InnoDB')
 	);

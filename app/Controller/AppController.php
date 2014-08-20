@@ -7,10 +7,11 @@ class AppController extends Controller {
         'Auth' => array(
             'loginAction' => array(
                 'controller' => 'usuarios',
-                'action' => 'ingresaradmin'
+                'action' => 'ingresar'
             ),
             'authError' => 'Usted no tiene permisos para ingresar en esta sección',
             'authenticate' => array(
+                'Gestotux',
                 'Form' => array(
                     'userModel' => 'Usuario',
                     'fields' => array('username' => 'id_usuario',
@@ -26,8 +27,9 @@ class AppController extends Controller {
     public $helpers = array('Number', 'Html', 'Session', 'Form', 'Time', 'Text', 'Js');
     
     public function beforeFilter() {
-        parent::beforeFilter();
+        
         $this->Auth->allow(array('*'));
+        parent::beforeFilter();
     }
     
     public function isAuthorized( $user = array() ) { 
