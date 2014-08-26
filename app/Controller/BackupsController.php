@@ -14,7 +14,9 @@ class BackupsController extends AppController {
      * 
      * @var array 
      */
-    public $helpers = array('Number');
+    public $helpers = array(
+        'Number'
+    );
     
     /**
      * 

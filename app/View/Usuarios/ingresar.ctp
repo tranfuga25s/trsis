@@ -13,28 +13,37 @@ $this->Html->addCrumb( 'Ingreso de clientes' );
 	}
 
 </script>
-<div class="row-flid">
-    <div id="todo" class="span5 text-center">
-        <?php echo $this->Form->create( 'Usuario', array( 'action' => 'ingresar') ); ?>
+<div class="row">
+    <div id="todo" class="col-lg-5 text-center">
+        <?php echo $this->Form->create( 'Usuario', array( 'action' => 'ingresar', 'class' => 'form-horizontal') ); ?>
         <fieldset>
             <legend>Ya soy cliente</legend>
-            <?php
-    		echo $this->Form->input( 'username', array( 'label' => 'Numero de cliente', 'class' => 'ui-widget-content ui-corner-all'  ) );
-    		echo $this->Form->input( 'password', array( 'label' => 'Codigo', 'class' => 'ui-widget-content ui-corner-all'   ) ); ?>
-    		<div class="form-actions">
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-4 control-label">Número de cliente</label>
+                <div class="col-lg-8">
+                    <?php echo $this->Form->input( 'username', array( 'label' => false, 'class' => 'form-control', 'div' => false, 'placeholder' => 'Nº de cliente'  ) ); ?>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-4 control-label">Codigo</label>
+                <div class="col-lg-8">
+                    <?php echo $this->Form->input( 'password', array( 'label' => false, 'class' => 'form-control', 'div' => false, 'placeholder' => 'Codigo'  ) ); ?>
+                </div>
+            </div>
+            <div class="form-group">
                 <?php
                 echo $this->Form->submit( 'Ingresar', array( 'div' => false, 'class' => 'btn btn-success' ) );
                 echo "  ";
                 echo $this->Html->tag( 'a', 'Limpiar', array( 'onclick' => "limpiarIngreso()", 'class' => 'btn btn-primary' ) );
-                echo "  ";
-                echo $this->Html->tag( 'a', '¡Olvide mis datos!', array( 'onclick' => "olvideDatos();", 'class' => 'btn' ) );
+                echo "&nbsp;";
+                echo $this->Html->tag( 'a', '¡Olvide mis datos!', array( 'onclick' => "olvideDatos();", 'class' => 'btn btn-default' ) );
                 ?>
-    		</div>
+            </div>
         </fieldset>
         <?php echo $this->Form->end(); ?>
     </div>
 
-    <div class="span5 well">
+    <div class="col-lg-5 well">
         <br />
         Si desea ingresar al sistema pero no posee una cuenta, pongase en contacto con nostros y se la proveeremos.
         <br />
