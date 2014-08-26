@@ -5,16 +5,23 @@ App::uses('CakeEmail', 'Network/Email');
 class UsuariosController extends AppController {
 
     public function beforeFilter() {
-        $this->Auth->allow(array('ingresar',
+        parent::beforeFilter();
+        $this->Auth->allow(array(
+            'ingresar',
             'administracion_ingresaradmin',
             'administracion_salir',
             'salir',
             'recuperarContra',
             'registrarse',
             'cancelar',
-            'eliminarUsuario'));
+            'eliminarUsuario')
+        );
     }
 
+    /**
+     * 
+     * @return type
+     */
     public function verificar() {
         $this->autoRender = false;
         if ($this->request->isPost() && isset($this->request->query['num_cliente'])) {
@@ -107,10 +114,8 @@ class UsuariosController extends AppController {
     /*!
      * 
      */
-    public function logout() {
-        if ($this->Auth->logout()) {
-            $this->redirect('/');
-        }
+    public function salir() {
+        return $this->redirect( $this->Auth->logout() );
     }
 
     /*!

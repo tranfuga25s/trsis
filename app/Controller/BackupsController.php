@@ -1,5 +1,4 @@
 <?php
-
 App::uses('AppController', 'Controller');
 App::uses('Folder', 'Utility');
 App::uses('File', 'Utility');
@@ -21,15 +20,16 @@ class BackupsController extends AppController {
      * 
      * @return type
      */
-    public function api_index() {
+    public function index() {
         // Solicitud de parte del programa
-        $id_usuario = $this->request->data['num_cliente'];
-        $this->loadModel('Usuario');
-        $id_servicio_backup = $this->request->data['id_servicio_backup'];
-        $driver = $this->request->data['driver'];
-        $data = $this->Backup->find('all', array('conditions' =>
-            array('servicio_backup_id' => $id_servicio_backup,
-                'usuario_id' => $id_usuario)
+        debug( $this->Session->read( 'Auth' ) );
+        $user = $this->Auth->user();
+        $id_usuario = $user['Usuario']['id_usuario'];
+        $id_servicio_backup = $this->ServicioBackup->buscarIdServicioBackup( $user['Usuario']['id_usuario'] );
+        $data = $this->Backup->find( 'all', 
+                array('conditions' => array(
+                        'servicio_backup_id' => $id_servicio_backup,
+                        'usuario_id' => $id_usuario )
                 )
         );
         if (count($data) > 0) {
@@ -38,7 +38,7 @@ class BackupsController extends AppController {
         } else {
             $this->set( array(
                 'data' => array( 'error' => true, 
-                                 'mensaje' => 'No existen backups todavia. <br /> id_servicio_backup=' . $id_servicio_backup . ' - id_usuario=' . $id_usuario . '<br />' . print_r($data, true)
+                                 'mensaje' => 'No existen backups todavia.'
                 ),
                 '_serialize' => array( 'data' )
             ) );

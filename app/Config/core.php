@@ -115,7 +115,7 @@
 	// Prefijo de administracion
 	Configure::write( 'Routing.prefixes', array( 'administracion' ) );
         // Prefijo para el API
-        Configure::write( 'Routing.prefixes', array( 'api' ) );
+        //Configure::write( 'Routing.prefixes', array( 'api' ) );
 
 /**
  * Turn off all caching application-wide.
