@@ -24,10 +24,9 @@ class BackupsController extends AppController {
      */
     public function index() {
         // Solicitud de parte del programa
-        debug( $this->Session->read( 'Auth' ) );
         $user = $this->Auth->user();
-        $id_usuario = $user['Usuario']['id_usuario'];
-        $id_servicio_backup = $this->ServicioBackup->buscarIdServicioBackup( $user['Usuario']['id_usuario'] );
+        $id_usuario = intval( $user['Usuario']['id_usuario'] );
+        $id_servicio_backup = $this->Backup->ServicioBackup->ServicioBackupUsuario->buscarIdServicioBackup( $user['Usuario']['id_usuario'] );
         $data = $this->Backup->find( 'all', 
                 array('conditions' => array(
                         'servicio_backup_id' => $id_servicio_backup,
@@ -40,7 +39,7 @@ class BackupsController extends AppController {
         } else {
             $this->set( array(
                 'data' => array( 'error' => true, 
-                                 'mensaje' => 'No existen backups todavia.'
+                                 'mensaje' => 'No existen backups todavía.'
                 ),
                 '_serialize' => array( 'data' )
             ) );

@@ -51,7 +51,7 @@ class AppController extends Controller {
      */
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow();
+        //$this->Auth->allow();
     }
     
     /**

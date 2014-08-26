@@ -32,30 +32,43 @@ class ServicioBackupUsuario extends AppModel {
      * @param integer $id_usuario
      * @return string
      */
-    public function buscarCodigo( $id_usuario = null ) {
-        if( is_null( $id_usuario ) || intval( $id_usuario <= 0 ) ) {
+    public function buscarCodigo($id_usuario = null) {
+        if (is_null($id_usuario) || intval($id_usuario <= 0)) {
             return false;
         }
-        $d = $this->find( 'first', array( 
+        $d = $this->find('first', array(
             'conditions' => array(
                 'id_usuario' => $id_usuario
-            ), 
-            'recursive' => -1, 
-            'fields' => array( 'codigo' ) )
+            ),
+            'recursive' => -1,
+            'fields' => array('codigo'))
         );
-        if( count( $d ) > 0 && array_key_exists( $this->alias, $d ) ) {
+        if (count($d) > 0 && array_key_exists($this->alias, $d)) {
             return $d['ServicioBackupUsuario']['codigo'];
         }
         return false;
     }
 
+    /**
+     * 
+     * @param type $id_usuario
+     * @return array
+     */
     public function buscarIdServicioBackup($id_usuario) {
-        $d = $this->find('first', array('conditions' => array('ServicioBackupUsuario.id_usuario' => $id_usuario),
-            'fields' => array('id_servicio_backup'),
-            'recursive' => 1));
-        return $d['ServicioBackupUsuario']['id_servicio_backup'];
+        $d = $this->find( 'first', array(
+                'conditions' => array( 'ServicioBackupUsuario.id_usuario' => $id_usuario ),
+                'fields' => array( 'id_servicio_backup' ),
+                'recursive' => 1)
+        );
+        return intval( current( current( $d ) ) );
     }
 
+    /**
+     * 
+     * @param type $id_usuario
+     * @param type $id_servicio_backup
+     * @return boolean
+     */
     public function verificarRelacionUsuario($id_usuario, $id_servicio_backup) {
         if ($id_usuario == null || $id_servicio_backup == null) {
             return true;
@@ -75,6 +88,13 @@ class ServicioBackupUsuario extends AppModel {
         }
     }
 
+    /**
+     * 
+     * @param type $num_cliente
+     * @param type $cantidad
+     * @param type $tam
+     * @param type $id_servicio
+     */
     public function actualizarUso($num_cliente, $cantidad, $tam, $id_servicio) {
         $data = $this->find('first', array('conditions' => array('id_usuario' => $num_cliente, 'id_servicio_backup' => $id_servicio), 'recursive' => -1));
         $this->updateAll(array('cantidad' => $data['ServicioBackupUsuario']['cantidad'] + $cantidad,

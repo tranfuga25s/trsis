@@ -116,7 +116,6 @@ class Cliente extends AppModel {
     public function existeToken( $token = null ) {
         if( is_null( $token ) ) { return false; }
         if( empty( $token ) ) { return false; }
-        
         return $this->Usuario->existeToken( $token );
     }
     

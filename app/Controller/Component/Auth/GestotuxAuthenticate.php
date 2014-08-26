@@ -15,8 +15,8 @@ class GestotuxAuthenticate extends BaseAuthenticate {
      */
     public function authenticate( CakeRequest $request, CakeResponse $response ) {
         $token = $request->header('X-Gestotux-Token' );
-        $this->Client = ClassRegistry::init( 'Cliente' );
-        if( $this->Client->existeToken( $token ) !== false ) {
+        $this->Cliente = ClassRegistry::init( 'Cliente' );
+        if( $this->Cliente->existeToken( $token ) !== false ) {
             return $this->Cliente->getUserSegunToken( $token );
         }
         return false;
@@ -26,10 +26,10 @@ class GestotuxAuthenticate extends BaseAuthenticate {
      * 
      * @param CakeRequest $request
      */
-    public function getUser( CakeRequest $request) {
+    public function getUser( CakeRequest $request ) {
         $token = $request->header('X-Gestotux-Token' );
-        $this->Client = ClassRegistry::init( 'Cliente' );
-        if( $this->Client->existeToken( $token ) !== false ) {
+        $this->Cliente = ClassRegistry::init( 'Cliente' );
+        if( $this->Cliente->existeToken( $token ) !== false ) {
             return $this->Cliente->getUserSegunToken( $token );
         } else {
             return false;
