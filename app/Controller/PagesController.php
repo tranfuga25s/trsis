@@ -10,6 +10,14 @@ class PagesController extends AppController {
      * @var array
      */
     public $uses = array();
+    
+    /**
+     * Permite que se puedan ver las paginas publicas
+     */
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow();
+    }
 
     /**
      * Displays a view

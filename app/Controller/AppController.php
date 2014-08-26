@@ -33,7 +33,7 @@ class AppController extends Controller {
     );
     
     /**
-     *
+     * Helpers utilizados
      * @var type 
      */
     public $helpers = array(
@@ -48,22 +48,11 @@ class AppController extends Controller {
     
     /**
      * 
-     */
-    public function beforeFilter() {
-        parent::beforeFilter();
-        //$this->Auth->allow();
-    }
-    
-    /**
-     * 
      * @param type $user
      * @return type
      */
     public function isAuthorized( $user = array() ) { 
-        /*if( $this->prefix == 'api' ) {
-            return true;
-        }*/
-        return $this->Auth->loggedIn();
+         return $this->Auth->loggedIn();
     }
     
 }
