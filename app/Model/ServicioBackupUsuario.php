@@ -32,7 +32,7 @@ class ServicioBackupUsuario extends AppModel {
      * @param integer $id_usuario
      * @return string
      */
-    public function buscarCodigo($id_usuario = null) {
+    public function buscarCodigo( $id_usuario = null ) {
         if (is_null($id_usuario) || intval($id_usuario <= 0)) {
             return false;
         }
@@ -41,10 +41,10 @@ class ServicioBackupUsuario extends AppModel {
                 'id_usuario' => $id_usuario
             ),
             'recursive' => -1,
-            'fields' => array('codigo'))
+            'fields' => array( 'codigo' ) )
         );
-        if (count($d) > 0 && array_key_exists($this->alias, $d)) {
-            return $d['ServicioBackupUsuario']['codigo'];
+        if ( count($d) > 0 && array_key_exists($this->alias, $d)) {
+            return md5( $d['ServicioBackupUsuario']['codigo'] );
         }
         return false;
     }

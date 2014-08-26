@@ -14,7 +14,8 @@ class UsuariosController extends AppController {
             'recuperarContra',
             'registrarse',
             'cancelar',
-            'eliminarUsuario')
+            'eliminarUsuario',
+            'verificar')
         );
     }
 
@@ -23,13 +24,13 @@ class UsuariosController extends AppController {
      * @return type
      */
     public function verificar() {
-        //if ($this->request->is( 'post' ) && isset($this->request->query['num_cliente'])) {
+        if ($this->request->is( 'get' ) && isset( $this->request->query['num_cliente'] ) ) {
             
             $error = false;
             $texto = null;
             
             $id_usuario = $this->request->query['num_cliente'];
-            $contra = $this->request->query['codigo']; // Tiene que ser MD5 al menos
+            $contra = $this->request->query['codigo'];
             $this->loadModel('Usuario');
             $this->Usuario->id = $id_usuario;
             if (!$this->Usuario->exists()) {
@@ -65,16 +66,16 @@ class UsuariosController extends AppController {
             }
             $this->set( array(
                 'error' => false,
-                'texto' => '',
+                'texto' => $texto,
                 '_serialize' => array( 'cantidad', 'limite_cantidad', 'espacio', 'limite_espacio', 'nombre', 'suspendido', 'error', 'texto' )
             ) );
-        /*} else {
+        } else {
             $this->set( array(
               'error' => true,
               'texto' => 'Metodo no soportado',
               '_serialize' => array( 'error', 'texto' )
             ) );
-        }*/
+        }
     }
 
     /*!
