@@ -10,6 +10,11 @@ App::uses('File', 'Utility');
  */
 class BackupsController extends AppController {
 
+    /**
+     * Helpers
+     * 
+     * @var array 
+     */
     public $helpers = array('Number');
     
     /**
@@ -40,6 +45,12 @@ class BackupsController extends AppController {
         }
     }
 
+    /**
+     * 
+     * @param type $id_servicio_backup
+     * @param type $id_usuario
+     * @param type $id_servicio
+     */
     public function historial($id_servicio_backup = null, $id_usuario = null, $id_servicio = null) {
         // Cargo los datos del historial
         ///@TODO agregar verificaciones de que existan los datos pasados como condicion
@@ -51,8 +62,12 @@ class BackupsController extends AppController {
         $this->set('id_servicio', $id_servicio);
     }
 
+    /**
+     * Funcion que recibo un ID de un elemento
+     * 
+     * @return type array
+     */
     public function envio() {
-        $this->autoRender = false;
         if ($this->request->isPost()) {
             // Busco si están todos los parametros
             // Parametro especial, para acelerar la subida de elementos
