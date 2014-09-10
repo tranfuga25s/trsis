@@ -69,7 +69,7 @@ class BackupsController extends AppController {
      * @return type array
      */
     public function envio() {
-        if ($this->request->isPost()) {
+        if ($this->request->is( 'put' ) || $this->request->is( 'put' ) ) {
             // Busco si están todos los parametros
             // Parametro especial, para acelerar la subida de elementos
             if (isset($this->request->query['ids'])) {
