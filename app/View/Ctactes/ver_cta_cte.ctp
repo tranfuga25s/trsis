@@ -3,9 +3,9 @@ $this->set( 'title_for_layout', 'Listado de cuenta corriente' );
 $this->Html->addCrumb( 'Panel de cliente', array( 'controller' => 'clientes', 'action' => 'inicio'  ) );
 $this->Html->addCrumb( 'Cuenta corriente' );
 ?>
-<div class="row-fluid">
+<div class="row">
 
-    <div class="span12">
+    <div class="col-sm-12">
         <h2>Mi cuenta corriente</h2>
         <div class="btn-group">
             <?php echo $this->Html->link( 'Volver', array( 'controller' => 'clientes', 'action' => 'inicio' ), array( 'class' => 'btn btn-warning') ); ?>

@@ -19,12 +19,10 @@ $this->Html->addCrumb('Panel de cliente');
                 <?php } ?>
             </div>
             <?php if( count( $datos['ServiciosCliente'] ) > 0 ) : ?>
-            <ul class="list-group">
-                <?php foreach ($datos['ServiciosCliente'] as $servicio) : ?>
-                <li class="list-group-item">
-                    <?php echo $this->Html->link( $servicios[$servicio['id_servicio']], array('controller' => 'ServicioBackup', 'action' => 'inicio', $datos['Usuario']['id_usuario'], $servicio['id_servicio']) );?>
-                </li>
-                <?php endforeach; ?>
+            <ul class="list-group"><?php 
+                foreach ($datos['ServiciosCliente'] as $servicio) :
+                    echo $this->Html->link( $servicios[$servicio['id_servicio']], array('controller' => 'ServicioBackup', 'action' => 'inicio', $datos['Usuario']['id_usuario'], $servicio['id_servicio']), array( 'class' => 'list-group-item') );
+                endforeach; ?>
             </ul>
             <?php endif; ?>
             <div class="panel-footer text-right">
