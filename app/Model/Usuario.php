@@ -14,25 +14,43 @@ class Usuario extends AppModel {
      * @var string
      */
     public $primaryKey = 'id_usuario';
-    
+
+    /**
+     *
+     * @var array 
+     */
     public $belongsTo = array(
-      'Cliente' => array(
-          'dependent' => false
-      )
+        'Cliente' => array(
+            'dependent' => false
+        )
     );
-    
+
+    /**
+     *
+     * @var type 
+     */
     public $validate = array(
         'email' => array(
-            'rule' => array( 'email' ),
+            'rule' => array('email'),
             'message' => 'Ingrese un email correcto'
         )
     );
 
+    /**
+     * 
+     * @param type $id_cliente
+     * @return type
+     */
     public function buscarIdUsuario($id_cliente) {
         $t = $this->find('first', array('conditions' => array('cliente_id' => $id_cliente), 'fields' => array('id_usuario'), 'recursive' => -1));
         return $t['Usuario']['id_usuario'];
     }
 
+    /**
+     * 
+     * @param type $ids_backup
+     * @return boolean
+     */
     public function buscarIdServicioSegunBackup($ids_backup) {
         if ($this->id == null) {
             return false;
@@ -64,7 +82,7 @@ class Usuario extends AppModel {
      */
 
     public function verificarSiExiste($email = null) {
-        $cantidad = $this->find('count', array('conditions' => array('email' => $email), 'recursive' => -1 ));
+        $cantidad = $this->find('count', array('conditions' => array('email' => $email), 'recursive' => -1));
         if ($cantidad > 0) {
             return true;
         } else {
@@ -77,13 +95,14 @@ class Usuario extends AppModel {
      * Genera una nueva contraseña para el usuario, la coloca en la variable $contra y la asigna al email pasado como referencia.
      * @return Verdadero si el email está dado de alta en el sistema
      */
+
     public function generarNuevaContraseña($email = null, $contra = null) {
         $str = "ABCDE2FGHIJKLM4NOPQRSTUVWXY2Zabcdefghij5klmnopqrstu2vwxyz1234567890";
         $contra = "";
         for ($i = 0; $i < 8; $i++) {
             $contra .= substr($str, rand(0, 64), 1);
         }
-        $id = $this->find('first', array('conditions' => array('Usuario.email' => $email), 'fields' => 'id_usuario', 'recurive' => -1 ) );
+        $id = $this->find('first', array('conditions' => array('Usuario.email' => $email), 'fields' => 'id_usuario', 'recurive' => -1));
         if ($id['Usuario']['id_usuario'] != 0) {
             $this->id = $id['Usuario']['id_usuario'];
             if (!$this->saveField('contra', $contra)) {
@@ -99,6 +118,21 @@ class Usuario extends AppModel {
         return $contra;
     }
 
-}
+    /**
+     * Verifica la existencia de un token
+     * 
+     * @param type $token
+     * @return boolean
+     */
+    public function existeToken($token) {
+        $t = $this->find('count', array('conditions' => array('token' => $token),
+            'recursive' => -1)
+        );
+        if ($t == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-?>
+}

@@ -5,54 +5,76 @@ App::uses('CakeEmail', 'Network/Email');
 class UsuariosController extends AppController {
 
     public function beforeFilter() {
-        $this->Auth->allow(array('ingresar',
+        parent::beforeFilter();
+        $this->Auth->allow(array(
+            'ingresar',
             'administracion_ingresaradmin',
             'administracion_salir',
             'salir',
             'recuperarContra',
             'registrarse',
             'cancelar',
-            'eliminarUsuario'));
+            'eliminarUsuario',
+            'verificar')
+        );
     }
 
+    /**
+     * 
+     * @return type
+     */
     public function verificar() {
-        $this->autoRender = false;
-        if ($this->request->isPost() && isset($this->request->query['num_cliente'])) {
+        if ($this->request->is( 'get' ) && isset( $this->request->query['num_cliente'] ) ) {
+            
+            $error = false;
+            $texto = null;
+            
             $id_usuario = $this->request->query['num_cliente'];
             $contra = $this->request->query['codigo'];
             $this->loadModel('Usuario');
             $this->Usuario->id = $id_usuario;
             if (!$this->Usuario->exists()) {
-                return json_encode(array('error' => true, 'texto' => 'El numero de cliente no corresponde a un cliente registrado'));
+                $error = true;
+                $texto = 'El numero de cliente no corresponde a un cliente registrado';
+            } else {
+                $this->loadModel('ServicioBackupUsuario');
+                $cod = $this->ServicioBackupUsuario->buscarCodigo( $id_usuario );
+                if ($cod != $contra) {
+                    $error = true;
+                    $texto = 'El codigo de seguridad no coincide para su cliente.';
+                } else {
+                    // Retorno los datos para mostrarlos
+                    $id_servicio_backup = $this->ServicioBackupUsuario->buscarIdServicioBackup($id_usuario);
+                    if ($id_servicio_backup == false) {
+                        return json_encode(array('error' => true, 'texto' => 'No existe una asociación de su usuario con un servicio de backup'));
+                    } else {
+                        $this->loadModel('ServicioBackup');
+                        $datos = $this->ServicioBackup->read(null, $id_servicio_backup);
+                        $this->loadModel('ServicioBackupUsuario');
+                        $temp = $this->ServicioBackupUsuario->find('first', array('conditions' => array('ServicioBackupUsuario.id_servicio_backup' => $id_servicio_backup, 'ServicioBackupUsuario.id_usuario' => $id_usuario)));
+                        $datos['ServicioBackupUsuario'] = $temp['ServicioBackupUsuario'];
+                        $this->set( array(
+                            'cantidad' => $datos['ServicioBackupUsuario']['cantidad'],
+                            'limite_cantidad' => $datos['ServicioBackup']['limite_cantidad'],
+                            'espacio' => $datos['ServicioBackupUsuario']['espacio'],
+                            'limite_espacio' => $datos['ServicioBackup']['limite_espacio'],
+                            'nombre' => $datos['Servicio']['nombre'],
+                            'suspendido' => $datos['ServicioBackupUsuario']['suspendido']
+                        ) );
+                    }
+                }
             }
-            $this->loadModel('ServicioBackupUsuario');
-            $cod = $this->ServicioBackupUsuario->buscarCodigo($id_usuario);
-            if ($cod != $contra) {
-                return json_encode(array('error' => true, 'texto' => 'El codigo de seguridad no coincide para su cliente.'));
-            }
-            // Retorno los datos para mostrarlos
-            $id_servicio_backup = $this->ServicioBackupUsuario->buscarIdServicioBackup($id_usuario);
-            if ($id_servicio_backup == false) {
-                return json_encode(array('error' => true, 'texto' => 'No existe una asociación de su usuario con un servicio de backup'));
-            }
-            $this->loadModel('ServicioBackup');
-            $datos = $this->ServicioBackup->read(null, $id_servicio_backup);
-            $this->loadModel('ServicioBackupUsuario');
-            $temp = $this->ServicioBackupUsuario->find('first', array('conditions' => array('ServicioBackupUsuario.id_servicio_backup' => $id_servicio_backup, 'ServicioBackupUsuario.id_usuario' => $id_usuario)));
-            $datos['ServicioBackupUsuario'] = $temp['ServicioBackupUsuario'];
-            return json_encode(
-                    array('cantidad' => $datos['ServicioBackupUsuario']['cantidad'],
-                        'limite_cantidad' => $datos['ServicioBackup']['limite_cantidad'],
-                        'espacio' => $datos['ServicioBackupUsuario']['espacio'],
-                        'limite_espacio' => $datos['ServicioBackup']['limite_espacio'],
-                        'nombre' => $datos['Servicio']['nombre'],
-                        'suspendido' => $datos['ServicioBackupUsuario']['suspendido'],
-                        'error' => false,
-                        'texto' => ''
-                    )
-            );
+            $this->set( array(
+                'error' => false,
+                'texto' => $texto,
+                '_serialize' => array( 'cantidad', 'limite_cantidad', 'espacio', 'limite_espacio', 'nombre', 'suspendido', 'error', 'texto' )
+            ) );
         } else {
-            return json_encode(array('error' => true, 'texto' => 'Metodo no soportado'));
+            $this->set( array(
+              'error' => true,
+              'texto' => 'Metodo no soportado',
+              '_serialize' => array( 'error', 'texto' )
+            ) );
         }
     }
 
@@ -107,10 +129,8 @@ class UsuariosController extends AppController {
     /*!
      * 
      */
-    public function logout() {
-        if ($this->Auth->logout()) {
-            $this->redirect('/');
-        }
+    public function salir() {
+        return $this->redirect( $this->Auth->logout() );
     }
 
     /*!

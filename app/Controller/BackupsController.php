@@ -1,5 +1,4 @@
 <?php
-
 App::uses('AppController', 'Controller');
 App::uses('Folder', 'Utility');
 App::uses('File', 'Utility');
@@ -15,21 +14,23 @@ class BackupsController extends AppController {
      * 
      * @var array 
      */
-    public $helpers = array('Number');
+    public $helpers = array(
+        'Number'
+    );
     
     /**
      * 
      * @return type
      */
-    public function api_index() {
+    public function index() {
         // Solicitud de parte del programa
-        $id_usuario = $this->request->data['num_cliente'];
-        $this->loadModel('Usuario');
-        $id_servicio_backup = $this->request->data['id_servicio_backup'];
-        $driver = $this->request->data['driver'];
-        $data = $this->Backup->find('all', array('conditions' =>
-            array('servicio_backup_id' => $id_servicio_backup,
-                'usuario_id' => $id_usuario)
+        $user = $this->Auth->user();
+        $id_usuario = intval( $user['Usuario']['id_usuario'] );
+        $id_servicio_backup = $this->Backup->ServicioBackup->ServicioBackupUsuario->buscarIdServicioBackup( $user['Usuario']['id_usuario'] );
+        $data = $this->Backup->find( 'all', 
+                array('conditions' => array(
+                        'servicio_backup_id' => $id_servicio_backup,
+                        'usuario_id' => $id_usuario )
                 )
         );
         if (count($data) > 0) {
@@ -38,7 +39,7 @@ class BackupsController extends AppController {
         } else {
             $this->set( array(
                 'data' => array( 'error' => true, 
-                                 'mensaje' => 'No existen backups todavia. <br /> id_servicio_backup=' . $id_servicio_backup . ' - id_usuario=' . $id_usuario . '<br />' . print_r($data, true)
+                                 'mensaje' => 'No existen backups todavía.'
                 ),
                 '_serialize' => array( 'data' )
             ) );
@@ -68,7 +69,7 @@ class BackupsController extends AppController {
      * @return type array
      */
     public function envio() {
-        if ($this->request->isPost()) {
+        if ($this->request->is( 'put' ) || $this->request->is( 'put' ) ) {
             // Busco si están todos los parametros
             // Parametro especial, para acelerar la subida de elementos
             if (isset($this->request->query['ids'])) {

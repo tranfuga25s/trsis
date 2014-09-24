@@ -34,6 +34,17 @@ class ServicioBackup extends AppModel {
             'foreignKey' => 'id_servicio'
         )
     );
+    
+    /**
+     *
+     * @var array 
+     */
+    public $hasMany = array(
+        'ServicioBackupUsuario' => array(
+            'className' => 'ServicioBackupUsuario',
+            'foreignKey' => 'id_servicio_backup'
+        )
+    );
 
     /**
      * Devuelve el ID de serviciode backup según el ID de servicio pasado como parametro
