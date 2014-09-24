@@ -16,7 +16,7 @@ $this->Html->addCrumb( 'Módulos disponibles' );
                   Este modulo le permite tener los datos de todos sus clientes de forma ordenada y concisa.<br />
                   Algunos de los datos que le permite mantener son:
                   <ul>
-                          <li>Razon social y nombre y apellido diferentes</li>
+                          <li>Razón social y nombre y apellido diferentes</li>
                           <li>Numero de CUIT/CUIL, incluyendo verificación de que es correcto.</li>
                           <li>Paises y provincias precargados.</li>
                           <li>Dirección de email, telefono fijo, celular y fax.</li>
@@ -131,7 +131,7 @@ $this->Html->addCrumb( 'Módulos disponibles' );
               </h3>
           </div>
           <div class="panel-body">            
-                Este m&oacute; le permite mantener una lista simple de sus proveedores con sus datos de contacto.
+                Este modulo le permite mantener una lista simple de sus proveedores con sus datos de contacto.
           </div>
         </div>
     </div>

@@ -14,9 +14,9 @@ $this->Html->addCrumb( 'Versiones' );
         <br />
         <div class="btn-group">
         <?php
-        echo $this->Html->link( 'Probar', array( 'controller' => 'pages', 'action' => 'descargar' ), array( 'class' => 'btn btn-inverse' ) );
-        echo $this->Html->link( 'Ver mas', array( 'controller' => 'pages', 'action' => 'display', 'versiones', 'autonomo' ), array( 'class' => 'btn btn-success' ) );
-        echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary' ) );
+            echo $this->Html->link( 'Probar', array( 'controller' => 'pages', 'action' => 'descargar' ), array( 'class' => 'btn btn-default' ) );
+            echo $this->Html->link( 'Ver mas', array( 'controller' => 'pages', 'action' => 'display', 'versiones', 'autonomo' ), array( 'class' => 'btn btn-success' ) );
+            echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary' ) );
         ?>
         </div>
     </div>
@@ -31,22 +31,30 @@ $this->Html->addCrumb( 'Versiones' );
         </ul>
         Esta ultima opción es ideal para gran cantidad de programas corriendo simultaneamente, mientras que la primera es ideal si posee 1 o 2 maquinas interconectadas en red.
         <br />
-        <?php echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary pull-right' )  ); ?>
+        <div class="btn-group">
+            <?php echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary pull-right' )  ); ?>
+        </div>
     </div>
 
     <div class="span5 well">
         <h3>Portatil</h3>
         Esta versión del programa se presenta en un práctico paquete que le permite conectarlo a cualquier maquina que posea una conexión USB y luego utilizar el programa en esa computadora como si fuera la propia suya, ya que contendrá todos los datos necesarios para no tener que estar copiando archivos de una maquina a otra.
-        <br /><br />
-        <?php echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary pull-right' )  ); ?>
+        <br />
+        <br />
+        <div class="btn-group">
+            <?php echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary pull-right' )  ); ?>
+        </div>
     </div>
 
 
     <div class="span5 well">
         <h3>Internet</h3>
         Esta versión del programa es ideal para aquellas personas que viajan mucho, ya que le permite acceder desde cualquier punto donde se encuentre conectado a internet a su base de datos.
-        <br /><br />
-        <?php echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary pull-right' )  ); ?>
+        <br />
+        <br />
+        <div class="btn-group">
+            <?php echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary pull-right' )  ); ?>
+        </div>
     </div>
 
     <div class="span10 well">
@@ -57,6 +65,9 @@ $this->Html->addCrumb( 'Versiones' );
             <li>Formularios con cabecera personalizada.</li>
             <li>Ampliaciones de reportes y listados del sistema.</li>
         </ul>
-        <?php echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary pull-right' )  ); ?>
+        <br />
+        <div class="btn-group">
+            <?php echo $this->Html->link( 'Solicitar Presupuesto', array( 'controller' => 'contacto','action' => 'formulario' ), array( 'class' => 'btn btn-primary pull-right' )  ); ?>
+        </div>      
     </div>
 </div>
