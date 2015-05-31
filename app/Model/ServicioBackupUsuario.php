@@ -21,10 +21,20 @@ class ServicioBackupUsuario extends AppModel {
      * @var string
      */
     public $primaryKey = 'id_servicio_backup';
+    
+    /**
+     *
+     * @var type 
+     */
     public $belongsTo = array(
         'ServicioBackup' => array(
             'className' => 'ServicioBackup',
-            'foreignKey' => 'id_servicio_backup')
+            'foreignKey' => 'id_servicio_backup'
+        ),
+        'Usuario' => array(
+            'className' => 'Usuario',
+            'foreignKey' => 'id_usuario'
+        )
     );
 
     /**
@@ -50,26 +60,33 @@ class ServicioBackupUsuario extends AppModel {
     }
 
     /**
+     * Busca el primer id de servicio de backup para un usuario.
      * 
-     * @param type $id_usuario
-     * @return array
+     * @param integer $id_usuario
+     * @return integer
      */
-    public function buscarIdServicioBackup($id_usuario) {
+    public function buscarIdServicioBackup( $id_usuario = null) {
+        $id_usuario = intval($id_usuario);
         $d = $this->find( 'first', array(
                 'conditions' => array( 'ServicioBackupUsuario.id_usuario' => $id_usuario ),
                 'fields' => array( 'id_servicio_backup' ),
                 'recursive' => 1)
         );
-        return intval( current( current( $d ) ) );
+        if (count($d) > 0 ) {
+            return intval( current( current( $d ) ) );
+        } else {
+            return false;
+        }
     }
 
     /**
+     * Verifica que existe una relación entre el usuario y el servicio de backup
      * 
-     * @param type $id_usuario
-     * @param type $id_servicio_backup
+     * @param integer $id_usuario
+     * @param integer $id_servicio_backup
      * @return boolean
      */
-    public function verificarRelacionUsuario($id_usuario, $id_servicio_backup) {
+    public function verificarRelacionUsuario($id_usuario = null, $id_servicio_backup = null) {
         if ($id_usuario == null || $id_servicio_backup == null) {
             return true;
         }

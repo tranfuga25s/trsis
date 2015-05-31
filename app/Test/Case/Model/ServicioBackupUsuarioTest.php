@@ -32,10 +32,12 @@ class ServicioBackupUsuarioTestCase extends CakeTestCase {
      */
     public function tearDown() {
         unset($this->ServicioBackupUsuario);
-
         parent::tearDown();
     }
 
+    /**
+     * 
+     */
     public function testCodigoPorUsuarioIncorrecto() {
         $this->assertEqual( $this->ServicioBackupUsuario->buscarCodigo(), false );
         $this->assertEqual( $this->ServicioBackupUsuario->buscarCodigo( 0 ), false );
@@ -43,6 +45,9 @@ class ServicioBackupUsuarioTestCase extends CakeTestCase {
         $this->assertEqual( $this->ServicioBackupUsuario->buscarCodigo( 222 ), false );
     }
     
+    /**
+     * 
+     */
     public function testCodigoPorUsuario() {
         $this->assertEqual( $this->ServicioBackupUsuario->buscarCodigo( 1 ), '123456' );
     }

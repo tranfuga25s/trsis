@@ -4,6 +4,7 @@ php:
   - 5.3
   - 5.4
   - 5.5
+  - 5.6
 
 before_script:
   - sh -c "mysql -e 'CREATE DATABASE trsis;'"
@@ -38,7 +39,6 @@ before_script:
   - sh -c "mysql < ./app/Config/Schema/schema.sql"
   - composer install --dev
   - mkdir -p build/logs
-  - ls -l1 vendor/phpunit/phpunit
 
 script:
   - ./app/Console/cake test app AllTests --stderr --coverage-clover build/logs/clover.xml --include-path vendor/phpunit/phpunit
