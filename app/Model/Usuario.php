@@ -134,5 +134,18 @@ class Usuario extends AppModel {
             return false;
         }
     }
+    
+    /**
+     * 
+     * @param type $options
+     */
+    public function beforeSave($options = array()) {
+        if (array_key_exists($this->alias, $this->data)) {
+            if (array_key_exists('contra', $this->data[$this->alias])) {
+                $passwordHasher = new SimplePasswordHasher();
+                $this->data[$this->alias]['contra'] = $passwordHasher->hash($this->data[$this->alias]['contra']);
+            }
+        }
+    }
 
 }
