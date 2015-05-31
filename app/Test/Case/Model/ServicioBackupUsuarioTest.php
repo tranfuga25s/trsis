@@ -49,7 +49,7 @@ class ServicioBackupUsuarioTestCase extends CakeTestCase {
      * 
      */
     public function testCodigoPorUsuario() {
-        $this->assertEqual( $this->ServicioBackupUsuario->buscarCodigo( 1 ), '123456' );
+        $this->assertEqual($this->ServicioBackupUsuario->buscarCodigo(1), md5('123456'));
     }
 
 }
