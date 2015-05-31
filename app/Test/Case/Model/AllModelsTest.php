@@ -22,6 +22,7 @@ class AllModelTests extends PHPUnit_Framework_TestSuite {
         $suite->addTestFile($path . 'ServicioBackupUsuarioTest.php');
         $suite->addTestFile($path . 'ServiciosClienteTest.php');
         $suite->addTestFile($path . 'UsuarioTest.php');
+        $suite->addTestFile($path . 'FeedbackTest.php');
         return $suite;
     }
 

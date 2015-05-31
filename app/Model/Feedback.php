@@ -12,10 +12,23 @@
  */
 class Feedback extends AppModel {
 
+    /**
+     *
+     * @var type 
+     */
     public $primaryKey = 'id_feedback';
+    
+    /**
+     *
+     * @var type 
+     */
     public $displayField = 'cliente';
+    
+    /**
+     *
+     * @var type 
+     */
     public $tableName = 'feedbacks';
+    
 
 }
-
-?>
