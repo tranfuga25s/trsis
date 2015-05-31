@@ -44,7 +44,17 @@ $this->Html->addCrumb( $datos['Servicio']['nombre'] );
                     <?php if( $datos['ServicioBackup']['limite_cantidad'] > 1000 ) { ?>
                         <b>Cantidad de backups realizados:</b>&nbsp;<?php echo $usado_cantidad; ?> de ilimitados disponibles- <?php echo $pcantidad; ?>% usado<br />
                     <?php } else { ?>
-                        <b>Cantidad de backups realizados:</b>&nbsp;<?php echo $usado_cantidad; ?> de <?php echo $datos['ServicioBackup']['limite_cantidad']; ?> disponibles- <?php echo $pcantidad; ?>% usado<br />
+                        <b>Cantidad de backups realizados:</b>&nbsp;
+                        <?php
+                        $limite_cantidad = intval($datos['ServicioBackup']['limite_cantidad']);
+                        $usado_cantidad = intval($usado_cantidad);
+                        $limite_warning = $limite_cantidad * 0.8;
+                        if ($usado_cantidad >= $limite_cantidad ) :
+                            echo __(" %s de %s disponibles - %s % usado", $usado_cantidad, $limite_cantidad, $pcantidad); 
+                        else :
+                            echo $this->Html->tag('span', $usado_cantidad, array('class' => 'badge badge-warning')).__(" de %s disponibles - %s% usado", $limite_cantidad, $pcantidad); 
+                        endif;
+                        ?><br />
                     <?php } ?>
                 </li>
                 <li class="list-group-item">
