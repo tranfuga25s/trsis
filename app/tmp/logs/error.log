@@ -1,0 +1,1012 @@
+2014-05-08 22:34:32 Error: [PrivateActionException] Private Action UsuariosController::administracion_ingresaradmin() is not directly accessible.
+Exception Attributes: array (
+  'controller' => 'UsuariosController',
+  'action' => 'administracion_ingresaradmin',
+)
+Request URL: /trsis/usuarios/administracion_ingresaradmin
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsuariosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 22:41:07 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 22:59:42 Error: [MissingViewException] View file "/var/www/trsis/app/View/Pages/view/servicios.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/trsis/app/View/Pages/view/servicios.ctp',
+)
+Request URL: /trsis/pages/view/servicios
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/View/View.php(463): View->_getViewFileName('view/servicios')
+#1 /var/www/trsis/lib/Cake/Controller/Controller.php(954): View->render('view/servicios', NULL)
+#2 /var/www/trsis/lib/Cake/Controller/PagesController.php(73): Controller->render('view/servicios')
+#3 [internal function]: PagesController->display('view', 'servicios')
+#4 /var/www/trsis/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#5 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#6 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#7 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2014-05-08 23:07:13 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:07:34 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:07:50 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:08:25 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:10:36 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:11:17 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:11:40 Error: [UnexpectedValueException] Referenced fixture class Clientes (Test/Fixture/ClientesFixture.php) not found
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(77): CakeFixtureManager->_loadFixtures(Array)
+#1 /var/www/trsis/lib/Cake/TestSuite/CakeTestRunner.php(55): CakeFixtureManager->fixturize(Object(UsuarioTestCase))
+#2 /var/www/trsis/lib/Cake/TestSuite/CakeTestSuiteCommand.php(96): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#3 /var/www/trsis/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(244): CakeTestSuiteCommand->run(Array)
+#4 /var/www/trsis/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(96): CakeTestSuiteDispatcher->_runTestCase()
+#5 /var/www/trsis/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(113): CakeTestSuiteDispatcher->dispatch()
+#6 /var/www/trsis/app/webroot/test.php(92): CakeTestSuiteDispatcher::run()
+#7 {main}
+2014-05-08 23:11:45 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:12:25 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:13:04 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:13:52 Error: Fatal Error (4): syntax error, unexpected '}' in [/var/www/trsis/app/Test/Case/Model/UsuarioTest.php, line 60]
+2014-05-08 23:13:52 Error: [FatalErrorException] syntax error, unexpected '}'
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/trsis/...', 60)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/trsis/...', 60, Array)
+#2 /var/www/trsis/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/trsis/...', 60, Array)
+#3 /var/www/trsis/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-08 23:14:00 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:14:18 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [/var/www/trsis/app/Model/Usuario.php, line 79]
+2014-05-08 23:14:18 Error: [FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/trsis/...', 79)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/trsis/...', 79, Array)
+#2 /var/www/trsis/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/trsis/...', 79, Array)
+#3 /var/www/trsis/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-08 23:14:19 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:14:34 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:14:46 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:17:21 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:17:33 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/var/www/trsis/app/Test/Case/Model/UsuarioTest.php, line 59]
+2014-05-08 23:17:33 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/var/www/trsis/...', 59)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/var/www/trsis/...', 59, Array)
+#2 /var/www/trsis/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/var/www/trsis/...', 59, Array)
+#3 /var/www/trsis/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-08 23:18:11 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:18:33 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:19:14 Error: Fatal Error (1): Class 'SimplePasswordHasher' not found in [/var/www/trsis/app/Test/Case/Model/UsuarioTest.php, line 60]
+2014-05-08 23:19:14 Error: [FatalErrorException] Class 'SimplePasswordHasher' not found
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'SimplePa...', '/var/www/trsis/...', 60)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'SimplePa...', '/var/www/trsis/...', 60, Array)
+#2 /var/www/trsis/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'SimplePa...', '/var/www/trsis/...', 60, Array)
+#3 /var/www/trsis/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-08 23:19:15 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:19:49 Error: Fatal Error (1): Class 'SimplePasswordHasher' not found in [/var/www/trsis/app/Test/Case/Model/UsuarioTest.php, line 61]
+2014-05-08 23:19:49 Error: [FatalErrorException] Class 'SimplePasswordHasher' not found
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'SimplePa...', '/var/www/trsis/...', 61)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'SimplePa...', '/var/www/trsis/...', 61, Array)
+#2 /var/www/trsis/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'SimplePa...', '/var/www/trsis/...', 61, Array)
+#3 /var/www/trsis/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-08 23:19:49 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:19:55 Error: Fatal Error (1): Class 'SimplePasswordHasher' not found in [/var/www/trsis/app/Test/Case/Model/UsuarioTest.php, line 61]
+2014-05-08 23:19:55 Error: [FatalErrorException] Class 'SimplePasswordHasher' not found
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'SimplePa...', '/var/www/trsis/...', 61)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'SimplePa...', '/var/www/trsis/...', 61, Array)
+#2 /var/www/trsis/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'SimplePa...', '/var/www/trsis/...', 61, Array)
+#3 /var/www/trsis/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-08 23:19:55 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:20:30 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:21:13 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:22:57 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:24:38 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:24:39 Error: Fatal Error (64): Cannot redeclare UsuariosControllerTest::testRecordarContra() in [/var/www/trsis/app/Test/Case/Controller/UsuariosControllerTest.php, line 69]
+2014-05-08 23:24:39 Error: [FatalErrorException] Cannot redeclare UsuariosControllerTest::testRecordarContra()
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Cannot redeclar...', '/var/www/trsis/...', 69)
+#1 [internal function]: ErrorHandler::handleError(64, 'Cannot redeclar...', '/var/www/trsis/...', 69, Array)
+#2 /var/www/trsis/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 64, 'Cannot redeclar...', '/var/www/trsis/...', 69, Array)
+#3 /var/www/trsis/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-08 23:24:53 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:26:21 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:27:53 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:30:39 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:31:03 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:32:12 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:33:34 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:33:56 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:35:17 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:36:55 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:36:58 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:37:23 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:37:25 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:37:29 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:37:36 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:37:59 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-08 23:39:07 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:06:29 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:07:48 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:09:11 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:09:38 Error: [MissingTableException] Table clientes for model Cliente was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'clientes',
+  'class' => 'Cliente',
+  'ds' => 'default',
+)
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Model/Model.php(3499): Model->setSource('clientes')
+#1 /var/www/trsis/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(135): Model->getDataSource()
+#2 /var/www/trsis/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(111): CakeTestFixture->init()
+#3 /var/www/trsis/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(143): CakeTestFixture->__construct()
+#4 /var/www/trsis/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(77): CakeFixtureManager->_loadFixtures(Array)
+#5 /var/www/trsis/lib/Cake/TestSuite/CakeTestRunner.php(55): CakeFixtureManager->fixturize(Object(ClienteTest))
+#6 /var/www/trsis/lib/Cake/TestSuite/CakeTestSuiteCommand.php(96): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#7 /var/www/trsis/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(244): CakeTestSuiteCommand->run(Array)
+#8 /var/www/trsis/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(96): CakeTestSuiteDispatcher->_runTestCase()
+#9 /var/www/trsis/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(113): CakeTestSuiteDispatcher->dispatch()
+#10 /var/www/trsis/app/webroot/test.php(92): CakeTestSuiteDispatcher::run()
+#11 {main}
+2014-05-09 16:09:55 Error: [MissingTableException] Table clientes for model Cliente was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'clientes',
+  'class' => 'Cliente',
+  'ds' => 'default',
+)
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Model/Model.php(3499): Model->setSource('clientes')
+#1 /var/www/trsis/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(135): Model->getDataSource()
+#2 /var/www/trsis/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(111): CakeTestFixture->init()
+#3 /var/www/trsis/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(143): CakeTestFixture->__construct()
+#4 /var/www/trsis/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(77): CakeFixtureManager->_loadFixtures(Array)
+#5 /var/www/trsis/lib/Cake/TestSuite/CakeTestRunner.php(55): CakeFixtureManager->fixturize(Object(ClienteTest))
+#6 /var/www/trsis/lib/Cake/TestSuite/CakeTestSuiteCommand.php(96): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#7 /var/www/trsis/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(244): CakeTestSuiteCommand->run(Array)
+#8 /var/www/trsis/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(96): CakeTestSuiteDispatcher->_runTestCase()
+#9 /var/www/trsis/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(113): CakeTestSuiteDispatcher->dispatch()
+#10 /var/www/trsis/app/webroot/test.php(92): CakeTestSuiteDispatcher::run()
+#11 {main}
+2014-05-09 16:10:27 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:11:02 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:11:18 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:11:46 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:11:57 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:12:29 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:13:26 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:13:45 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:14:39 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:16:56 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:17:03 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:17:47 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:17:55 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:19:56 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:20:00 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:21:31 Error: Fatal Error (1): Call to undefined method ServicioBackupTestCase::assertInteralType() in [/var/www/trsis/app/Test/Case/Model/ServicioBackupTest.php, line 49]
+2014-05-09 16:21:31 Error: [FatalErrorException] Call to undefined method ServicioBackupTestCase::assertInteralType()
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/trsis/...', 49)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/trsis/...', 49, Array)
+#2 /var/www/trsis/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/trsis/...', 49, Array)
+#3 /var/www/trsis/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-09 16:21:31 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:22:14 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:22:36 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:22:50 Error: Fatal Error (4): syntax error, unexpected ',', expecting '(' in [/var/www/trsis/app/Test/Case/Model/ServicioBackupTest.php, line 49]
+2014-05-09 16:22:50 Error: [FatalErrorException] syntax error, unexpected ',', expecting '('
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/trsis/...', 49)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/trsis/...', 49, Array)
+#2 /var/www/trsis/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/trsis/...', 49, Array)
+#3 /var/www/trsis/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-09 16:22:57 Error: Fatal Error (4): syntax error, unexpected ',', expecting '(' in [/var/www/trsis/app/Test/Case/Model/ServicioBackupTest.php, line 49]
+2014-05-09 16:22:57 Error: [FatalErrorException] syntax error, unexpected ',', expecting '('
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/trsis/...', 49)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/trsis/...', 49, Array)
+#2 /var/www/trsis/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/trsis/...', 49, Array)
+#3 /var/www/trsis/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-09 16:23:11 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:24:14 Error: Fatal Error (1): Call to undefined method ServicioBackupTestCase::assertArrayKeyExists() in [/var/www/trsis/app/Test/Case/Model/ServicioBackupTest.php, line 50]
+2014-05-09 16:24:14 Error: [FatalErrorException] Call to undefined method ServicioBackupTestCase::assertArrayKeyExists()
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/trsis/...', 50)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/trsis/...', 50, Array)
+#2 /var/www/trsis/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/trsis/...', 50, Array)
+#3 /var/www/trsis/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-09 16:24:14 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:24:38 Error: Fatal Error (1): Call to undefined method ServicioBackupTestCase::assertArrayHasExists() in [/var/www/trsis/app/Test/Case/Model/ServicioBackupTest.php, line 50]
+2014-05-09 16:24:38 Error: [FatalErrorException] Call to undefined method ServicioBackupTestCase::assertArrayHasExists()
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/trsis/...', 50)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/trsis/...', 50, Array)
+#2 /var/www/trsis/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/trsis/...', 50, Array)
+#3 /var/www/trsis/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-09 16:24:38 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:24:49 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:25:16 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:26:50 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:27:29 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:27:42 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:27:50 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:28:31 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-09 16:28:41 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /trsis/app/webroot/css/cake.generic.css?%2Fcss%2Fcake_generic_css=
+Stack Trace:
+#0 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/trsis/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-26 19:57:01 Error: [MissingControllerException] Controller class PreguntaFrecuenteController could not be found.
+Exception Attributes: array (
+  'class' => 'PreguntaFrecuenteController',
+  'plugin' => 'PreguntaFrecuente',
+)
+Request URL: /trsis/pregunta_frecuente
+Stack Trace:
+#0 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-27 18:28:01 Error: [MissingControllerException] Controller class CategoriasController could not be found.
+Exception Attributes: array (
+  'class' => 'CategoriasController',
+  'plugin' => 'PreguntaFrecuente',
+)
+Request URL: /trsis/pregunta_frecuente/categorias/view/4
+Stack Trace:
+#0 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-27 19:06:29 Error: [MissingControllerException] Controller class PreguntaFrecuenteController could not be found.
+Exception Attributes: array (
+  'class' => 'PreguntaFrecuenteController',
+  'plugin' => 'PreguntaFrecuente',
+)
+Request URL: /trsis/pregunta_frecuente
+Stack Trace:
+#0 /var/www/trsis/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
