@@ -1,24 +1,41 @@
 <?php
+
 App::uses('AppController', 'Controller');
 
 class ClientesController extends AppController {
 
+    /**
+     *
+     * @var array 
+     */
     public $helpers = array('Number');
 
+    /**
+     * 
+     */
     public function beforeFilter() {
-        $this->Auth->allow( array( 'usar' ) );
+        $this->Auth->allow(array('usar'));
     }
 
-    public function usar($servicio) {
+    /**
+     * 
+     * @param type $servicio
+     * @return type
+     * @throws NotFoundException
+     */
+    public function usar($servicio = null) {
         if ($servicio == "backup") {
             return $this->render('altaBackup');
         } else if ($servicio == "estadisticas") {
             return $this->render('estadisticas');
         } else {
-            throw new NotFoundException();
+            throw new NotFoundException(__("Sistema no soportado"));
         }
     }
 
+    /**
+     * 
+     */
     public function inicio() {
         // Datos personales
         $id_usuario = $this->Auth->user();
