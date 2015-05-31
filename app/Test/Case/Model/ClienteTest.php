@@ -5,6 +5,7 @@ App::uses('Cliente', 'Model');
 /**
  * Cliente Test Case
  *
+ * @property Cliente $Cliente
  */
 class ClienteTest extends CakeTestCase {
 
@@ -62,6 +63,19 @@ class ClienteTest extends CakeTestCase {
         $this->assertNotEqual( $this->Cliente->darDeAlta( "Test", "emailgmail.com", "telefono", 1 ), true );
         $this->assertNotEqual( $this->Cliente->darDeAlta( "Test", "email@gmail.com", null, 1 ), true );
         $this->assertNotEqual( $this->Cliente->darDeAlta( "Test", "email@gmail.com", "telefono", -1 ), true );
+    }
+    
+    /**
+     * Bug #19 - Verfica que al eliminar un cliente
+     * no se elimine el usuario asociado
+     */
+    public function testEliminarSinEliminarUsuario() {
+        $cliente = $this->Cliente->find('first');
+        $this->assertGreaterThan(0, count($cliente));
+        $id_cliente = intval($cliente[$this->Cliente->name][$this->Cliente->primaryKey]);
+        $id_usuario = intval($cliente[$this->Cliente->Usuario->alias][$this->Cliente->Usuario->primaryKey]);
+        $this->assertTrue(true, $this->Cliente->delete($id_cliente), "No se pudo eliminar el cliente");
+        $this->assertTrue($this->Cliente->Usuario->exists($id_usuario), "Se eliminó el usuario relacionado con un cliente");
     }
 
 }
