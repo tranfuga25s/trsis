@@ -38,7 +38,7 @@ class UsuarioTestCase extends CakeTestCase {
         parent::tearDown();
     }
 
-    public function testA() {
+    public function testBasic() {
         $this->assertEqual(true, true);
     }
     
@@ -56,10 +56,12 @@ class UsuarioTestCase extends CakeTestCase {
         $email = $usuario['Usuario']['email'];
         $id_usuario = intval( $usuario['Usuario']['id_usuario'] );
         
-        $this->assertNotEqual( $this->Usuario->generarNuevaContraseña( $email ), false );
+        $nueva_contra = $this->Usuario->generarNuevaContraseña( $email );
+        $this->assertNotEqual( $nueva_contra, false );
+        $this->Usuario->clear();
         $this->Usuario->id = $id_usuario;
-        $this->assertNotEqual( $this->Usuario->field( 'contra' ), $contra_anterior );
-        /// @TODO: Agregar hashing de contraseñas
+        $this->assertNotEqual($this->Usuario->field('contra'), $contra_anterior);
+        $this->assertNotEqual($this->Usuario->field('contra'), $nueva_contra);
         
     }
     

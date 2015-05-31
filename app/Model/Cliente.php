@@ -16,7 +16,7 @@ class Cliente extends AppModel {
      * @var string
      */
     public $useDbConfig = 'gestotux';
-    
+
     /**
      * Primary Key
      * 
@@ -40,7 +40,7 @@ class Cliente extends AppModel {
             'foreignKey' => 'id_cliente'
         )
     );
-    
+
     /**
      *
      * @var array
@@ -53,17 +53,25 @@ class Cliente extends AppModel {
             'foreignKey' => 'cliente_id'
         )
     );
-    
+
     /**
      *
      * @var array 
      */
     public $validate = array(
-      'email' => array(
-          'rule' => array( 'email' ),
-          'message' => 'Por favor, ingrese un email valido'
-      )  
+        'email' => array(
+            'rule' => array('email'),
+            'message' => 'Por favor, ingrese un email valido'
+        )
     );
+    
+    public function beforeDelete($cascade = true) {
+        if ($cascade) {
+            return false;
+        } else {
+            return parent::beforeDelete($cascade);
+        }
+    }
 
     /**
      * Verifica si existe un cliente con el email pasado como parametro
@@ -86,11 +94,13 @@ class Cliente extends AppModel {
      * @param id_cliente Identificador donde se devolverá el id recien dado de alta
      * @return Verdadero si se pudo realizar la accion.
      */
-    public function darDeAlta( $nombre, $email, $telefono, $id_cliente) {
-        if( is_null( $nombre ) || is_null( $email ) || is_null( $telefono ) ) {
+    public function darDeAlta($nombre, $email, $telefono, $id_cliente) {
+        if (is_null($nombre) || is_null($email) || is_null($telefono)) {
             return false;
         }
-        if( $id_cliente <= 0 ) { return false; }
+        if ($id_cliente <= 0) {
+            return false;
+        }
         $dato = array(
             'Cliente' => array(
                 'razon_social' => $nombre,
@@ -106,26 +116,30 @@ class Cliente extends AppModel {
             return false;
         }
     }
-    
+
     /**
      *  Verifica la existencia de un token
      * 
      * @param type $token
      * @return boolean
      */
-    public function existeToken( $token = null ) {
-        if( is_null( $token ) ) { return false; }
-        if( empty( $token ) ) { return false; }
-        return $this->Usuario->existeToken( $token );
+    public function existeToken($token = null) {
+        if (is_null($token)) {
+            return false;
+        }
+        if (empty($token)) {
+            return false;
+        }
+        return $this->Usuario->existeToken($token);
     }
-    
+
     /**
      * 
      * @param type $token
      * @return type
      */
-    public function getUserSegunToken( $token = null ) {
-        return $this->Usuario->findByToken( $token );
+    public function getUserSegunToken($token = null) {
+        return $this->Usuario->findByToken($token);
     }
 
 }
